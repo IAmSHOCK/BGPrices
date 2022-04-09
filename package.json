@@ -1,13 +1,12 @@
 {
   "dependencies": {
     "cheerio": "^1.0.0-rc.10",
-    "node-fetch": "^3.2.3"
+    "node-fetch": "^2.6.1"
   },
   "name": "bgprices",
   "description": "Js implementation of a board game prices scraper",
   "version": "1.0.0",
   "main": "NodeServer.js",
-  "devDependencies": {},
   "scripts": {
     "test": ""
   },
