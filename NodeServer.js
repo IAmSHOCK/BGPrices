@@ -1,17 +1,14 @@
-let CheckPrices =  require ("./checkPrices.js");
+const CheckPrices =  require ("./checkPrices.js");
 const http = require('http');
 
-// Create an instance of the http server to handle HTTP requests
-let app = http.createServer((req, res) => {
-    // Set a response type of plain text for the response
-    res.writeHead(200, {'Content-Type': 'text/plain'});
 
-    // Send back a response and end the connection
-    res.end('Hello World!\n');
+const server = http.createServer(function (request, response) {
+    response.writeHead(200, {'Content-Type': 'text/plain'});
+    response.end('Olá mundo\n');
 });
 
-// Start the server on port 3000
-app.listen(3000, '127.0.0.1');
-console.log('Node server running on port 3000');
+server.listen(8008, "127.0.0.1");
 
 let price = new CheckPrices();
+console.log("CheckPrices: ", CheckPrices);
+price.getData();

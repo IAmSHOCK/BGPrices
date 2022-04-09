@@ -1,4 +1,5 @@
-let cheerio = require('cheerio');
+const cheerio = require('cheerio');
+const fetch = require("node-fetch");
 
 class CheckPrices{
     constructor(){
@@ -8,8 +9,8 @@ class CheckPrices{
     }
 
     async getData(){
-        const response = await fetch(testURl);
-        const text = await response.text();
+        const response = fetch.fetch(testURl);
+        let text = await response.text();
         console.log(text);
     }
 }

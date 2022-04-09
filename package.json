@@ -1,5 +1,24 @@
 {
   "dependencies": {
-    "cheerio": "^1.0.0-rc.10"
-  }
+    "cheerio": "^1.0.0-rc.10",
+    "node-fetch": "^3.2.3"
+  },
+  "name": "bgprices",
+  "description": "Js implementation of a board game prices scraper",
+  "version": "1.0.0",
+  "main": "NodeServer.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IAmSHOCK/BGPrices.git"
+  },
+  "author": "Aires",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IAmSHOCK/BGPrices/issues"
+  },
+  "homepage": "https://github.com/IAmSHOCK/BGPrices#readme"
 }
