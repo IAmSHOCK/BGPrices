@@ -6,7 +6,7 @@
   "name": "bgprices",
   "description": "Js implementation of a board game prices scraper",
   "version": "1.0.0",
-  "main": "NodeServer.js",
+  "main": "CheckPrices.js",
   "scripts": {
     "test": ""
   },
