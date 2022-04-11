@@ -15,9 +15,11 @@ class CheckPrices{
         // let text = await response.text();
         // console.log(text);
 
-        let response = await fetch(this.testURl);
-        let html = await response.text();
-        console.log(html);
+        // let response = await fetch(this.testURl);
+        // let html = await response.text();
+        // console.log(html);
+
+        cheerio.load(this.testURl);
     }
 }
 
