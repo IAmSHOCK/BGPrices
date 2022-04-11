@@ -3,20 +3,21 @@ const fetch = require("node-fetch");
 
 class CheckPrices{
     constructor(){
-        this.testURl = 'https://jogonamesa.pt/P/ficha.cgi?bgg_id=172287';
+        this.testURl = 'https://jogonamesa.pt/P/search.cgi?search=champions+of+midgard';
+        this.testURl = 'https://arenaporto.com/pesquisa?controller=search&s=roll+for+the+galaxy';
 
         // let htmlparser2 = require('htmlparser2');
         // let dom = htmlparser2.parseDocument(document, options);
     }
 
-    getData(){
+    async getData(){
         // const response = fetch(url);
         // let text = await response.text();
         // console.log(text);
 
-        fetch(this.testURl)
-            .then(res => res.text())
-            .then(text => console.log(text));
+        let response = await fetch(this.testURl);
+        let html = await response.text();
+        console.log(html);
     }
 }
 
