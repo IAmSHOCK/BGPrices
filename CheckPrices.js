@@ -8,20 +8,30 @@ class CheckPrices{
     }
 
     async scrape(){
+
+        // {gameName: string, data: [{ store: string, price: (int?), availability: string }] }
         let browser = await puppeteer.launch();
         this.page = await browser.newPage();
         this.gamesToPrint = [];
-        let obj = {};
+        let gameName = "";
+        let prices = [];
+        let j = 0;
         for (let i = 0; i < this.gamesInput.length; i++) {
             let elem = this.gamesInput[i];
             if (this.isGame(elem)){
 
-                obj = {name: elem}
+                gameName = elem;
+                j = 0;
             }
             else {
+                switch(elem){
 
+                }
+
+                urls[j++] =  elem;
             }
-            console.log("elem: ", elem);
+            if(i == 3)
+            // console.log("elem: ", elem);
             if(i == 7) break;
         }
 
