@@ -8,7 +8,7 @@ class CheckPrices{
         this.gamesInput = fs.readFileSync('./input.txt').toString().split("\n");
     }
 
-    scrape(){
+    async scrape(){
         // {gameName: string, data: [{ store: string, price: (int?), availability: string }] }
         this.scrapedGames = [];
 
@@ -19,6 +19,7 @@ class CheckPrices{
         let prices = [];
         let j = 0;
         let k = 0;
+        let obj = {};
         //i is for input, j is for stores of a given game and k is for scrapedGames
         for (let i = 1; i < this.gamesInput.length; i++) {
             let elem = this.gamesInput[i];
@@ -32,19 +33,20 @@ class CheckPrices{
                 j = 0;
             }
             else {
-                let obj = {};
                 let hostName = this.getHostName(elem);
-                console.log("hostname: ", hostName);
-                switch(elem){
-                    case "jogonames.pt":
-                        this.jogonamesa(elem);
+                console.log("hostname:", hostName);
+                switch(hostName){
+                    case "jogonamesa.pt":
+                        await this.jogonamesa(elem);
+                        // obj = {store: hostName, ...this.jogonamesa(elem)};
+                        break;
                 }
 
-                // obj = { store: string, price: (int?), availability: string }
-                console.log("obj: ", obj);
+                // obj = { store: string, price: (int?), stock: string }
+                // console.log("obj: ", obj);
                 prices[j++] =  obj;
             }
-            if(i == 7) break;
+            // if(i == 7) break;
         }
 
         console.log("Closing browser.");
@@ -61,13 +63,32 @@ class CheckPrices{
     async jogonamesa(url){
         let browser = await puppeteer.launch();
         this.page = await browser.newPage();
-
+        let failed = false;
+        await this.page.goto(url);
+        try{
+            await this.page.waitForXPath("/html/body/div[1]/div[2]/div[1]/div[2]/a[1]", {timeout: 500});
+        }
+        catch(err){
+            console.log(err);
+            failed = true;
+        }
+        let handler = failed ? '' : await this.page.$x("/html/body/div[1]/div[2]/div[1]/div[2]/a[1]");
+        let price   = failed ? '' : await this.page.evaluate(el => el.textContent, handler[0])
+        price = this.stringFormat(price);
+        console.log(price);
         browser.close();
+        // return {price: price, stock: stock};
+        return {price: price};
     }
 
     getOldPrices(){
         return "TODO";
     }
+
+    stringFormat(str){
+        return str.replace(/€| /, '').replace(' ', '');
+    }
+
 }
 
 
