@@ -3,112 +3,117 @@ const fs = require("fs");
 
 //sitename = FRUKLITS
 
-class CheckPrices{
-    constructor(){
-        this.gamesInput = fs.readFileSync('./input.txt').toString().split("\n");
-    }
+let input = fs.readFileSync('./input.txt').toString().split("\n");
 
-    async scrape(){
-        // {gameName: string, data: [{ store: string, price: (int?), availability: string }] }
-        this.scrapedGames = [];
+async function scrape(){
+    // {gameName: string, data: [{ store: string, price: (int?), availability: string }] }
+    let scrapedGames = [];
 
-        let gameName = this.gamesInput[0];
-        let price = 0;
-        let stock = "";
+    let gameName = input[0];
+    let price = 0;
+    let stock = "";
 
-        let prices = [];
-        let j = 0;
-        let k = 0;
-        let obj = {};
-        //i is for input, j is for stores of a given game and k is for scrapedGames
-        for (let i = 1; i < this.gamesInput.length; i++) {
-            let elem = this.gamesInput[i];
-            if (this.isGame(elem)){
-                let tmp = {gameName: gameName, data: prices};
-                console.log("Final scraped game: ", tmp);
-                this.scrapedGames[k++] = tmp;
-                gameName = elem;
-                console.log("Game name: ", gameName);
-                prices = [];
-                j = 0;
+    let prices = [];
+    let j = 0;
+    let k = 0;
+    let obj = {};
+    //i is for input, j is for stores of a given game and k is for scrapedGames
+    for (let i = 1; i < input.length; i++) {
+        let elem = input[i];
+        if (isGame(elem)){
+            let tmp = {gameName: gameName, data: prices};
+            // console.log("Final scraped game: ", tmp);
+            scrapedGames[k++] = tmp;
+            gameName = elem;
+            console.log("Game name: ", gameName);
+            prices = [];
+            j = 0;
+        }
+        else {
+            let hostName = getHostName(elem);
+            // console.log("hostname:", hostName);
+            switch(hostName){
+                case "jogonamesa.pt":
+                    await jogonamesa(elem);
+                    // obj = {store: hostName, ...this.jogonamesa(elem)};
+                    break;
             }
-            else {
-                let hostName = this.getHostName(elem);
-                console.log("hostname:", hostName);
-                switch(hostName){
-                    case "jogonamesa.pt":
-                        await this.jogonamesa(elem);
-                        // obj = {store: hostName, ...this.jogonamesa(elem)};
-                        break;
-                }
 
-                // obj = { store: string, price: (int?), stock: string }
-                // console.log("obj: ", obj);
-                prices[j++] =  obj;
-            }
-            // if(i == 7) break;
+            // obj = { store: string, price: (int?), stock: string }
+            // console.log("obj: ", obj);
+            prices[j++] =  obj;
         }
-
-        console.log("Closing browser.");
+        // if(i == 7) break;
     }
 
-    getHostName(elem){
-        return new URL(elem).hostname;
-    }
-
-    isGame(elem){
-        return !elem.includes("http");
-    }
-
-    async jogonamesa(url){
-        let browser = await puppeteer.launch();
-        this.page = await browser.newPage();
-        let failed = false;
-        await this.page.goto(url);
-
-        //price
-        try{
-            await this.page.waitForXPath("/html/body/div[1]/div[2]/div[1]/div[2]/a[1]", {timeout: 500});
-        }
-        catch(err){
-            console.log(err);
-            failed = true;
-        }
-        let handlerPrice = failed ? '' : await this.page.$x("/html/body/div[1]/div[2]/div[1]/div[2]/a[1]");
-        let price   = failed ? '' : await this.page.evaluate(el => el.textContent, handlerPrice[0]);
-        price = this.stringFormat(price);
-        failed = false;
-
-        //stock cant use xpath cause div number depends on amount of publishers
-        let stock = '';
-        try{
-           stock =  await page.evaluate(() => document.querySelector('.lang1');
-        }
-        catch(err){
-            console.log(err);
-            failed = true;
-        }
-        // let handlerStock = failed ? '' : await this.page.$x("/html/body/div[1]/div[2]/div[1]/div[2]/div[3]/span[6]");
-        // stock = failed ? '' : await this.page.evaluate(el => el.textContent, handlerStock[0]);
-        console.log(`price: ${price} \nstock: ${stock}`);
-        browser.close();
-        // return {price: price, stock: stock};
-        return {price: price};
-    }
-
-    getOldPrices(){
-        return "TODO";
-    }
-
-    stringFormat(str){
-        return str.replace(/€| /, '').replace(' ', '');
-    }
-
+    console.log("Closing browser.");
 }
 
+function getHostName(elem){
+    return new URL(elem).hostname;
+}
 
+function isGame(elem){
+    return !elem.includes("http");
+}
 
-let price = new CheckPrices();
-price.scrape();
+async function jogonamesa(url){
+    let browser = await puppeteer.launch();
+    let page = await browser.newPage();
+    let failed = false;
+    await page.goto(url);
+
+    //price
+    try{
+        await page.waitForXPath("/html/body/div[1]/div[2]/div[1]/div[2]/a[1]", {timeout: 500});
+    }
+    catch(err){
+        console.log(err);
+        failed = true;
+    }
+    let handlerPrice = failed ? '' : await page.$x("/html/body/div[1]/div[2]/div[1]/div[2]/a[1]");
+    let price   = failed ? '' : await page.evaluate(el => el.textContent, handlerPrice[0]);
+    price = stringFormat(price);
+    failed = false;
+
+    //stock cant use xpath cause div number depends on amount of publishers
+    let stock;
+    try{
+       stock =  await page.evaluate(() => document.querySelector('.entrega'));
+    }
+    catch(err){
+        console.log(err);
+        failed = true;
+    }
+    if(stock == null){
+        try{
+            console.log("In 2nd try.");
+            stock = await page.evaluate(() => document.querySelector('.esgotado'));
+        }
+        catch(err){
+            console.log(err);
+            failed = true;
+        }
+    }
+    // let handlerStock = failed ? '' : await page.$x("/html/body/div[1]/div[2]/div[1]/div[2]/div[3]/span[6]");
+    // stock = failed ? '' : await page.evaluate(el => el.textContent, handlerStock[0]);
+    console.log("stock: ", stock);
+    // console.log("stock.innerText: ", stock.innerText);
+    // stock = failed ? '' : stock.innerText;
+    // console.log(`price: ${price} \nstock: ${stock}`);
+    browser.close();
+    // return {price: price, stock: stock};
+    return {price: price, stock: stock};
+}
+
+function getOldPrices(){
+    return "TODO";
+}
+
+function stringFormat(str){
+    return str.replace(/€| /, '').replace(' ', '');
+}
+
+scrape();
 // console.log(price.testURl);
 // price.getData();
