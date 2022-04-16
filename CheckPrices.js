@@ -77,9 +77,9 @@ async function jogonamesa(url){
     failed = false;
 
     //stock cant use xpath cause div number depends on amount of publishers
-    let stock;
+    let stock = '';
     try{
-       stock =  await page.evaluate(() => document.querySelector('.entrega'));
+       stock =  await page.evaluate(() => document.querySelector('#comprar_visivel > span.entrega'));
     }
     catch(err){
         console.log(err);
@@ -88,13 +88,22 @@ async function jogonamesa(url){
     if(stock == null){
         try{
             console.log("In 2nd try.");
-            stock = await page.evaluate(() => document.querySelector('.esgotado'));
+            stock = await page.evaluate(() => document.querySelector('#comprar_visivel > span.esgotado'));
         }
         catch(err){
             console.log(err);
             failed = true;
         }
     }
+    while(stock === ''){
+       stock =  await page.evaluate(() => document.querySelector('#comprar_visivel > span.entrega'));
+       if(stock != '') break;
+       stock =  await page.evaluate(() => document.querySelector('#comprar_visivel > span.esgotado'));
+       if(stock != '') break;
+       stock =  await page.evaluate(() => document.querySelector('#comprar_visivel > span.esgotado'));
+       if(stock != '') break;
+    }
+
     // let handlerStock = failed ? '' : await page.$x("/html/body/div[1]/div[2]/div[1]/div[2]/div[3]/span[6]");
     // stock = failed ? '' : await page.evaluate(el => el.textContent, handlerStock[0]);
     console.log("stock: ", stock);
