@@ -72,10 +72,20 @@ class CheckPrices{
             console.log(err);
             failed = true;
         }
-        let handler = failed ? '' : await this.page.$x("/html/body/div[1]/div[2]/div[1]/div[2]/a[1]");
-        let price   = failed ? '' : await this.page.evaluate(el => el.textContent, handler[0])
+        let handlerPrice = failed ? '' : await this.page.$x("/html/body/div[1]/div[2]/div[1]/div[2]/a[1]");
+        let price   = failed ? '' : await this.page.evaluate(el => el.textContent, handlerPrice[0]);
         price = this.stringFormat(price);
-        console.log(price);
+        failed = false;
+        try{
+            await this.page.waitForXPath("/html/body/div[1]/div[2]/div[1]/div[2]/div[3]/span[6]", {timeout: 500});
+        }
+        catch(err){
+            console.log(err);
+            failed = true;
+        }
+        let handlerStock = failed ? '' : await this.page.$x("/html/body/div[1]/div[2]/div[1]/div[2]/div[3]/span[6]");
+        let stock = failed ? '' : await this.page.evaluate(el => el.textContent, handlerStock[0]);
+        console.log(`price: ${price} \nstock: ${stock}`);
         browser.close();
         // return {price: price, stock: stock};
         return {price: price};
