@@ -80,15 +80,16 @@ class CheckPrices{
         failed = false;
 
         //stock cant use xpath cause div number depends on amount of publishers
+        let stock = '';
         try{
-            await this.page.waitForXPath("/html/body/div[1]/div[2]/div[1]/div[2]/div[3]/span[6]", {timeout: 500});
+           stock =  await page.evaluate(() => document.querySelector('.lang1');
         }
         catch(err){
             console.log(err);
             failed = true;
         }
-        let handlerStock = failed ? '' : await this.page.$x("/html/body/div[1]/div[2]/div[1]/div[2]/div[3]/span[6]");
-        let stock = failed ? '' : await this.page.evaluate(el => el.textContent, handlerStock[0]);
+        // let handlerStock = failed ? '' : await this.page.$x("/html/body/div[1]/div[2]/div[1]/div[2]/div[3]/span[6]");
+        // stock = failed ? '' : await this.page.evaluate(el => el.textContent, handlerStock[0]);
         console.log(`price: ${price} \nstock: ${stock}`);
         browser.close();
         // return {price: price, stock: stock};
