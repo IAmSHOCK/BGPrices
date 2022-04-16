@@ -65,6 +65,8 @@ class CheckPrices{
         this.page = await browser.newPage();
         let failed = false;
         await this.page.goto(url);
+
+        //price
         try{
             await this.page.waitForXPath("/html/body/div[1]/div[2]/div[1]/div[2]/a[1]", {timeout: 500});
         }
@@ -76,6 +78,8 @@ class CheckPrices{
         let price   = failed ? '' : await this.page.evaluate(el => el.textContent, handlerPrice[0]);
         price = this.stringFormat(price);
         failed = false;
+
+        //stock cant use xpath cause div number depends on amount of publishers
         try{
             await this.page.waitForXPath("/html/body/div[1]/div[2]/div[1]/div[2]/div[3]/span[6]", {timeout: 500});
         }
