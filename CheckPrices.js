@@ -30,18 +30,19 @@ async function scrape(){
             j = 0;
         }
         else {
+            obj = {};
             let hostName = getHostName(elem);
             // console.log("hostname:", hostName);
             switch(hostName){
                 case "jogonamesa.pt":
-                    await jogonamesa(elem);
-                    // obj = {store: hostName, ...this.jogonamesa(elem)};
+                    let returnedObj = await jogonamesa(elem);
+                    obj = {store: hostName, ...returnedObj};
                     break;
             }
 
             // obj = { store: string, price: (int?), stock: string }
             // console.log("obj: ", obj);
-            prices[j++] =  obj;
+            if(obj /= {}) prices[j++] =  obj;
         }
         // if(i == 7) break;
     }
@@ -60,10 +61,18 @@ function isGame(elem){
 async function jogonamesa(url){
     let browser = await puppeteer.launch();
     let page = await browser.newPage();
+    await preparePageForTests(page);
     let failed = false;
     await page.goto(url);
-
+    let noInfo = false
     //price
+    try {
+        await page.waitForXPath('/html/body/div[1]/div[2]/div[1]/p[1]/b', {timeout: 500});
+        noInfo = true;
+    } catch (err) {
+        //TODO
+    }
+    if(noInfo) return {};
     try{
         await page.waitForXPath("/html/body/div[1]/div[2]/div[1]/div[2]/a[1]", {timeout: 500});
     }
@@ -73,45 +82,25 @@ async function jogonamesa(url){
     }
     let handlerPrice = failed ? '' : await page.$x("/html/body/div[1]/div[2]/div[1]/div[2]/a[1]");
     let price   = failed ? '' : await page.evaluate(el => el.textContent, handlerPrice[0]);
+    console.log("price: ", price);
     price = stringFormat(price);
     failed = false;
 
-    //stock cant use xpath cause div number depends on amount of publishers
-    let stock = '';
-    try{
-       stock =  await page.evaluate(() => document.querySelector('#comprar_visivel > span.entrega'));
-    }
-    catch(err){
-        console.log(err);
-        failed = true;
-    }
-    if(stock == null){
-        try{
-            console.log("In 2nd try.");
-            stock = await page.evaluate(() => document.querySelector('#comprar_visivel > span.esgotado'));
-        }
-        catch(err){
-            console.log(err);
-            failed = true;
-        }
-    }
-    while(stock === ''){
-       stock =  await page.evaluate(() => document.querySelector('#comprar_visivel > span.entrega'));
-       if(stock != '') break;
-       stock =  await page.evaluate(() => document.querySelector('#comprar_visivel > span.esgotado'));
-       if(stock != '') break;
-       stock =  await page.evaluate(() => document.querySelector('#comprar_visivel > span.esgotado'));
-       if(stock != '') break;
+    //stock
+    let stock = null;
+    while(stock === null){
+       stock =  await page.evaluate(() => document.querySelector('#comprar_visivel > span.entrega')?.textContent);
+       if(stock != null) break;
+       stock =  await page.evaluate(() => document.querySelector('#comprar_visivel > span.esgotado')?.textContent);
+       if(stock != null) break;
+       stock =  await page.evaluate(() => document.querySelector('#comprar_visivel > span.reserva')?.textContent);
+       if(stock != null) break;
     }
 
     // let handlerStock = failed ? '' : await page.$x("/html/body/div[1]/div[2]/div[1]/div[2]/div[3]/span[6]");
     // stock = failed ? '' : await page.evaluate(el => el.textContent, handlerStock[0]);
     console.log("stock: ", stock);
-    // console.log("stock.innerText: ", stock.innerText);
-    // stock = failed ? '' : stock.innerText;
-    // console.log(`price: ${price} \nstock: ${stock}`);
     browser.close();
-    // return {price: price, stock: stock};
     return {price: price, stock: stock};
 }
 
@@ -123,6 +112,11 @@ function stringFormat(str){
     return str.replace(/€| /, '').replace(' ', '');
 }
 
+async function preparePageForTests(page) {
+    // Pass the User-Agent Test.
+    const userAgent = 'Mozilla/5.0 (X11; Linux x86_64)' +
+      'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.39 Safari/537.36';
+    await page.setUserAgent(userAgent);
+}
+
 scrape();
-// console.log(price.testURl);
-// price.getData();
