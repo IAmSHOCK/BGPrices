@@ -58,7 +58,11 @@ async function scrape(){
                 break;
 
                 case "arenaporto.com": case "www.arenaporto.com":
-                returnedObj = await arenaporto(elem);
+                // returnedObj = await arenaporto(elem);
+                break;
+
+                case "dracotienda.com": case "www.dracotienda.com":
+                returnedObj = await dracotienda(elem);
                 break;
             }
             if(!hostName.includes("cultodacaixa.pt")){
@@ -242,8 +246,30 @@ async function arenaporto(url){
 
     price = stringFormatPrice(price);
     stock = stringFormatStock(stock);
+    return {price: price, stock: stock};
+}
+
+async function dracotienda(url){
+    let browser = await puppeteer.launch();
+    let page = await browser.newPage();
+    await preparePageForTests(page);
+    await page.goto(url);
+
+    // price
+    let price =  '';
+    price = await page.evaluate(() => document.querySelector('#main > div.laberProduct > div > div:nth-child(2) > div.product-prices > div.product-price.h5.has-discount > div > span:nth-child(2)')?.textContent);
+
+    // price = (price == undefined) ? await page.evaluate(() => document.querySelector('#product-buy-box > div.product-prices > div.product-price.h5 > div > span:nth-child(1)')?.textContent) : price;
+
+    //stock
+    let stock = '';
+    stock = await page.evaluate(() => document.querySelector('#main > div.laberProduct > div > div:nth-child(2) > div.LaberProduct-availability > span')?.outerText);
+
     console.log("price:", price);
     console.log("stock:", stock);
+
+    price = stringFormatPrice(price);
+    stock = stringFormatStock(stock);
     return {price: price, stock: stock};
 }
 
