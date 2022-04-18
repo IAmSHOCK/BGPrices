@@ -38,7 +38,6 @@ async function scrape(){
             switch(hostName){
                 case "jogonamesa.pt": case "www.jogonamesa.pt":
                     // returnedObj = await jogonamesa(elem);
-                    // console.log("returnedObj:", returnedObj);
                     break;
 
                 case "kultgames.pt": case "www.kultgames.pt":
@@ -59,6 +58,10 @@ async function scrape(){
 
                 case "arenaporto.com": case "www.arenaporto.com":
                 // returnedObj = await arenaporto(elem);
+                break;
+
+                case "dracotienda.com": case "www.dracotienda.com":
+                // returnedObj = await dracotienda(elem);
                 break;
 
                 case "dracotienda.com": case "www.dracotienda.com":
