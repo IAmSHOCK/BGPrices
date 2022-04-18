@@ -174,6 +174,27 @@ async function gameplay(url){
     return {price: price, stock: stock};
 }
 
+async function gameplay(url){
+    let browser = await puppeteer.launch();
+    let page = await browser.newPage();
+    await preparePageForTests(page);
+    let failed = false;
+    await page.goto(url);
+
+    // price
+    let price =  '';
+    price = await page.evaluate(() => document.querySelector('#main > div:nth-child(2) > div:nth-child(1) > div.col-md-3.text-right > div > div > div > div > span')?.textContent);
+
+    //stock
+    let stock = '';
+    stock = await page.evaluate(() => document.querySelector('#main > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div.disponib_emstock > p:nth-child(1) > span')?.textContent);
+
+    stock = (stock == undefined) ? await page.evaluate(() => document.querySelector('#main > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div.disponib_restock > p:nth-child(1) > span')?.textContent) : stock;
+
+    price = stringFormat(price);
+    stock = stringFormat(stock)
+    return {price: price, stock: stock};
+}
 
 // ------------ END SITE SCRAPERS-----
 
