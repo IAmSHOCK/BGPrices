@@ -17,13 +17,14 @@ async function scrape(){
     let j = 0;
     let k = 0;
     let obj = {};
+    let returnedObj = {};
     //i is for input, j is for stores of a given game and k is for scrapedGames
     for (let i = 1; i < input.length; i++) {
         let elem = input[i];
         if (isGame(elem)){
             let tmp = {gameName: gameName, data: prices};
-            console.log("Final scraped game: ", tmp);
             scrapedGames[k++] = tmp;
+            console.log("Final scraped game: ", tmp);
             gameName = elem;
             console.log("Game name: ", gameName);
             prices = [];
@@ -31,19 +32,20 @@ async function scrape(){
         }
         else {
             obj = {};
+            returnedObj = {};
             let hostName = getHostName(elem);
             // console.log("hostname:", hostName);
             switch(hostName){
-                case "jogonamesa.pt":
-                    let returnedObj = await jogonamesa(elem);
+                case "jogonamesa.pt": case "www.jogonamesa.pt":
+                    returnedObj = await jogonamesa(elem);
                     // console.log("returnedObj:", returnedObj);
-                    obj = isObjectEmpty(returnedObj) ? {} : {store: hostName, ...returnedObj};
                     break;
 
-                case "kultgames.pt":
-                    console.log("in kultgames");
+                case "kultgames.pt": case "www.kultgames.pt":
+                    returnedObj = await kultgames(elem);
                     break;
             }
+            obj = isObjectEmpty(returnedObj) ? {} : {store: hostName, ...returnedObj};
 
             // obj = { store: string, price: (int?), stock: string }
             // console.log("obj: ", obj);
@@ -55,6 +57,8 @@ async function scrape(){
     console.log("Closing browser.");
 }
 
+// ----------- HELPERS ---------------
+
 function getHostName(elem){
     return new URL(elem).hostname;
 }
@@ -63,6 +67,17 @@ function isGame(elem){
     return !elem.includes("http");
 }
 
+function stringFormat(str){
+    return str.replace(/€/, '').replace(' ', '');
+}
+
+function isObjectEmpty(obj) {
+    return Object.keys(obj).length === 0;
+}
+
+// ----------- END HELPERS -----------
+
+// ------------ SITE SCRAPERS---------
 async function jogonamesa(url){
     let browser = await puppeteer.launch();
     let page = await browser.newPage();
@@ -70,7 +85,8 @@ async function jogonamesa(url){
     let failed = false;
     await page.goto(url);
     let noInfo = false
-    //price
+
+    //no info
     try {
         await page.waitForXPath('/html/body/div[1]/div[2]/div[1]/p[1]/b', {timeout: 500});
         noInfo = true;
@@ -78,6 +94,8 @@ async function jogonamesa(url){
         //TODO
     }
     if(noInfo) return {};
+
+    //price
     try{
         await page.waitForXPath("/html/body/div[1]/div[2]/div[1]/div[2]/a[1]", {timeout: 500});
     }
@@ -87,8 +105,8 @@ async function jogonamesa(url){
     }
     let handlerPrice = failed ? '' : await page.$x("/html/body/div[1]/div[2]/div[1]/div[2]/a[1]");
     let price   = failed ? '' : await page.evaluate(el => el.textContent, handlerPrice[0]);
-    // console.log("price: ", price);
     price = stringFormat(price);
+    // console.log("price: ", price);
     failed = false;
 
     //stock
@@ -110,17 +128,33 @@ async function jogonamesa(url){
     return {price: price, stock: stock};
 }
 
+async function kultgames(url){
+    let browser = await puppeteer.launch();
+    let page = await browser.newPage();
+    await preparePageForTests(page);
+    let failed = false;
+    await page.goto(url);
+
+    // price
+    let price =  '';
+    price = await page.evaluate(() => document.querySelector('#our_price_display')?.textContent);
+
+    //stock
+    let stock = '';
+    stock = await page.evaluate(() => document.querySelector('#availability_value')?.textContent);
+
+    price = stringFormat(price);
+    // console.log("price: ", price);
+    return {price: price, stock: stock};
+}
+
+// ------------ END SITE SCRAPERS-----
+
 function getOldPrices(){
     return "TODO";
 }
 
-function stringFormat(str){
-    return str.replace(/€| /, '').replace(' ', '');
-}
 
-function isObjectEmpty(obj) {
-    return Object.keys(obj).length === 0;
-}
 
 async function preparePageForTests(page) {
     // Pass the User-Agent Test.
