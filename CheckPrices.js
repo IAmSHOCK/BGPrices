@@ -37,36 +37,36 @@ async function scrape(){
             console.log("hostname:", hostName);
             switch(hostName){
                 case "jogonamesa.pt": case "www.jogonamesa.pt":
-                    // returnedObj = await jogonamesa(elem);
+                    returnedObj = await jogonamesa(elem);
                     break;
 
                 case "kultgames.pt": case "www.kultgames.pt":
-                    // returnedObj = await kultgames(elem);
+                    returnedObj = await kultgames(elem);
                     break;
 
                 case "gameplay.pt": case "www.gameplay.pt":
-                    // returnedObj = await gameplay(elem);
+                    returnedObj = await gameplay(elem);
                     break;
 
                 case "juegosdelamesaredonda.com": case "www.juegosdelamesaredonda.com":
-                // returnedObj = await juegosdelamesaredonda(elem);
-                break;
+                    returnedObj = await juegosdelamesaredonda(elem);
+                    break;
 
                 case "diver.pt": case "www.diver.pt":
-                // returnedObj = await diver(elem);
-                break;
+                    returnedObj = await diver(elem);
+                    break;
 
                 case "arenaporto.com": case "www.arenaporto.com":
-                // returnedObj = await arenaporto(elem);
-                break;
+                    returnedObj = await arenaporto(elem);
+                    break;
 
                 case "dracotienda.com": case "www.dracotienda.com":
-                // returnedObj = await dracotienda(elem);
-                break;
+                    returnedObj = await dracotienda(elem);
+                    break;
 
                 case "amazon.es": case "www.amazon.es":
-                returnedObj = await amazon(elem);
-                break;
+                    returnedObj = await amazon(elem);
+                    break;
             }
             if(!hostName.includes("cultodacaixa.pt")){
                 obj = isObjectEmpty(returnedObj) ? {} : {store: hostName, ...returnedObj};
