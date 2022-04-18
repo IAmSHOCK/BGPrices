@@ -85,11 +85,11 @@ function isGame(elem){
 }
 
 function stringFormatPrice(str){
-    return str.replace(/€/, '').replace(' ', '');
+    return str.replace(/€/, '').replace(',', '.').replace(/[^\w\s\.]/gi, '').replace(' ', '');
 }
 
 function stringFormatStock(str){
-    return str.toLowerCase();
+    return str.toLowerCase().replace(/[^\w\s]/gi, '').replace(' ', '');
 }
 
 function isObjectEmpty(obj) {
@@ -234,12 +234,16 @@ async function arenaporto(url){
     let price =  '';
     price = await page.evaluate(() => document.querySelector('#product-buy-box > div.product-prices > div.product-price.h5.has-discount > div > span:nth-child(1)')?.textContent);
 
+    price = (price == undefined) ? await page.evaluate(() => document.querySelector('#product-buy-box > div.product-prices > div.product-price.h5 > div > span:nth-child(1)')?.textContent) : price;
+
     //stock
     let stock = '';
-    stock = await page.evaluate(() => document.querySelector('#product-availability')?.textContent);
+    stock = await page.evaluate(() => document.querySelector('#product-availability')?.innerText);
 
     price = stringFormatPrice(price);
     stock = stringFormatStock(stock);
+    console.log("price:", price);
+    console.log("stock:", stock);
     return {price: price, stock: stock};
 }
 
