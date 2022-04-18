@@ -22,7 +22,7 @@ async function scrape(){
         let elem = input[i];
         if (isGame(elem)){
             let tmp = {gameName: gameName, data: prices};
-            // console.log("Final scraped game: ", tmp);
+            console.log("Final scraped game: ", tmp);
             scrapedGames[k++] = tmp;
             gameName = elem;
             console.log("Game name: ", gameName);
@@ -36,13 +36,14 @@ async function scrape(){
             switch(hostName){
                 case "jogonamesa.pt":
                     let returnedObj = await jogonamesa(elem);
-                    obj = {store: hostName, ...returnedObj};
+                    // console.log("returnedObj:", returnedObj);
+                    obj = isObjectEmpty(returnedObj) ? {} : {store: hostName, ...returnedObj};
                     break;
             }
 
             // obj = { store: string, price: (int?), stock: string }
             // console.log("obj: ", obj);
-            if(obj /= {}) prices[j++] =  obj;
+            if(!isObjectEmpty(obj)) prices[j++] =  obj;
         }
         // if(i == 7) break;
     }
@@ -82,7 +83,7 @@ async function jogonamesa(url){
     }
     let handlerPrice = failed ? '' : await page.$x("/html/body/div[1]/div[2]/div[1]/div[2]/a[1]");
     let price   = failed ? '' : await page.evaluate(el => el.textContent, handlerPrice[0]);
-    console.log("price: ", price);
+    // console.log("price: ", price);
     price = stringFormat(price);
     failed = false;
 
@@ -99,7 +100,8 @@ async function jogonamesa(url){
 
     // let handlerStock = failed ? '' : await page.$x("/html/body/div[1]/div[2]/div[1]/div[2]/div[3]/span[6]");
     // stock = failed ? '' : await page.evaluate(el => el.textContent, handlerStock[0]);
-    console.log("stock: ", stock);
+    stock = stringFormat(stock);
+    // console.log("stock: ", stock);
     browser.close();
     return {price: price, stock: stock};
 }
@@ -110,6 +112,10 @@ function getOldPrices(){
 
 function stringFormat(str){
     return str.replace(/€| /, '').replace(' ', '');
+}
+
+function isObjectEmpty(obj) {
+    return Object.keys(obj).length === 0;
 }
 
 async function preparePageForTests(page) {
