@@ -96,7 +96,7 @@ function stringFormatPrice(str){
 }
 
 function stringFormatStock(str){
-    return str.toLowerCase().replace(/[^\w\s]/gi, '').replace(' ', '');
+    return str.toLowerCase().replace(/[^\w\s]/gi, '');
 }
 
 function formatterBeforeFormatter(str){
