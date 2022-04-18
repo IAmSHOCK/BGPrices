@@ -54,7 +54,11 @@ async function scrape(){
                 break;
 
                 case "diver.pt": case "www.diver.pt":
-                returnedObj = await diver(elem);
+                // returnedObj = await diver(elem);
+                break;
+
+                case "arenaporto.com": case "www.arenaporto.com":
+                returnedObj = await arenaporto(elem);
                 break;
             }
             if(!hostName.includes("cultodacaixa.pt")){
@@ -217,8 +221,25 @@ async function diver(url){
 
     price = stringFormatPrice(price);
     stock = stringFormatStock(stock);
-    console.log("price:", price);
-    console.log("stock:", stock);
+    return {price: price, stock: stock};
+}
+
+async function arenaporto(url){
+    let browser = await puppeteer.launch();
+    let page = await browser.newPage();
+    await preparePageForTests(page);
+    await page.goto(url);
+
+    // price
+    let price =  '';
+    price = await page.evaluate(() => document.querySelector('#product-buy-box > div.product-prices > div.product-price.h5.has-discount > div > span:nth-child(1)')?.textContent);
+
+    //stock
+    let stock = '';
+    stock = await page.evaluate(() => document.querySelector('#product-availability')?.textContent);
+
+    price = stringFormatPrice(price);
+    stock = stringFormatStock(stock);
     return {price: price, stock: stock};
 }
 
