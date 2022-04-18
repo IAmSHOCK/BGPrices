@@ -171,8 +171,6 @@ async function gameplay(url){
 
     price = stringFormat(price);
     stock = stringFormat(stock)
-    console.log("price: ", price);
-    console.log("stock: ", stock);
     return {price: price, stock: stock};
 }
 
