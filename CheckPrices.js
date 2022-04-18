@@ -293,8 +293,6 @@ async function amazon(url){
     let stock = '';
     stock = await page.evaluate(() => document.querySelector('#availability > span')?.innerText);
 
-    console.log("price:", price);
-    console.log("stock:", stock);
     price = stringFormatPrice(price);
     stock = stringFormatStock(stock);
     return {price: price, stock: stock};
