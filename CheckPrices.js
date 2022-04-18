@@ -50,8 +50,11 @@ async function scrape(){
                     break;
 
                 case "juegosdelamesaredonda.com": case "www.juegosdelamesaredonda.com":
-                returnedObj = await juegosdelamesaredonda(elem);
-                console.log(returnedObj);
+                // returnedObj = await juegosdelamesaredonda(elem);
+                break;
+
+                case "diver.pt": case "www.diver.pt":
+                returnedObj = await diver(elem);
                 break;
             }
             if(!hostName.includes("cultodacaixa.pt")){
@@ -193,8 +196,27 @@ async function juegosdelamesaredonda(url){
 
     price = stringFormat(price);
     stock = stringFormat(stock)
-    console.log("price:", price);
-    console.log("stock:", stock);
+    return {price: price, stock: stock};
+}
+
+async function diver(url){
+    let browser = await puppeteer.launch();
+    let page = await browser.newPage();
+    await preparePageForTests(page);
+    await page.goto(url);
+
+    // price
+    let price =  '';
+    price = await page.evaluate(() => document.querySelector('#our_price_display')?.textContent);
+
+    //stock
+    let stock = '';
+    stock = await page.evaluate(() => document.querySelector('#availability_value')?.textContent);
+
+    stock = (stock == undefined) ? await page.evaluate(() => document.querySelector('#main > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div.disponib_restock > p:nth-child(1) > span')?.textContent) : stock;
+
+    price = stringFormat(price);
+    stock = stringFormat(stock)
     return {price: price, stock: stock};
 }
 
