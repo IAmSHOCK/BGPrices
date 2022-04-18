@@ -96,6 +96,10 @@ function stringFormatStock(str){
     return str.toLowerCase().replace(/[^\w\s]/gi, '').replace(' ', '');
 }
 
+function formatterBeforeFormatter(str){
+    return str.replace('Disponibilidad', '');
+}
+
 function isObjectEmpty(obj) {
     return Object.keys(obj).length === 0;
 }
@@ -259,14 +263,15 @@ async function dracotienda(url){
     let price =  '';
     price = await page.evaluate(() => document.querySelector('#main > div.laberProduct > div > div:nth-child(2) > div.product-prices > div.product-price.h5.has-discount > div > span:nth-child(2)')?.textContent);
 
+    price = (price == undefined) ? await page.evaluate(() => document.querySelector('#main > div.laberProduct > div > div:nth-child(2) > div.product-prices > div.product-price.h5 > div > span')?.textContent) : price;
+
     // price = (price == undefined) ? await page.evaluate(() => document.querySelector('#product-buy-box > div.product-prices > div.product-price.h5 > div > span:nth-child(1)')?.textContent) : price;
 
     //stock
     let stock = '';
-    stock = await page.evaluate(() => document.querySelector('#main > div.laberProduct > div > div:nth-child(2) > div.LaberProduct-availability > span')?.outerText);
+    stock = await page.evaluate(() => document.querySelector('#main > div.laberProduct > div > div:nth-child(2) > div.LaberProduct-availability > span')?.innerText);
 
-    console.log("price:", price);
-    console.log("stock:", stock);
+    stock = formatterBeforeFormatter(stock);
 
     price = stringFormatPrice(price);
     stock = stringFormatStock(stock);
