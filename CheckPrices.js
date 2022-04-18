@@ -39,6 +39,10 @@ async function scrape(){
                     // console.log("returnedObj:", returnedObj);
                     obj = isObjectEmpty(returnedObj) ? {} : {store: hostName, ...returnedObj};
                     break;
+
+                case "kultgames.pt":
+                    console.log("in kultgames");
+                    break;
             }
 
             // obj = { store: string, price: (int?), stock: string }
