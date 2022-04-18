@@ -34,26 +34,32 @@ async function scrape(){
             obj = {};
             returnedObj = {};
             let hostName = getHostName(elem);
-            // console.log("hostname:", hostName);
+            console.log("hostname:", hostName);
             switch(hostName){
                 case "jogonamesa.pt": case "www.jogonamesa.pt":
-                    returnedObj = await jogonamesa(elem);
+                    // returnedObj = await jogonamesa(elem);
                     // console.log("returnedObj:", returnedObj);
                     break;
 
                 case "kultgames.pt": case "www.kultgames.pt":
-                    returnedObj = await kultgames(elem);
+                    // returnedObj = await kultgames(elem);
                     break;
 
                 case "gameplay.pt": case "www.gameplay.pt":
-                    returnedObj = await gameplay(elem);
+                    // returnedObj = await gameplay(elem);
                     break;
-            }
-            obj = isObjectEmpty(returnedObj) ? {} : {store: hostName, ...returnedObj};
 
-            // obj = { store: string, price: (int?), stock: string }
-            // console.log("obj: ", obj);
-            if(!isObjectEmpty(obj)) prices[j++] =  obj;
+                case "juegosdelamesaredonda.com": case "www.juegosdelamesaredonda.com":
+                returnedObj = await juegosdelamesaredonda(elem);
+                console.log(returnedObj);
+                break;
+            }
+            if(!hostName.includes("cultodacaixa.pt")){
+                obj = isObjectEmpty(returnedObj) ? {} : {store: hostName, ...returnedObj};
+
+                // obj = { store: string, price: (int?), stock: string }
+                if(!isObjectEmpty(obj)) prices[j++] =  obj;
+            }
         }
         // if(i == 7) break;
     }
@@ -109,8 +115,7 @@ async function jogonamesa(url){
     }
     let handlerPrice = failed ? '' : await page.$x("/html/body/div[1]/div[2]/div[1]/div[2]/a[1]");
     let price   = failed ? '' : await page.evaluate(el => el.textContent, handlerPrice[0]);
-    price = stringFormat(price);
-    // console.log("price: ", price);
+
     failed = false;
 
     //stock
@@ -124,10 +129,8 @@ async function jogonamesa(url){
        if(stock != null) break;
     }
 
-    // let handlerStock = failed ? '' : await page.$x("/html/body/div[1]/div[2]/div[1]/div[2]/div[3]/span[6]");
-    // stock = failed ? '' : await page.evaluate(el => el.textContent, handlerStock[0]);
+    price = stringFormat(price);
     stock = stringFormat(stock);
-    // console.log("stock: ", stock);
     browser.close();
     return {price: price, stock: stock};
 }
@@ -136,7 +139,6 @@ async function kultgames(url){
     let browser = await puppeteer.launch();
     let page = await browser.newPage();
     await preparePageForTests(page);
-    let failed = false;
     await page.goto(url);
 
     // price
@@ -148,7 +150,7 @@ async function kultgames(url){
     stock = await page.evaluate(() => document.querySelector('#availability_value')?.textContent);
 
     price = stringFormat(price);
-    // console.log("price: ", price);
+    stock = stringFormat(stock);
     return {price: price, stock: stock};
 }
 
@@ -156,7 +158,6 @@ async function gameplay(url){
     let browser = await puppeteer.launch();
     let page = await browser.newPage();
     await preparePageForTests(page);
-    let failed = false;
     await page.goto(url);
 
     // price
@@ -174,25 +175,26 @@ async function gameplay(url){
     return {price: price, stock: stock};
 }
 
-async function gameplay(url){
+async function juegosdelamesaredonda(url){
     let browser = await puppeteer.launch();
     let page = await browser.newPage();
     await preparePageForTests(page);
-    let failed = false;
     await page.goto(url);
 
     // price
     let price =  '';
-    price = await page.evaluate(() => document.querySelector('#main > div:nth-child(2) > div:nth-child(1) > div.col-md-3.text-right > div > div > div > div > span')?.textContent);
+    price = await page.evaluate(() => document.querySelector('#our_price_display')?.textContent);
 
     //stock
     let stock = '';
-    stock = await page.evaluate(() => document.querySelector('#main > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div.disponib_emstock > p:nth-child(1) > span')?.textContent);
+    stock = await page.evaluate(() => document.querySelector('#availability_value')?.textContent);
 
     stock = (stock == undefined) ? await page.evaluate(() => document.querySelector('#main > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div.disponib_restock > p:nth-child(1) > span')?.textContent) : stock;
 
     price = stringFormat(price);
     stock = stringFormat(stock)
+    console.log("price:", price);
+    console.log("stock:", stock);
     return {price: price, stock: stock};
 }
 
