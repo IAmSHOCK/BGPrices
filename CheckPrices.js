@@ -64,8 +64,8 @@ async function scrape(){
                 // returnedObj = await dracotienda(elem);
                 break;
 
-                case "dracotienda.com": case "www.dracotienda.com":
-                returnedObj = await dracotienda(elem);
+                case "amazon.es": case "www.amazon.es":
+                returnedObj = await amazon(elem);
                 break;
             }
             if(!hostName.includes("cultodacaixa.pt")){
@@ -268,14 +268,33 @@ async function dracotienda(url){
 
     price = (price == undefined) ? await page.evaluate(() => document.querySelector('#main > div.laberProduct > div > div:nth-child(2) > div.product-prices > div.product-price.h5 > div > span')?.textContent) : price;
 
-    // price = (price == undefined) ? await page.evaluate(() => document.querySelector('#product-buy-box > div.product-prices > div.product-price.h5 > div > span:nth-child(1)')?.textContent) : price;
-
     //stock
     let stock = '';
     stock = await page.evaluate(() => document.querySelector('#main > div.laberProduct > div > div:nth-child(2) > div.LaberProduct-availability > span')?.innerText);
 
     stock = formatterBeforeFormatter(stock);
 
+    price = stringFormatPrice(price);
+    stock = stringFormatStock(stock);
+    return {price: price, stock: stock};
+}
+
+async function amazon(url){
+    let browser = await puppeteer.launch();
+    let page = await browser.newPage();
+    await preparePageForTests(page);
+    await page.goto(url);
+
+    // price
+    let price =  '';
+    price = await page.evaluate(() => document.querySelector('#corePriceDisplay_desktop_feature_div > div.a-section.a-spacing-none.aok-align-center > span > span.a-offscreen')?.innerText);
+
+    //stock
+    let stock = '';
+    stock = await page.evaluate(() => document.querySelector('#availability > span')?.innerText);
+
+    console.log("price:", price);
+    console.log("stock:", stock);
     price = stringFormatPrice(price);
     stock = stringFormatStock(stock);
     return {price: price, stock: stock};
