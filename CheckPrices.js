@@ -80,8 +80,12 @@ function isGame(elem){
     return !elem.includes("http");
 }
 
-function stringFormat(str){
-    return str.replace(/€/, '').replace(' ', '').toLowerCase();
+function stringFormatPrice(str){
+    return str.replace(/€/, '').replace(' ', '');
+}
+
+function stringFormatStock(str){
+    return str.toLowerCase();
 }
 
 function isObjectEmpty(obj) {
@@ -132,8 +136,8 @@ async function jogonamesa(url){
        if(stock != null) break;
     }
 
-    price = stringFormat(price);
-    stock = stringFormat(stock);
+    price = stringFormatPrice(price);
+    stock = stringFormatStock(stock);
     browser.close();
     return {price: price, stock: stock};
 }
@@ -152,8 +156,8 @@ async function kultgames(url){
     let stock = '';
     stock = await page.evaluate(() => document.querySelector('#availability_value')?.textContent);
 
-    price = stringFormat(price);
-    stock = stringFormat(stock);
+    price = stringFormatPrice(price);
+    stock = stringFormatStock(stock);
     return {price: price, stock: stock};
 }
 
@@ -173,8 +177,8 @@ async function gameplay(url){
 
     stock = (stock == undefined) ? await page.evaluate(() => document.querySelector('#main > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div.disponib_restock > p:nth-child(1) > span')?.textContent) : stock;
 
-    price = stringFormat(price);
-    stock = stringFormat(stock)
+    price = stringFormatPrice(price);
+    stock = stringFormatStock(stock)
     return {price: price, stock: stock};
 }
 
@@ -192,10 +196,8 @@ async function juegosdelamesaredonda(url){
     let stock = '';
     stock = await page.evaluate(() => document.querySelector('#availability_value')?.textContent);
 
-    stock = (stock == undefined) ? await page.evaluate(() => document.querySelector('#main > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div.disponib_restock > p:nth-child(1) > span')?.textContent) : stock;
-
-    price = stringFormat(price);
-    stock = stringFormat(stock)
+    price = stringFormatPrice(price);
+    stock = stringFormatStock(stock)
     return {price: price, stock: stock};
 }
 
@@ -213,10 +215,10 @@ async function diver(url){
     let stock = '';
     stock = await page.evaluate(() => document.querySelector('#availability_value')?.textContent);
 
-    stock = (stock == undefined) ? await page.evaluate(() => document.querySelector('#main > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div.disponib_restock > p:nth-child(1) > span')?.textContent) : stock;
-
-    price = stringFormat(price);
-    stock = stringFormat(stock)
+    price = stringFormatPrice(price);
+    stock = stringFormatStock(stock);
+    console.log("price:", price);
+    console.log("stock:", stock);
     return {price: price, stock: stock};
 }
 
