@@ -6,7 +6,6 @@ const fs = require("fs");
 let input = fs.readFileSync('./input.txt').toString().split("\n");
 
 async function scrape(){
-    // {gameName: string, data: [{ store: string, price: (int?), availability: string }] }
     let scrapedGames = [];
 
     let gameName = input[0];
@@ -37,57 +36,59 @@ async function scrape(){
             console.log("hostname:", hostName);
             switch(hostName){
                 case "jogonamesa.pt": case "www.jogonamesa.pt":
-                    // returnedObj = await jogonamesa(elem);
+                    returnedObj = await jogonamesa(elem);
                     break;
 
                 case "kultgames.pt": case "www.kultgames.pt":
-                    // returnedObj = await kultgames(elem);
+                    returnedObj = await kultgames(elem);
                     break;
 
                 case "gameplay.pt": case "www.gameplay.pt":
-                    // returnedObj = await gameplay(elem);
+                    returnedObj = await gameplay(elem);
                     break;
 
                 case "juegosdelamesaredonda.com": case "www.juegosdelamesaredonda.com":
-                    // returnedObj = await juegosdelamesaredonda(elem);
+                    returnedObj = await juegosdelamesaredonda(elem);
                     break;
 
                 case "diver.pt": case "www.diver.pt":
-                    // returnedObj = await diver(elem);
+                    returnedObj = await diver(elem);
                     break;
 
                 case "arenaporto.com": case "www.arenaporto.com":
-                    // returnedObj = await arenaporto(elem);
+                    returnedObj = await arenaporto(elem);
                     break;
 
                 case "dracotienda.com": case "www.dracotienda.com":
-                    // returnedObj = await dracotienda(elem);
+                    returnedObj = await dracotienda(elem);
                     break;
 
                 case "amazon.es": case "www.amazon.es":
-                    // returnedObj = await amazon(elem);
+                    returnedObj = await amazon(elem);
                     break;
 
                 case "planetongames.com": case "www.planetongames.com":
-                    // returnedObj = await planetongames(elem);
+                    returnedObj = await planetongames(elem);
                     break;
 
                 case "gglounge.pt": case "www.gglounge.pt":
-                    // returnedObj = await gglounge(elem);
+                    returnedObj = await gglounge(elem);
                     break;
 
                 case "versusgamecenter.pt": case "www.versusgamecenter.pt":
                     returnedObj = await versusgamecenter(elem);
                     break;
+
+                case "devir.pt": case "www.devir.pt":
+                    returnedObj = await devir(elem);
+                    break;
             }
             if(!hostName.includes("cultodacaixa.pt")){
                 obj = isObjectEmpty(returnedObj) ? {} : {store: hostName, ...returnedObj};
 
-                // obj = { store: string, price: (int?), stock: string }
                 if(!isObjectEmpty(obj)) prices[j++] =  obj;
             }
         }
-        // if(i == 7) break;
     }
 
     console.log("Closing browser.");
@@ -404,11 +405,48 @@ async function versusgamecenter(url){
     let price =  '';
     price = await page.evaluate(() => document.querySelector('body > main > div > div > div > div > div.product-details-inner > div > div.col-md-7 > div > div.pricebox > span')?.innerText);
 
-    // price = (price == undefined) ? await page.evaluate(() => document.querySelector('#main > div.row.container_product > div.col-md-3.last_column > div.product-prices > div > div > span')?.textContent) : price;
-
     //stock
     let stock = '';
     stock = await page.evaluate(() => document.querySelector('body > main > div > div > div > div > div.product-details-inner > div > div.col-md-7 > div > div.availability.mb-20 > span')?.innerText);
+
+    price = stringFormatPrice(price);
+    stock = stringFormatStock(stock);
+    return {price: price, stock: stock};
+}
+
+async function devir(url){
+    let browser = await puppeteer.launch();
+    let page = await browser.newPage();
+    await preparePageForTests(page);
+    await page.goto(url);
+    let failed = false;
+
+    //price discount
+    try{
+        await page.waitForXPath("/html/body/div[4]/main/div[2]/div/div[1]/div[2]/div/span[2]/span/span[2]/span", {timeout: 500});
+    }
+    catch(err){
+        console.log(err);
+        failed = true;
+    }
+    let handlerPrice = failed ? '' : await page.$x("/html/body/div[4]/main/div[2]/div/div[1]/div[2]/div/span[2]/span/span[2]/span");
+    let price        = failed ? '' : await page.evaluate(el => el.textContent, handlerPrice[0]);
+
+    //price
+    if(failed){
+        failed = false;
+        try{
+            await page.waitForXPath("/html/body/div[4]/main/div[2]/div/div[1]/div[2]/div/span/span/span", {timeout: 500});
+        }
+        catch(err){
+            console.log(err);
+            failed = true;
+        }
+        handlerPrice = failed ? '' : await page.$x("/html/body/div[4]/main/div[2]/div/div[1]/div[2]/div/span/span/span");
+        price        = failed ? '' : await page.evaluate(el => el.textContent, handlerPrice[0]);
+    }
+
+    let stock = "available"
 
     price = stringFormatPrice(price);
     stock = stringFormatStock(stock);
