@@ -73,11 +73,11 @@ async function scrape(){
                     break;
 
                 case "gglounge.pt": case "www.gglounge.pt":
-                    returnedObj = await gglounge(elem);
+                    // returnedObj = await gglounge(elem);
                     break;
 
                 case "versusgamecenter.pt": case "www.versusgamecenter.pt":
-                    // returnedObj = await amazon(elem);
+                    returnedObj = await versusgamecenter(elem);
                     break;
             }
             if(!hostName.includes("cultodacaixa.pt")){
@@ -388,6 +388,27 @@ async function gglounge(url){
         handlerStock = failed ? '' : await page.$x("/html/body/div[1]/div[4]/div/div/article/div[2]/div[2]/p[2]");
         stock        = failed ? '' : await page.evaluate(el => el.textContent, handlerStock[0]);
     }
+
+    price = stringFormatPrice(price);
+    stock = stringFormatStock(stock);
+    return {price: price, stock: stock};
+}
+
+async function versusgamecenter(url){
+    let browser = await puppeteer.launch();
+    let page = await browser.newPage();
+    await preparePageForTests(page);
+    await page.goto(url);
+
+    // price
+    let price =  '';
+    price = await page.evaluate(() => document.querySelector('body > main > div > div > div > div > div.product-details-inner > div > div.col-md-7 > div > div.pricebox > span')?.innerText);
+
+    // price = (price == undefined) ? await page.evaluate(() => document.querySelector('#main > div.row.container_product > div.col-md-3.last_column > div.product-prices > div > div > span')?.textContent) : price;
+
+    //stock
+    let stock = '';
+    stock = await page.evaluate(() => document.querySelector('body > main > div > div > div > div > div.product-details-inner > div > div.col-md-7 > div > div.availability.mb-20 > span')?.innerText);
 
     price = stringFormatPrice(price);
     stock = stringFormatStock(stock);
