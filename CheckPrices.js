@@ -37,35 +37,47 @@ async function scrape(){
             console.log("hostname:", hostName);
             switch(hostName){
                 case "jogonamesa.pt": case "www.jogonamesa.pt":
-                    returnedObj = await jogonamesa(elem);
+                    // returnedObj = await jogonamesa(elem);
                     break;
 
                 case "kultgames.pt": case "www.kultgames.pt":
-                    returnedObj = await kultgames(elem);
+                    // returnedObj = await kultgames(elem);
                     break;
 
                 case "gameplay.pt": case "www.gameplay.pt":
-                    returnedObj = await gameplay(elem);
+                    // returnedObj = await gameplay(elem);
                     break;
 
                 case "juegosdelamesaredonda.com": case "www.juegosdelamesaredonda.com":
-                    returnedObj = await juegosdelamesaredonda(elem);
+                    // returnedObj = await juegosdelamesaredonda(elem);
                     break;
 
                 case "diver.pt": case "www.diver.pt":
-                    returnedObj = await diver(elem);
+                    // returnedObj = await diver(elem);
                     break;
 
                 case "arenaporto.com": case "www.arenaporto.com":
-                    returnedObj = await arenaporto(elem);
+                    // returnedObj = await arenaporto(elem);
                     break;
 
                 case "dracotienda.com": case "www.dracotienda.com":
-                    returnedObj = await dracotienda(elem);
+                    // returnedObj = await dracotienda(elem);
                     break;
 
                 case "amazon.es": case "www.amazon.es":
-                    returnedObj = await amazon(elem);
+                    // returnedObj = await amazon(elem);
+                    break;
+
+                case "planetongames.com": case "www.planetongames.com":
+                    returnedObj = await planetongames(elem);
+                    break;
+
+                case "gglounge.pt": case "www.gglounge.pt":
+                    // returnedObj = await amazon(elem);
+                    break;
+
+                case "versusgamecenter.pt": case "www.versusgamecenter.pt":
+                    // returnedObj = await amazon(elem);
                     break;
             }
             if(!hostName.includes("cultodacaixa.pt")){
@@ -292,6 +304,27 @@ async function amazon(url){
     //stock
     let stock = '';
     stock = await page.evaluate(() => document.querySelector('#availability > span')?.innerText);
+
+    price = stringFormatPrice(price);
+    stock = stringFormatStock(stock);
+    return {price: price, stock: stock};
+}
+
+async function planetongames(url){
+    let browser = await puppeteer.launch();
+    let page = await browser.newPage();
+    await preparePageForTests(page);
+    await page.goto(url);
+
+    // price
+    let price =  '';
+    price = await page.evaluate(() => document.querySelector('#main > div.row.container_product > div.col-md-3.last_column > div.product-prices > div.product-price.h5.has-discount > div > span:nth-child(1)')?.innerText);
+
+    price = (price == undefined) ? await page.evaluate(() => document.querySelector('#main > div.row.container_product > div.col-md-3.last_column > div.product-prices > div > div > span')?.textContent) : price;
+
+    //stock
+    let stock = '';
+    stock = await page.evaluate(() => document.querySelector('#availability_value')?.innerText);
 
     price = stringFormatPrice(price);
     stock = stringFormatStock(stock);
