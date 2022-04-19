@@ -69,11 +69,11 @@ async function scrape(){
                     break;
 
                 case "planetongames.com": case "www.planetongames.com":
-                    returnedObj = await planetongames(elem);
+                    // returnedObj = await planetongames(elem);
                     break;
 
                 case "gglounge.pt": case "www.gglounge.pt":
-                    // returnedObj = await amazon(elem);
+                    returnedObj = await gglounge(elem);
                     break;
 
                 case "versusgamecenter.pt": case "www.versusgamecenter.pt":
@@ -108,7 +108,7 @@ function stringFormatPrice(str){
 }
 
 function stringFormatStock(str){
-    return str.toLowerCase().replace(/[^\w\s]/gi, '');
+    return str?.toLowerCase().replace(/[^\w\s]/gi, '');
 }
 
 function formatterBeforeFormatter(str){
@@ -325,6 +325,69 @@ async function planetongames(url){
     //stock
     let stock = '';
     stock = await page.evaluate(() => document.querySelector('#availability_value')?.innerText);
+
+    price = stringFormatPrice(price);
+    stock = stringFormatStock(stock);
+    return {price: price, stock: stock};
+}
+
+async function gglounge(url){
+    let browser = await puppeteer.launch();
+    let page = await browser.newPage();
+    await preparePageForTests(page);
+    await page.goto(url);
+    let failed = false;
+
+    //price discount
+    try{
+        await page.waitForXPath("/html/body/div[1]/div[4]/div/div/article/div[2]/div[2]/p[1]/ins/span/bdi/text()", {timeout: 500});
+    }
+    catch(err){
+        console.log(err);
+        failed = true;
+    }
+    let handlerPrice = failed ? '' : await page.$x("/html/body/div[1]/div[4]/div/div/article/div[2]/div[2]/p[1]/ins/span/bdi/text()");
+    let price        = failed ? '' : await page.evaluate(el => el.textContent, handlerPrice[0]);
+
+    //price
+    if(failed){
+        failed = false;
+        try{
+            await page.waitForXPath("/html/body/div[1]/div[4]/div/div/article/div[2]/div[2]/p[1]/span/bdi/text()", {timeout: 500});
+        }
+        catch(err){
+            console.log(err);
+            failed = true;
+        }
+        handlerPrice = failed ? '' : await page.$x("/html/body/div[1]/div[4]/div/div/article/div[2]/div[2]/p[1]/span/bdi/text()");
+        price        = failed ? '' : await page.evaluate(el => el.textContent, handlerPrice[0]);
+    }
+
+    //stock out of stock
+    failed = false;
+    try{
+        await page.waitForXPath("/html/body/div[1]/div[4]/div/div/article/div[2]/div[2]/p[2]", {timeout: 500});
+    }
+    catch(err){
+        console.log(err);
+        failed = true;
+    }
+    let handlerStock = failed ? '' : await page.$x("/html/body/div[1]/div[4]/div/div/article/div[2]/div[2]/p[2]");
+    let stock        = failed ? '' : await page.evaluate(el => el.textContent, handlerStock[0]);
+
+    //stock in stock
+    if(failed){
+        failed = false;
+        try{
+            await page.waitForXPath("/html/body/div[1]/div[4]/div/div/article/div[2]/div[2]/p[2]", {timeout: 500});
+        }
+        catch(err){
+            console.log(err);
+            failed = true;
+        }
+        handlerStock = failed ? '' : await page.$x("/html/body/div[1]/div[4]/div/div/article/div[2]/div[2]/p[2]");
+        stock        = failed ? '' : await page.evaluate(el => el.textContent, handlerStock[0]);
+    }
 
     price = stringFormatPrice(price);
     stock = stringFormatStock(stock);
