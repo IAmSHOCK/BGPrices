@@ -5,6 +5,7 @@ const fs = require("fs");
 
 let input = fs.readFileSync('./input.txt').toString().split("\n");
 
+
 async function scrape(){
     let scrapedGames = [];
 
@@ -166,7 +167,8 @@ async function jogonamesa(url){
 
     price = stringFormatPrice(price);
     stock = stringFormatStock(stock);
-    browser.close();
+
+    await browser.close();
     return {price: price, stock: stock};
 }
 
@@ -186,6 +188,8 @@ async function kultgames(url){
 
     price = stringFormatPrice(price);
     stock = stringFormatStock(stock);
+
+    await browser.close();
     return {price: price, stock: stock};
 }
 
@@ -207,6 +211,8 @@ async function gameplay(url){
 
     price = stringFormatPrice(price);
     stock = stringFormatStock(stock)
+
+    await browser.close();
     return {price: price, stock: stock};
 }
 
@@ -226,6 +232,8 @@ async function juegosdelamesaredonda(url){
 
     price = stringFormatPrice(price);
     stock = stringFormatStock(stock)
+
+    await browser.close();
     return {price: price, stock: stock};
 }
 
@@ -245,6 +253,8 @@ async function diver(url){
 
     price = stringFormatPrice(price);
     stock = stringFormatStock(stock);
+
+    await browser.close();
     return {price: price, stock: stock};
 }
 
@@ -266,6 +276,8 @@ async function arenaporto(url){
 
     price = stringFormatPrice(price);
     stock = stringFormatStock(stock);
+
+    await browser.close();
     return {price: price, stock: stock};
 }
 
@@ -289,6 +301,8 @@ async function dracotienda(url){
 
     price = stringFormatPrice(price);
     stock = stringFormatStock(stock);
+
+    await browser.close();
     return {price: price, stock: stock};
 }
 
@@ -301,13 +315,18 @@ async function amazon(url){
     // price
     let price =  '';
     price = await page.evaluate(() => document.querySelector('#corePriceDisplay_desktop_feature_div > div.a-section.a-spacing-none.aok-align-center > span > span.a-offscreen')?.innerText);
+    price = (price == undefined) ? await page.evaluate(() => document.querySelector('#corePrice_desktop > div > table > tbody > tr:nth-child(2) > td.a-span12 > span.a-price.a-text-price.a-size-medium.apexPriceToPay > span:nth-child(2)')?.innerText) : price;
+    price = (price == undefined) ? '0' : price;
 
     //stock
     let stock = '';
     stock = await page.evaluate(() => document.querySelector('#availability > span')?.innerText);
+    stock = (price == '0') ? await page.evaluate(() => document.querySelector('#availability > span:nth-child(4) > span')?.innerText) : stock;
 
     price = stringFormatPrice(price);
     stock = stringFormatStock(stock);
+
+    await browser.close();
     return {price: price, stock: stock};
 }
 
@@ -392,6 +411,8 @@ async function gglounge(url){
 
     price = stringFormatPrice(price);
     stock = stringFormatStock(stock);
+
+    await browser.close();
     return {price: price, stock: stock};
 }
 
@@ -411,6 +432,8 @@ async function versusgamecenter(url){
 
     price = stringFormatPrice(price);
     stock = stringFormatStock(stock);
+
+    await browser.close();
     return {price: price, stock: stock};
 }
 
@@ -450,6 +473,8 @@ async function devir(url){
 
     price = stringFormatPrice(price);
     stock = stringFormatStock(stock);
+
+    await browser.close();
     return {price: price, stock: stock};
 }
 
