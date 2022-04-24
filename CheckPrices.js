@@ -106,7 +106,7 @@ function isGame(elem){
 }
 
 function stringFormatPrice(str){
-    return str.replace(/€/, '').replace(',', '.').replace(/[^\w\s\.]/gi, '').replace(' ', '');
+    return str?.replace(/€/, '').replace(',', '.').replace(/[^\w\s\.]/gi, '').replace(' ', '');
 }
 
 function stringFormatStock(str){
@@ -114,7 +114,7 @@ function stringFormatStock(str){
 }
 
 function formatterBeforeFormatter(str){
-    return str.replace('Disponibilidad', '');
+    return str?.replace('Disponibilidad', '');
 }
 
 function isObjectEmpty(obj) {
@@ -137,7 +137,8 @@ async function jogonamesa(url){
         await page.waitForXPath('/html/body/div[1]/div[2]/div[1]/p[1]/b', {timeout: 500});
         noInfo = true;
     } catch (err) {
-        //TODO
+        // console.log("Couldn't get jogonamesa no info:");
+        // console.log(err);
     }
     if(noInfo) return {};
 
@@ -146,6 +147,7 @@ async function jogonamesa(url){
         await page.waitForXPath("/html/body/div[1]/div[2]/div[1]/div[2]/a[1]", {timeout: 500});
     }
     catch(err){
+        console.log("Couldn't get jogonamesa price");
         console.log(err);
         failed = true;
     }
@@ -156,14 +158,12 @@ async function jogonamesa(url){
 
     //stock
     let stock = null;
-    while(stock === null){
-       stock =  await page.evaluate(() => document.querySelector('#comprar_visivel > span.entrega')?.textContent);
-       if(stock != null) break;
-       stock =  await page.evaluate(() => document.querySelector('#comprar_visivel > span.esgotado')?.textContent);
-       if(stock != null) break;
-       stock =  await page.evaluate(() => document.querySelector('#comprar_visivel > span.reserva')?.textContent);
-       if(stock != null) break;
-    }
+
+    stock =  await page.evaluate(() => document.querySelector('#comprar_visivel > span.entrega')?.textContent);
+    if(stock == null) stock =  await page.evaluate(() => document.querySelector('#comprar_visivel > span.esgotado')?.textContent);
+    if(stock == null) stock =  await page.evaluate(() => document.querySelector('#comprar_visivel > span.reserva')?.textContent);
+
+    if(stock == null) console.log("Couldn't get jogonamesa stock");
 
     price = stringFormatPrice(price);
     stock = stringFormatStock(stock);
@@ -179,12 +179,14 @@ async function kultgames(url){
     await page.goto(url);
 
     // price
-    let price =  '';
+    let price = undefined;
     price = await page.evaluate(() => document.querySelector('#our_price_display')?.textContent);
+    if(price == undefined) console.log("Couldn't get kultgames price");
 
     //stock
-    let stock = '';
+    let stock = undefined;
     stock = await page.evaluate(() => document.querySelector('#availability_value')?.textContent);
+    if(stock == undefined) console.log("Couldn't get kultgames stock");
 
     price = stringFormatPrice(price);
     stock = stringFormatStock(stock);
@@ -200,14 +202,15 @@ async function gameplay(url){
     await page.goto(url);
 
     // price
-    let price =  '';
+    let price =  undefined;
     price = await page.evaluate(() => document.querySelector('#main > div:nth-child(2) > div:nth-child(1) > div.col-md-3.text-right > div > div > div > div > span')?.textContent);
-
+    if(price == undefined) console.log("Couldn't get gameplay price");
     //stock
-    let stock = '';
+    let stock = undefined ;
     stock = await page.evaluate(() => document.querySelector('#main > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div.disponib_emstock > p:nth-child(1) > span')?.textContent);
 
     stock = (stock == undefined) ? await page.evaluate(() => document.querySelector('#main > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div.disponib_restock > p:nth-child(1) > span')?.textContent) : stock;
+    if(stock == undefined) console.log("Couldn't get gameplay stock");
 
     price = stringFormatPrice(price);
     stock = stringFormatStock(stock)
@@ -223,12 +226,14 @@ async function juegosdelamesaredonda(url){
     await page.goto(url);
 
     // price
-    let price =  '';
+    let price =  undefined;
     price = await page.evaluate(() => document.querySelector('#our_price_display')?.textContent);
+    if(price == undefined) console.log("Couldn't get juegosdelamesaredonda price");
 
     //stock
-    let stock = '';
+    let stock = undefined;
     stock = await page.evaluate(() => document.querySelector('#availability_value')?.textContent);
+    if(stock == undefined) console.log("Couldn't get juegosdelamesaredonda stock");
 
     price = stringFormatPrice(price);
     stock = stringFormatStock(stock)
@@ -244,12 +249,14 @@ async function diver(url){
     await page.goto(url);
 
     // price
-    let price =  '';
+    let price =  undefined;
     price = await page.evaluate(() => document.querySelector('#our_price_display')?.textContent);
+    if(price == undefined) console.log("Couldn't get diver price");
 
     //stock
-    let stock = '';
+    let stock = undefined;
     stock = await page.evaluate(() => document.querySelector('#availability_value')?.textContent);
+    if(stock == undefined) console.log("Couldn't get diver stock");
 
     price = stringFormatPrice(price);
     stock = stringFormatStock(stock);
@@ -265,17 +272,19 @@ async function arenaporto(url){
     await page.goto(url);
 
     // price
-    let price =  '';
+    let price =  undefined;
     price = await page.evaluate(() => document.querySelector('#product-buy-box > div.product-prices > div.product-price.h5.has-discount > div > span:nth-child(1)')?.textContent);
 
     price = (price == undefined) ? await page.evaluate(() => document.querySelector('#product-buy-box > div.product-prices > div.product-price.h5 > div > span:nth-child(1)')?.textContent) : price;
+    if(price == undefined) console.log("Couldn't get arenaporto price");
 
     //stock
-    let stock = '';
+    let stock = undefined;
     stock = await page.evaluate(() => document.querySelector('#product-availability')?.innerText);
 
     price = stringFormatPrice(price);
     stock = stringFormatStock(stock);
+    if(stock == undefined) console.log("Couldn't get arenaporto stock");
 
     await browser.close();
     return {price: price, stock: stock};
@@ -288,14 +297,16 @@ async function dracotienda(url){
     await page.goto(url);
 
     // price
-    let price =  '';
+    let price =  undefined;
     price = await page.evaluate(() => document.querySelector('#main > div.laberProduct > div > div:nth-child(2) > div.product-prices > div.product-price.h5.has-discount > div > span:nth-child(2)')?.textContent);
 
     price = (price == undefined) ? await page.evaluate(() => document.querySelector('#main > div.laberProduct > div > div:nth-child(2) > div.product-prices > div.product-price.h5 > div > span')?.textContent) : price;
+    if(price == undefined) console.log("Couldn't get dracotienda price");
 
     //stock
-    let stock = '';
+    let stock = undefined;
     stock = await page.evaluate(() => document.querySelector('#main > div.laberProduct > div > div:nth-child(2) > div.LaberProduct-availability > span')?.innerText);
+    if(price == undefined) console.log("Couldn't get dracotienda stock");
 
     stock = formatterBeforeFormatter(stock);
 
@@ -313,15 +324,17 @@ async function amazon(url){
     await page.goto(url);
 
     // price
-    let price =  '';
+    let price =  undefined;
     price = await page.evaluate(() => document.querySelector('#corePriceDisplay_desktop_feature_div > div.a-section.a-spacing-none.aok-align-center > span > span.a-offscreen')?.innerText);
     price = (price == undefined) ? await page.evaluate(() => document.querySelector('#corePrice_desktop > div > table > tbody > tr:nth-child(2) > td.a-span12 > span.a-price.a-text-price.a-size-medium.apexPriceToPay > span:nth-child(2)')?.innerText) : price;
-    price = (price == undefined) ? '0' : price;
+    if(price == undefined) console.log("Couldn't get amazon price");
+
 
     //stock
-    let stock = '';
+    let stock = undefined;
     stock = await page.evaluate(() => document.querySelector('#availability > span')?.innerText);
-    stock = (price == '0') ? await page.evaluate(() => document.querySelector('#availability > span:nth-child(4) > span')?.innerText) : stock;
+    stock = (price == undefined) ? await page.evaluate(() => document.querySelector('#availability > span:nth-child(4) > span')?.innerText) : stock;
+    if(stock == undefined) console.log("Couldn't get amazon stock");
 
     price = stringFormatPrice(price);
     stock = stringFormatStock(stock);
@@ -337,14 +350,16 @@ async function planetongames(url){
     await page.goto(url);
 
     // price
-    let price =  '';
+    let price =  undefined;
     price = await page.evaluate(() => document.querySelector('#main > div.row.container_product > div.col-md-3.last_column > div.product-prices > div.product-price.h5.has-discount > div > span:nth-child(1)')?.innerText);
 
     price = (price == undefined) ? await page.evaluate(() => document.querySelector('#main > div.row.container_product > div.col-md-3.last_column > div.product-prices > div > div > span')?.textContent) : price;
+    if(price == undefined) console.log("Couldn't get planetongames price");
 
     //stock
-    let stock = '';
+    let stock = undefined;
     stock = await page.evaluate(() => document.querySelector('#availability_value')?.innerText);
+    if(stock == undefined) console.log("Couldn't get planetongames stock");
 
     price = stringFormatPrice(price);
     stock = stringFormatStock(stock);
@@ -363,6 +378,7 @@ async function gglounge(url){
         await page.waitForXPath("/html/body/div[1]/div[4]/div/div/article/div[2]/div[2]/p[1]/ins/span/bdi/text()", {timeout: 500});
     }
     catch(err){
+        console.log("Couldn't get gglounge price with discount:");
         console.log(err);
         failed = true;
     }
@@ -376,6 +392,7 @@ async function gglounge(url){
             await page.waitForXPath("/html/body/div[1]/div[4]/div/div/article/div[2]/div[2]/p[1]/span/bdi/text()", {timeout: 500});
         }
         catch(err){
+            console.log("Couldn't get gglounge price:");
             console.log(err);
             failed = true;
         }
@@ -389,6 +406,7 @@ async function gglounge(url){
         await page.waitForXPath("/html/body/div[1]/div[4]/div/div/article/div[2]/div[2]/p[2]", {timeout: 500});
     }
     catch(err){
+        console.log("Couldn't get gglounge out of stock:");
         console.log(err);
         failed = true;
     }
@@ -402,6 +420,7 @@ async function gglounge(url){
             await page.waitForXPath("/html/body/div[1]/div[4]/div/div/article/div[2]/div[2]/p[2]", {timeout: 500});
         }
         catch(err){
+            console.log("Couldn't get gglounge in stock:");
             console.log(err);
             failed = true;
         }
@@ -423,12 +442,14 @@ async function versusgamecenter(url){
     await page.goto(url);
 
     // price
-    let price =  '';
+    let price =  undefined;
     price = await page.evaluate(() => document.querySelector('body > main > div > div > div > div > div.product-details-inner > div > div.col-md-7 > div > div.pricebox > span')?.innerText);
+    if(price == undefined) console.log("Couldn't get versusgamecenter price");
 
     //stock
-    let stock = '';
+    let stock = undefined;
     stock = await page.evaluate(() => document.querySelector('body > main > div > div > div > div > div.product-details-inner > div > div.col-md-7 > div > div.availability.mb-20 > span')?.innerText);
+    if(stock == undefined) console.log("Couldn't get versusgamecenter stock");
 
     price = stringFormatPrice(price);
     stock = stringFormatStock(stock);
@@ -449,6 +470,7 @@ async function devir(url){
         await page.waitForXPath("/html/body/div[4]/main/div[2]/div/div[1]/div[2]/div/span[2]/span/span[2]/span", {timeout: 500});
     }
     catch(err){
+        console.log("Couldn't get devir price discount:");
         console.log(err);
         failed = true;
     }
@@ -462,6 +484,7 @@ async function devir(url){
             await page.waitForXPath("/html/body/div[4]/main/div[2]/div/div[1]/div[2]/div/span/span/span", {timeout: 500});
         }
         catch(err){
+        console.log("Couldn't get devir price:");
             console.log(err);
             failed = true;
         }
