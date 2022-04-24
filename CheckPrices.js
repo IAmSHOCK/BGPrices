@@ -373,13 +373,12 @@ async function gglounge(url){
     await page.goto(url);
     let failed = false;
 
-    //price discount
+    //price with discount
     try{
         await page.waitForXPath("/html/body/div[1]/div[4]/div/div/article/div[2]/div[2]/p[1]/ins/span/bdi/text()", {timeout: 500});
     }
     catch(err){
         console.log("Couldn't get gglounge price with discount:");
-        console.log(err);
         failed = true;
     }
     let handlerPrice = failed ? '' : await page.$x("/html/body/div[1]/div[4]/div/div/article/div[2]/div[2]/p[1]/ins/span/bdi/text()");
@@ -465,12 +464,12 @@ async function devir(url){
     await page.goto(url);
     let failed = false;
 
-    //price discount
+    //price with discount
     try{
         await page.waitForXPath("/html/body/div[4]/main/div[2]/div/div[1]/div[2]/div/span[2]/span/span[2]/span", {timeout: 500});
     }
     catch(err){
-        console.log("Couldn't get devir price discount:");
+        console.log("Couldn't get devir price with discount:");
         console.log(err);
         failed = true;
     }
