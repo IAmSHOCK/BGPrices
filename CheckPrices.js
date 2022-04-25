@@ -18,7 +18,7 @@ async function scrape(){
     let k = 0;
     let obj = {};
     let returnedObj = {};
-    //i is for input, j is for stores of a given game and k is for scrapedGames
+    //i is for input
     for (let i = 1; i < input.length; i++) {
         let elem = input[i];
         if (isGame(elem)){
