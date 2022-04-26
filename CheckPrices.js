@@ -10,8 +10,6 @@ async function scrape(){
     let scrapedGames = [];
 
     let gameName = input[0];
-    let price = 0;
-    let stock = "";
 
     let prices = [];
     let j = 0;
@@ -127,7 +125,7 @@ function isObjectEmpty(obj) {
 async function jogonamesa(url){
     let browser = await puppeteer.launch();
     let page = await browser.newPage();
-    await preparePageForTests(page);
+    await preparePageForScrape(page);
     let failed = false;
     await page.goto(url);
     let noInfo = false
@@ -175,7 +173,7 @@ async function jogonamesa(url){
 async function kultgames(url){
     let browser = await puppeteer.launch();
     let page = await browser.newPage();
-    await preparePageForTests(page);
+    await preparePageForScrape(page);
     await page.goto(url);
 
     // price
@@ -198,7 +196,7 @@ async function kultgames(url){
 async function gameplay(url){
     let browser = await puppeteer.launch();
     let page = await browser.newPage();
-    await preparePageForTests(page);
+    await preparePageForScrape(page);
     await page.goto(url);
 
     // price
@@ -222,7 +220,7 @@ async function gameplay(url){
 async function juegosdelamesaredonda(url){
     let browser = await puppeteer.launch();
     let page = await browser.newPage();
-    await preparePageForTests(page);
+    await preparePageForScrape(page);
     await page.goto(url);
 
     // price
@@ -245,7 +243,7 @@ async function juegosdelamesaredonda(url){
 async function diver(url){
     let browser = await puppeteer.launch();
     let page = await browser.newPage();
-    await preparePageForTests(page);
+    await preparePageForScrape(page);
     await page.goto(url);
 
     // price
@@ -268,7 +266,7 @@ async function diver(url){
 async function arenaporto(url){
     let browser = await puppeteer.launch();
     let page = await browser.newPage();
-    await preparePageForTests(page);
+    await preparePageForScrape(page);
     await page.goto(url);
 
     // price
@@ -293,7 +291,7 @@ async function arenaporto(url){
 async function dracotienda(url){
     let browser = await puppeteer.launch();
     let page = await browser.newPage();
-    await preparePageForTests(page);
+    await preparePageForScrape(page);
     await page.goto(url);
 
     // price
@@ -320,7 +318,7 @@ async function dracotienda(url){
 async function amazon(url){
     let browser = await puppeteer.launch();
     let page = await browser.newPage();
-    await preparePageForTests(page);
+    await preparePageForScrape(page);
     await page.goto(url);
 
     // price
@@ -346,7 +344,7 @@ async function amazon(url){
 async function planetongames(url){
     let browser = await puppeteer.launch();
     let page = await browser.newPage();
-    await preparePageForTests(page);
+    await preparePageForScrape(page);
     await page.goto(url);
 
     // price
@@ -369,7 +367,7 @@ async function planetongames(url){
 async function gglounge(url){
     let browser = await puppeteer.launch();
     let page = await browser.newPage();
-    await preparePageForTests(page);
+    await preparePageForScrape(page);
     await page.goto(url);
     let failed = false;
 
@@ -437,7 +435,7 @@ async function gglounge(url){
 async function versusgamecenter(url){
     let browser = await puppeteer.launch();
     let page = await browser.newPage();
-    await preparePageForTests(page);
+    await preparePageForScrape(page);
     await page.goto(url);
 
     // price
@@ -460,7 +458,7 @@ async function versusgamecenter(url){
 async function devir(url){
     let browser = await puppeteer.launch();
     let page = await browser.newPage();
-    await preparePageForTests(page);
+    await preparePageForScrape(page);
     await page.goto(url);
     let failed = false;
 
@@ -508,7 +506,7 @@ function getOldPrices(){
 
 
 
-async function preparePageForTests(page) {
+async function preparePageForScrape(page) {
     // Pass the User-Agent Test.
     const userAgent = 'Mozilla/5.0 (X11; Linux x86_64)' +
       'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.39 Safari/537.36';
