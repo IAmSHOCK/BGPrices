@@ -1,5 +1,6 @@
 const puppeteer = require('puppeteer');
 const fs = require("fs");
+const ObjectsToCsv = require('objects-to-csv');
 
 //sitename = FRUKLITS
 
@@ -20,7 +21,7 @@ async function scrape(){
     for (let i = 1; i < input.length; i++) {
         let elem = input[i];
         if (isGame(elem)){
-            let tmp = {gameName: gameName, data: prices};
+            let tmp = {gameName: gameName, prices};
             scrapedGames[k++] = tmp;
             console.log("Final scraped game: ", tmp);
             gameName = elem;
@@ -88,10 +89,20 @@ async function scrape(){
                 if(!isObjectEmpty(obj)) prices[j++] =  obj;
             }
         }
+        if(i == 20) break;
     }
+    new ObjectsToCsv(scrapedGames).toDisk('./test.csv', { allColumns: true });
 
     console.log("Closing browser.");
 }
+
+function convertToCSV(arr) {
+    const array = [Object.keys(arr[0])].concat(arr)
+
+    return array.map(it => {
+      return Object.values(it).toString()
+    }).join('\n')
+  }
 
 // ----------- HELPERS ---------------
 
