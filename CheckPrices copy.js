@@ -5,30 +5,27 @@ const { checkPrime } = require('crypto');
 //sitename = FRUKLITS
 
 let input = fs.readFileSync('./input.txt').toString().split("\n");
-let logger = [];
+let logger = [{}];
 async function scrape(){
     let oldPrices = getOldPrices();
-
-    console.log("DEBUG oldPrices ", oldPrices);
+    writeOld(oldPrices);
 
     let newPrices = [];
     newPrices[0] = {gameName: input[0], from: '', bestPrice: '5000', stock: '', price_jogonamesa: '', stock_jogonamesa: '', price_kultgames: '', stock_kultgames: '', price_gameplay: '', stock_gameplay: '', price_juegosdelamesaredonda: '', stock_juegosdelamesaredonda: '', price_diver: '', stock_diver: '', price_arenaporto: '', stock_arenaporto: '', price_dracotienda: '', stock_dracotienda: '', price_amazon: '', stock_amazon: '', price_planetongames: '', stock_planetongames: '', price_gglounge: '', stock_gglounge: '', versusgamecenter: '', stock_versusgamecenter: '', price_devir: '', stock_devir: ''};
 
-    let gameName;
     let k = 0;
     let returnedObj = {};
     //i is for input
     for (let i = 1; i < input.length; i++) {
         let elem = input[i];
         if (isGame(elem)){
-            console.log("DEBUG Final Scraped game: ", newPrices[k]);
-            gameName = elem;
-            newPrices[++k] = {gameName: gameName, from: '', bestPrice: '5000', stock: '', price_jogonamesa: '', stock_jogonamesa: '', price_kultgames: '', stock_kultgames: '', price_gameplay: '', stock_gameplay: '', price_juegosdelamesaredonda: '', stock_juegosdelamesaredonda: '', price_diver: '', stock_diver: '', price_arenaporto: '', stock_arenaporto: '', price_dracotienda: '', stock_dracotienda: '', price_amazon: '', stock_amazon: '', price_planetongames: '', stock_planetongames: '', price_gglounge: '', stock_gglounge: '', versusgamecenter: '', stock_versusgamecenter: '', price_devir: '', stock_devir: ''};
+            console.log("Final Scraped game: ", newPrices[k]);
+            newPrices[++k] = {gameName: elem, from: '', bestPrice: '5000', stock: '', price_jogonamesa: '', stock_jogonamesa: '', price_kultgames: '', stock_kultgames: '', price_gameplay: '', stock_gameplay: '', price_juegosdelamesaredonda: '', stock_juegosdelamesaredonda: '', price_diver: '', stock_diver: '', price_arenaporto: '', stock_arenaporto: '', price_dracotienda: '', stock_dracotienda: '', price_amazon: '', stock_amazon: '', price_planetongames: '', stock_planetongames: '', price_gglounge: '', stock_gglounge: '', versusgamecenter: '', stock_versusgamecenter: '', price_devir: '', stock_devir: ''};
         }
         else {
             returnedObj = {};
             let hostName = getHostName(elem);
-            // console.log("hostname:", hostName);
+            console.log("hostname:", hostName);
             switch(hostName){
                 case "jogonamesa.pt": case "www.jogonamesa.pt":
                     returnedObj = await jogonamesa(elem);
@@ -40,7 +37,7 @@ async function scrape(){
                     returnedObj = await kultgames(elem);
                     newPrices[k].price_kultgames = returnedObj.price;
                     newPrices[k].stock_kultgames = returnedObj.stock;
-                    checkOldPrice(newPrices, oldPrices, 'kultgames', gameName);
+                    checkOldPrice(newPrices, oldPrices, 'kultgames', elem);
                     break;
 
                 case "gameplay.pt": case "www.gameplay.pt":
@@ -110,7 +107,7 @@ async function scrape(){
     // new ObjectsToCsv(newPrices).toDisk('./test.csv', { allColumns: true });
     let result = convertToCSV(newPrices);
     writeScrapped(result);
-    console.log("logger: ", logger);
+    console.log(logger);
     console.log("Closing browser.");
 }
 
@@ -128,6 +125,12 @@ function evaluateBestPrice(scraped, elem){
 }
 
 function convertToCSV(arr) {
+    // const array = [Object.keys(arr[0])].concat(arr)
+    // console.log(array);
+
+    // return array.map(it => {
+    //   return Object.values(it).toString()
+    // }).join('\n')
 
     let csv = '';
     let header = Object.keys(arr[0]).join(',');
@@ -150,17 +153,7 @@ function fromCSV(bufferString){
     }
     jsonObj.push(obj);
     }
-
-    console.log("DEBUG: fromCSV() ", jsonObj);
     return jsonObj;
-}
-
-function getOldPrices(){
-    let input = fs.readFileSync('./BoadgamePrices.csv').toString();
-    console.log("DEBUG: getOldPrices() ", input);
-    writeOld(input);
-    input = fromCSV(input);
-    return input;
 }
 
 function writeScrapped(result){
@@ -184,22 +177,15 @@ function writeOld(old){
 }
 
 function checkOldPrice(newS, oldS, host, gameName){
-    let i = getIndex(oldS, gameName);
+    let i = getIndex(oldS, host, gameName);
     if(i == -1) return ;
-    if(newS[i][`price_${host}`] != oldS[i][`price_${host}`] || newS[i][`stock_${host}`] != oldS[i][`stock_${host}`]){
-        let result = {game: gameName, from: host, newPrice: newS[i][`price_${host}`], newStock: newS[i][`stock_${host}`], oldPrice: oldS[i][`price_${host}`], oldStock: oldS[i][`stock_${host}`]};
-        console.log("DEBUG adding to logger", result);
-        logger.push(result);
+    if(newS[i].price != oldS[i].price || newS[i].stock != oldS[i].stock){
+        logger.push({game: gameName, from: host, newPrice: newS[i].price, newStock: newS[i].stock, oldPrice: oldS[i].price, oldStock: oldS[i].stock})
     }
 }
 
-function getIndex(oldS, gameName){
-    for (const key in oldS) {
-        if(oldS[key].gameName == gameName){
-            return key;
-        }
-    }
-    return -1;
+function getIndex(oldS, host, gameName){
+    return 1;
 }
 
 // ----------- HELPERS ---------------
@@ -608,6 +594,10 @@ async function devir(url){
 }
 
 // ------------ END SITE SCRAPERS-----
+
+function getOldPrices(){
+    return fs.readFileSync('./BoadgamePrices.csv').toString();
+}
 
 async function preparePageForScrape(page) {
     // Pass the User-Agent Test.
