@@ -118,7 +118,6 @@ async function scrape(){
             }
             newPrices[k] = evaluateBestPrice(newPrices[k], {hostName, ...returnedObj})
         }
-        if(i == 8) break;
     }
     // new ObjectsToCsv(newPrices).toDisk('./test.csv', { allColumns: true });
     let result = convertToCSV(newPrices);
@@ -198,7 +197,7 @@ function writeOld(old){
 
 function checkOldPrice(newS, oldS, host, gameName){
     let i = getIndex(oldS, gameName);
-    if(i == -1) return ;
+    if(i == -1 || oldS[i][`price_${host}`] == '' || oldS[i][`stock_${host}`] == '') return ;
     if(newS[i][`price_${host}`] != oldS[i][`price_${host}`] || newS[i][`stock_${host}`] != oldS[i][`stock_${host}`]){
         let result = {game: gameName, from: host, newPrice: newS[i][`price_${host}`], newStock: newS[i][`stock_${host}`], oldPrice: oldS[i][`price_${host}`], oldStock: oldS[i][`stock_${host}`]};
         console.log("DEBUG adding to logger", result);
