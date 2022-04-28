@@ -36,6 +36,7 @@ async function scrape(){
                     returnedObj = await jogonamesa(elem);
                     newPrices[k].price_jogonamesa = returnedObj.price;
                     newPrices[k].stock_jogonamesa = returnedObj.stock;
+                    checkOldPrice(newPrices, oldPrices, 'jogonamesa', gameName);
                     break;
 
                 case "kultgames.pt": case "www.kultgames.pt":
@@ -49,60 +50,70 @@ async function scrape(){
                     returnedObj = await gameplay(elem);
                     newPrices[k].price_gameplay = returnedObj.price;
                     newPrices[k].stock_gameplay = returnedObj.stock;
+                    checkOldPrice(newPrices, oldPrices, 'gameplay', gameName);
                     break;
 
                 case "juegosdelamesaredonda.com": case "www.juegosdelamesaredonda.com":
                     returnedObj = await juegosdelamesaredonda(elem);
                     newPrices[k].price_gameplay = returnedObj.price;
                     newPrices[k].stock_gameplay = returnedObj.stock;
+                    checkOldPrice(newPrices, oldPrices, 'juegosdelamesaredonda', gameName);
                     break;
 
                 case "diver.pt": case "www.diver.pt":
                     returnedObj = await diver(elem);
                     newPrices[k].price_diver = returnedObj.price;
                     newPrices[k].stock_diver = returnedObj.stock;
+                    checkOldPrice(newPrices, oldPrices, 'diver', gameName);
                     break;
 
                 case "arenaporto.com": case "www.arenaporto.com":
                     returnedObj = await arenaporto(elem);
                     newPrices[k].price_arenaporto= returnedObj.price;
                     newPrices[k].stock_arenaporto = returnedObj.stock;
+                    checkOldPrice(newPrices, oldPrices, 'arenaporto', gameName);
                     break;
 
                 case "dracotienda.com": case "www.dracotienda.com":
                     returnedObj = await dracotienda(elem);
                     newPrices[k].price_dracotienda = returnedObj.price;
                     newPrices[k].stock_dracotienda = returnedObj.stock;
+                    checkOldPrice(newPrices, oldPrices, 'dracotienda', gameName);
                     break;
 
                 case "amazon.es": case "www.amazon.es":
                     returnedObj = await amazon(elem);
                     newPrices[k].price_amazon = returnedObj.price;
                     newPrices[k].stock_amazon = returnedObj.stock;
+                    checkOldPrice(newPrices, oldPrices, 'amazon', gameName);
                     break;
 
                 case "planetongames.com": case "www.planetongames.com":
                     returnedObj = await planetongames(elem);
                     newPrices[k].price_planetongames = returnedObj.price;
                     newPrices[k].stock_planetongames = returnedObj.stock;
+                    checkOldPrice(newPrices, oldPrices, 'planetongames', gameName);
                     break;
 
                 case "gglounge.pt": case "www.gglounge.pt":
                     returnedObj = await gglounge(elem);
                     newPrices[k].price_gglounge = returnedObj.price;
                     newPrices[k].stock_gglounge = returnedObj.stock;
+                    checkOldPrice(newPrices, oldPrices, 'gglounge', gameName);
                     break;
 
                 case "versusgamecenter.pt": case "www.versusgamecenter.pt":
                     returnedObj = await versusgamecenter(elem);
                     newPrices[k].price_versusgamecenter = returnedObj.price;
                     newPrices[k].stock_versusgamecenter = returnedObj.stock;
+                    checkOldPrice(newPrices, oldPrices, 'versusgamecenter', gameName);
                     break;
 
                 case "devir.pt": case "www.devir.pt":
                     returnedObj = await devir(elem);
                     newPrices[k].price_devir = returnedObj.price;
                     newPrices[k].stock_devir = returnedObj.stock;
+                    checkOldPrice(newPrices, oldPrices, 'devir', gameName);
                     break;
             }
             newPrices[k] = evaluateBestPrice(newPrices[k], {hostName, ...returnedObj})
