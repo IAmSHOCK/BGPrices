@@ -98,13 +98,14 @@ async function scrape(){
                     scrapedGames[k].stock_devir = returnedObj.stock;
                     break;
             }
+            console.log("SCRAPED GAME", scrapedGames[k]);
             scrapedGames[k] = evaluateBestPrice(scrapedGames[k], {hostName, ...returnedObj})
         }
         if(i == 8) break;
     }
     // new ObjectsToCsv(scrapedGames).toDisk('./test.csv', { allColumns: true });
     let result = convertToCSV(scrapedGames);
-    fs.writeFile('test.csv', result, (err) => {
+    fs.writeFile('BoadgamePrices.csv', result, (err) => {
         // throws an error, you could also catch it here
         if (err) throw err;
 
@@ -128,18 +129,20 @@ function evaluateBestPrice(scraped, elem){
 }
 
 function convertToCSV(arr) {
-    const array = [Object.keys(arr[0])].concat(arr)
+    // const array = [Object.keys(arr[0])].concat(arr)
+    // console.log(array);
 
-    return array.map(it => {
-      return Object.values(it).toString()
-    }).join('\n')
+    // return array.map(it => {
+    //   return Object.values(it).toString()
+    // }).join('\n')
+
+    let csv = '';
+    let header = Object.keys(arr[0]).join(',');
+    let values = arr.map(o => Object.values(o).join(',')).join('\n');
+
+    csv += header + '\n' + values;
+    return csv;
   }
-
-function loadInitialCSV(){
-    let str = {gameName: '', from: '', bestPrice: '', stock: '', price_jogonamesa: '', stock_jogonamesa: '', price_kultgames: '', stock_kultgames: '', price_gameplay: '', stock_gameplay: '', price_juegosdelamesaredonda: '', stock_juegosdelamesaredonda: '', price_diver: '', stock_diver: '', price_arenaporto: '', stock_arenaporto: '', price_dracotienda: '', stock_dracotienda: '', price_amazon: '', stock_amazon: '', price_planetongames: '', stock_planetongames: '', price_gglounge: '', stock_gglounge: '', versusgamecenter: '', stock_versusgamecenter: '', price_devir: '', stock_devir: ''};
-    // let str = {gameName: '', from: '', bestPrice: '', stock: '', jogonamesa: '', price_jogonamesa: '', stock_jogonamesa: '', kultgames: '', price_kultgames: '', stock_kultgames: '', gameplay: '', price_gameplay: '', stock_gameplay: '', juegosdelamesaredonda: '', price_juegosdelamesaredonda: '', stock_juegosdelamesaredonda: '', diver: '', price_diver: '', stock_diver: '', arenaporto: '', price_arenaporto: '', stock_arenaporto: '', dracotienda: '', price_dracotienda: '', stock_dracotienda: '', amazon: '', price_amazon: '', stock_amazon: '', planetongames: '', price_planetongames: '', stock_planetongames: '', gglounge: '', price_gglounge: '', stock_gglounge: '', versusgamecenter: '', price_versusgamecenter: '', stock_versusgamecenter: '', devir: '', price_devir: '', stock_devir: ''}
-    return str;
-}
 
 // ----------- HELPERS ---------------
 
