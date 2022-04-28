@@ -4,6 +4,8 @@ const { checkPrime } = require('crypto');
 
 //sitename = FRUKLITS
 
+//TODO write logger to file
+
 let input = fs.readFileSync('./input.txt').toString().split("\n");
 let logger = [];
 async function scrape(){
