@@ -1,99 +1,130 @@
 const puppeteer = require('puppeteer');
 const fs = require("fs");
 const ObjectsToCsv = require('objects-to-csv');
+let input = fs.readFileSync('./input.txt').toString().split("\n");
 
 //sitename = FRUKLITS
 
-let input = fs.readFileSync('./input.txt').toString().split("\n");
-
-
 async function scrape(){
     let scrapedGames = [];
+    scrapedGames[0] = {gameName: input[0], from: '', bestPrice: '5000', stock: '', price_jogonamesa: '', stock_jogonamesa: '', price_kultgames: '', stock_kultgames: '', price_gameplay: '', stock_gameplay: '', price_juegosdelamesaredonda: '', stock_juegosdelamesaredonda: '', price_diver: '', stock_diver: '', price_arenaporto: '', stock_arenaporto: '', price_dracotienda: '', stock_dracotienda: '', price_amazon: '', stock_amazon: '', price_planetongames: '', stock_planetongames: '', price_gglounge: '', stock_gglounge: '', versusgamecenter: '', stock_versusgamecenter: '', price_devir: '', stock_devir: ''};
 
-    let gameName = input[0];
-
-    let prices = [];
-    let j = 0;
     let k = 0;
-    let obj = {};
+    // let k = 1;
     let returnedObj = {};
     //i is for input
     for (let i = 1; i < input.length; i++) {
         let elem = input[i];
         if (isGame(elem)){
-            let tmp = {gameName: gameName, prices};
-            scrapedGames[k++] = tmp;
-            console.log("Final scraped game: ", tmp);
-            gameName = elem;
-            console.log("Game name: ", gameName);
-            prices = [];
-            j = 0;
+            console.log("Final Scraped game: ", scrapedGames[k]);
+            scrapedGames[++k] = {gameName: elem, from: '', bestPrice: '5000', stock: '', price_jogonamesa: '', stock_jogonamesa: '', price_kultgames: '', stock_kultgames: '', price_gameplay: '', stock_gameplay: '', price_juegosdelamesaredonda: '', stock_juegosdelamesaredonda: '', price_diver: '', stock_diver: '', price_arenaporto: '', stock_arenaporto: '', price_dracotienda: '', stock_dracotienda: '', price_amazon: '', stock_amazon: '', price_planetongames: '', stock_planetongames: '', price_gglounge: '', stock_gglounge: '', versusgamecenter: '', stock_versusgamecenter: '', price_devir: '', stock_devir: ''};
+            // scrapedGames[++k] = {gameName: elem, from: '', bestPrice: '5000', stock: '', jogonamesa: '', price_jogonamesa: '', stock_jogonamesa: '', kultgames: '', price_kultgames: '', stock_kultgames: '', gameplay: '', price_gameplay: '', stock_gameplay: '', juegosdelamesaredonda: '', price_juegosdelamesaredonda: '', stock_juegosdelamesaredonda: '', diver: '', price_diver: '', stock_diver: '', arenaporto: '', price_arenaporto: '', stock_arenaporto: '', dracotienda: '', price_dracotienda: '', stock_dracotienda: '', amazon: '', price_amazon: '', stock_amazon: '', planetongames: '', price_planetongames: '', stock_planetongames: '', gglounge: '', price_gglounge: '', stock_gglounge: '', versusgamecenter: '', price_versusgamecenter: '', stock_versusgamecenter: '', devir: '', price_devir: '', stock_devir: ''};
+
         }
         else {
-            obj = {};
             returnedObj = {};
             let hostName = getHostName(elem);
             console.log("hostname:", hostName);
             switch(hostName){
                 case "jogonamesa.pt": case "www.jogonamesa.pt":
                     returnedObj = await jogonamesa(elem);
+                    scrapedGames[k].price_jogonamesa = returnedObj.price;
+                    scrapedGames[k].stock_jogonamesa = returnedObj.stock;
                     break;
 
                 case "kultgames.pt": case "www.kultgames.pt":
                     returnedObj = await kultgames(elem);
+                    scrapedGames[k].price_kultgames = returnedObj.price;
+                    scrapedGames[k].stock_kultgames = returnedObj.stock;
                     break;
 
                 case "gameplay.pt": case "www.gameplay.pt":
                     returnedObj = await gameplay(elem);
+                    scrapedGames[k].price_gameplay = returnedObj.price;
+                    scrapedGames[k].stock_gameplay = returnedObj.stock;
                     break;
 
                 case "juegosdelamesaredonda.com": case "www.juegosdelamesaredonda.com":
                     returnedObj = await juegosdelamesaredonda(elem);
+                    scrapedGames[k].price_gameplay = returnedObj.price;
+                    scrapedGames[k].stock_gameplay = returnedObj.stock;
                     break;
 
                 case "diver.pt": case "www.diver.pt":
                     returnedObj = await diver(elem);
+                    scrapedGames[k].price_diver = returnedObj.price;
+                    scrapedGames[k].stock_diver = returnedObj.stock;
                     break;
 
                 case "arenaporto.com": case "www.arenaporto.com":
                     returnedObj = await arenaporto(elem);
+                    scrapedGames[k].price_arenaporto= returnedObj.price;
+                    scrapedGames[k].stock_arenaporto = returnedObj.stock;
                     break;
 
                 case "dracotienda.com": case "www.dracotienda.com":
                     returnedObj = await dracotienda(elem);
+                    scrapedGames[k].price_dracotienda = returnedObj.price;
+                    scrapedGames[k].stock_dracotienda = returnedObj.stock;
                     break;
 
                 case "amazon.es": case "www.amazon.es":
                     returnedObj = await amazon(elem);
+                    scrapedGames[k].price_amazon = returnedObj.price;
+                    scrapedGames[k].stock_amazon = returnedObj.stock;
                     break;
 
                 case "planetongames.com": case "www.planetongames.com":
                     returnedObj = await planetongames(elem);
+                    scrapedGames[k].price_planetongames = returnedObj.price;
+                    scrapedGames[k].stock_planetongames = returnedObj.stock;
                     break;
 
                 case "gglounge.pt": case "www.gglounge.pt":
                     returnedObj = await gglounge(elem);
+                    scrapedGames[k].price_gglounge = returnedObj.price;
+                    scrapedGames[k].stock_gglounge = returnedObj.stock;
                     break;
 
                 case "versusgamecenter.pt": case "www.versusgamecenter.pt":
                     returnedObj = await versusgamecenter(elem);
+                    scrapedGames[k].price_versusgamecenter = returnedObj.price;
+                    scrapedGames[k].stock_versusgamecenter = returnedObj.stock;
                     break;
 
                 case "devir.pt": case "www.devir.pt":
                     returnedObj = await devir(elem);
+                    scrapedGames[k].price_devir = returnedObj.price;
+                    scrapedGames[k].stock_devir = returnedObj.stock;
                     break;
             }
-            if(!hostName.includes("cultodacaixa.pt")){
-                obj = isObjectEmpty(returnedObj) ? {} : {store: hostName, ...returnedObj};
-
-                if(!isObjectEmpty(obj)) prices[j++] =  obj;
-            }
+            scrapedGames[k] = evaluateBestPrice(scrapedGames[k], {hostName, ...returnedObj})
         }
-        if(i == 20) break;
+        if(i == 8) break;
     }
-    new ObjectsToCsv(scrapedGames).toDisk('./test.csv', { allColumns: true });
+    // new ObjectsToCsv(scrapedGames).toDisk('./test.csv', { allColumns: true });
+    let result = convertToCSV(scrapedGames);
+    fs.writeFile('test.csv', result, (err) => {
+        // throws an error, you could also catch it here
+        if (err) throw err;
 
+        // success case, the file was saved
+        console.log('CSV saved!');
+    });
     console.log("Closing browser.");
+}
+
+function evaluateBestPrice(scraped, elem){
+    //TODO implement logic
+    let currBest = parseInt(stringFormatPrice(scraped.bestPrice));
+    let contender = parseInt(stringFormatPrice(elem.price));
+    let result = 0;
+    if(contender < currBest){
+        scraped.bestPrice = elem.price;
+        scraped.from = elem.hostName;
+        scraped.stock = elem.stock;
+    }
+    return scraped;
 }
 
 function convertToCSV(arr) {
@@ -103,6 +134,12 @@ function convertToCSV(arr) {
       return Object.values(it).toString()
     }).join('\n')
   }
+
+function loadInitialCSV(){
+    let str = {gameName: '', from: '', bestPrice: '', stock: '', price_jogonamesa: '', stock_jogonamesa: '', price_kultgames: '', stock_kultgames: '', price_gameplay: '', stock_gameplay: '', price_juegosdelamesaredonda: '', stock_juegosdelamesaredonda: '', price_diver: '', stock_diver: '', price_arenaporto: '', stock_arenaporto: '', price_dracotienda: '', stock_dracotienda: '', price_amazon: '', stock_amazon: '', price_planetongames: '', stock_planetongames: '', price_gglounge: '', stock_gglounge: '', versusgamecenter: '', stock_versusgamecenter: '', price_devir: '', stock_devir: ''};
+    // let str = {gameName: '', from: '', bestPrice: '', stock: '', jogonamesa: '', price_jogonamesa: '', stock_jogonamesa: '', kultgames: '', price_kultgames: '', stock_kultgames: '', gameplay: '', price_gameplay: '', stock_gameplay: '', juegosdelamesaredonda: '', price_juegosdelamesaredonda: '', stock_juegosdelamesaredonda: '', diver: '', price_diver: '', stock_diver: '', arenaporto: '', price_arenaporto: '', stock_arenaporto: '', dracotienda: '', price_dracotienda: '', stock_dracotienda: '', amazon: '', price_amazon: '', stock_amazon: '', planetongames: '', price_planetongames: '', stock_planetongames: '', gglounge: '', price_gglounge: '', stock_gglounge: '', versusgamecenter: '', price_versusgamecenter: '', stock_versusgamecenter: '', devir: '', price_devir: '', stock_devir: ''}
+    return str;
+}
 
 // ----------- HELPERS ---------------
 
@@ -115,15 +152,15 @@ function isGame(elem){
 }
 
 function stringFormatPrice(str){
-    return str?.replace(/€/, '').replace(',', '.').replace(/[^\w\s\.]/gi, '').replace(' ', '');
+    return str == undefined ? '' : str.replace(/€/, '').replace(',', '.').replace(/\s/g, '').replace(' ', '');
 }
 
 function stringFormatStock(str){
-    return str?.toLowerCase().replace(/[^\w\s]/gi, '');
+    return str == undefined ? '' : str.toLowerCase().replace(/[^\w\s]/gi, '');
 }
 
 function formatterBeforeFormatter(str){
-    return str?.replace('Disponibilidad', '');
+    return str == undefined ? '' : str.replace('Disponibilidad', '');
 }
 
 function isObjectEmpty(obj) {
@@ -523,5 +560,4 @@ async function preparePageForScrape(page) {
       'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.39 Safari/537.36';
     await page.setUserAgent(userAgent);
 }
-
 scrape();
