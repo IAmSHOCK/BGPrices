@@ -8,6 +8,7 @@ const { checkPrime } = require('crypto');
 
 let input = fs.readFileSync('./input.txt').toString().split("\n");
 let logger = [];
+
 async function scrape(){
     let oldPrices = getOldPrices();
 
@@ -122,6 +123,7 @@ async function scrape(){
     let result = convertToCSV(newPrices);
     writeScrapped(result);
     console.log("logger: ", logger);
+    writeLogger(logger);
     console.log("Closing browser.");
 }
 
@@ -166,7 +168,12 @@ function fromCSV(bufferString){
 }
 
 function getOldPrices(){
-    let input = fs.readFileSync('./BoadgamePrices.csv').toString();
+    let input = "";
+    try {
+        input = fs.readFileSync('./BoadgamePrices.csv').toString();
+    } catch (error) {
+        console.log(error);
+    }
     console.log("DEBUG: getOldPrices() ", input);
     writeOld(input);
     input = fromCSV(input);
@@ -190,6 +197,16 @@ function writeOld(old){
 
         // success case, the file was saved
         console.log('Old CSV saved!');
+    });
+}
+
+function writeLogger(logger){
+    fs.writeFile(`BGPrices${Date.now().toLocaleDateString()}.log`, logger.join("").toString(), (err) => {
+        // throws an error, you could also catch it here
+        if (err) throw err;
+
+        // success case, the file was saved
+        console.log('Logger saved!');
     });
 }
 
