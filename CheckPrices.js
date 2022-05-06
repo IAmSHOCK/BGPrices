@@ -461,8 +461,8 @@ async function amazon(url){
     let price =  undefined;
     price = await page.evaluate(() => document.querySelector('#corePriceDisplay_desktop_feature_div > div.a-section.a-spacing-none.aok-align-center > span > span.a-offscreen')?.innerText);
     price = (price == undefined) ? await page.evaluate(() => document.querySelector('#corePrice_desktop > div > table > tbody > tr:nth-child(2) > td.a-span12 > span.a-price.a-text-price.a-size-medium.apexPriceToPay > span:nth-child(2)')?.innerText) : price;
+    price = (price == undefined) ? await page.evaluate(() => document.querySelector('#price')?.innerText) : price;
     if(price == undefined) console.log("Couldn't get amazon price");
-
 
     //stock
     let stock = undefined;
