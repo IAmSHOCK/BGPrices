@@ -119,7 +119,6 @@ async function scrape(){
             newPrices[k] = evaluateBestPrice(newPrices[k], {hostName, ...returnedObj})
         }
     }
-    // new ObjectsToCsv(newPrices).toDisk('./test.csv', { allColumns: true });
     let result = convertToCSV(newPrices);
     writeScrapped(result);
     console.log("logger: ", logger);
@@ -130,7 +129,6 @@ function evaluateBestPrice(scraped, elem){
     //TODO implement logic
     let currBest = parseInt(stringFormatPrice(scraped.bestPrice));
     let contender = parseInt(stringFormatPrice(elem.price));
-    let result = 0;
     if(contender < currBest){
         scraped.bestPrice = elem.price;
         scraped.from = elem.hostName;
