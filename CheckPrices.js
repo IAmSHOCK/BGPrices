@@ -115,22 +115,23 @@ async function scrape(){
                     checkOldPrice(newPrices, oldPrices, 'devir', gameName);
                     break;
 
+                // TODO
                 case "ajogar.com": case "www.ajogar.com":
-                    returnedObj = await devir(elem);
+                    returnedObj = await ajogar(elem);
                     newPrices[k].price_devir = returnedObj.price;
                     newPrices[k].stock_devir = returnedObj.stock;
                     checkOldPrice(newPrices, oldPrices, 'ajogar', gameName);
                 break;
 
                 case "saltadacaixa.pt": case "www.saltadacaixa.pt":
-                    returnedObj = await devir(elem);
+                    returnedObj = await saltadacaixa(elem);
                     newPrices[k].price_devir = returnedObj.price;
                     newPrices[k].stock_devir = returnedObj.stock;
                     checkOldPrice(newPrices, oldPrices, 'saltadacaixa', gameName);
                     break;
 
                 case "jubilantsunday.com": case "www.jubilantsunday.com":
-                    returnedObj = await devir(elem);
+                    returnedObj = await jubilantsunday(elem);
                     newPrices[k].price_devir = returnedObj.price;
                     newPrices[k].stock_devir = returnedObj.stock;
                     checkOldPrice(newPrices, oldPrices, 'jubilantsunday', gameName);
