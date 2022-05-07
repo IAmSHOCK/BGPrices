@@ -12,8 +12,6 @@ let logger = [];
 async function scrape(){
     let oldPrices = getOldPrices();
 
-    console.log("DEBUG oldPrices ", oldPrices);
-
     let newPrices = [];
     newPrices[0] = {gameName: input[0], from: '', bestPrice: '5000', stock: '', price_jogonamesa: '', stock_jogonamesa: '', price_kultgames: '', stock_kultgames: '', price_gameplay: '', stock_gameplay: '', price_juegosdelamesaredonda: '', stock_juegosdelamesaredonda: '', price_diver: '', stock_diver: '', price_arenaporto: '', stock_arenaporto: '', price_dracotienda: '', stock_dracotienda: '', price_amazon: '', stock_amazon: '', price_planetongames: '', stock_planetongames: '', price_gglounge: '', stock_gglounge: '', versusgamecenter: '', stock_versusgamecenter: '', price_devir: '', stock_devir: ''};
 
@@ -116,6 +114,27 @@ async function scrape(){
                     newPrices[k].stock_devir = returnedObj.stock;
                     checkOldPrice(newPrices, oldPrices, 'devir', gameName);
                     break;
+
+                case "ajogar.com": case "www.ajogar.com":
+                    returnedObj = await devir(elem);
+                    newPrices[k].price_devir = returnedObj.price;
+                    newPrices[k].stock_devir = returnedObj.stock;
+                    checkOldPrice(newPrices, oldPrices, 'ajogar', gameName);
+                break;
+
+                case "saltadacaixa.pt": case "www.saltadacaixa.pt":
+                    returnedObj = await devir(elem);
+                    newPrices[k].price_devir = returnedObj.price;
+                    newPrices[k].stock_devir = returnedObj.stock;
+                    checkOldPrice(newPrices, oldPrices, 'saltadacaixa', gameName);
+                    break;
+
+                case "jubilantsunday.com": case "www.jubilantsunday.com":
+                    returnedObj = await devir(elem);
+                    newPrices[k].price_devir = returnedObj.price;
+                    newPrices[k].stock_devir = returnedObj.stock;
+                    checkOldPrice(newPrices, oldPrices, 'jubilantsunday', gameName);
+                break;
             }
             newPrices[k] = evaluateBestPrice(newPrices[k], {hostName, ...returnedObj})
         }
@@ -163,7 +182,7 @@ function fromCSV(bufferString){
     jsonObj.push(obj);
     }
 
-    console.log("DEBUG: fromCSV() ", jsonObj);
+    console.log("DEBUG: fromCSV() ");
     return jsonObj;
 }
 
@@ -171,12 +190,12 @@ function getOldPrices(){
     let input = "";
     try {
         input = fs.readFileSync('./BoadgamePrices.csv').toString();
+        writeOld(input);
+        input = fromCSV(input);
     } catch (error) {
         console.log(error);
     }
-    console.log("DEBUG: getOldPrices() ", input);
-    writeOld(input);
-    input = fromCSV(input);
+    console.log("DEBUG: getOldPrices() ");
     return input;
 }
 
@@ -274,7 +293,7 @@ async function jogonamesa(url){
         // console.log("Couldn't get jogonamesa no info:");
         // console.log(err);
     }
-    if(noInfo) return {};
+    if(noInfo) return {price: '', stock: ''};;
 
     //price
     try{
@@ -291,17 +310,18 @@ async function jogonamesa(url){
     failed = false;
 
     //stock
-    let stock = null;
+    let stock = undefined;
 
     stock =  await page.evaluate(() => document.querySelector('#comprar_visivel > span.entrega')?.textContent);
-    if(stock == null) stock =  await page.evaluate(() => document.querySelector('#comprar_visivel > span.esgotado')?.textContent);
-    if(stock == null) stock =  await page.evaluate(() => document.querySelector('#comprar_visivel > span.reserva')?.textContent);
+    if(stock == undefined) stock =  await page.evaluate(() => document.querySelector('#comprar_visivel > span.esgotado')?.textContent);
+    if(stock == undefined) stock =  await page.evaluate(() => document.querySelector('#comprar_visivel > span.reserva')?.textContent);
 
     if(stock == null) console.log("Couldn't get jogonamesa stock");
 
-    price = stringFormatPrice(price);
-    stock = stringFormatStock(stock);
+    price = (price == undefined ) ? '' : stringFormatPrice(price);
+    stock = (stock == undefined ) ? '' : stringFormatStock(stock);
 
+    console.log({price: price, stock: stock});
     await browser.close();
     return {price: price, stock: stock};
 }
