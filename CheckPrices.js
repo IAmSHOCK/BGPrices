@@ -263,7 +263,7 @@ function stringFormatPrice(str){
 }
 
 function stringFormatStock(str){
-    return str == undefined ? '' : str.toLowerCase().replace(/[^\w\s]/gi, '');
+    return str == undefined ? '' : str.toLowerCase().replace(/\t/g, '').replace(/\n/g, '').replace(/[^\w\s]/gi, '');
 }
 
 function formatterBeforeFormatter(str){
@@ -721,18 +721,19 @@ async function saltadacaixa(url){
             await page.waitForXPath("/html/body/div[1]/div[2]/div/div[2]/div/section[1]/div/div/div[1]/div/div/section[2]/div/div/div[3]/div/div/div/div/p", {timeout: 500});
         }
         catch(err){
-            console.log("Couldn't get saltadacaixa in stock:");
+            console.log("Couldn't get saltadacaixa backorder:");
             console.log(err);
             failed = true;
         }
         handlerStock = failed ? '' : await page.$x("/html/body/div[1]/div[2]/div/div[2]/div/section[1]/div/div/div[1]/div/div/section[2]/div/div/div[3]/div/div/div/div/p");
         stock        = failed ? '' : await page.evaluate(el => el.textContent, handlerStock[0]);
     }
-
+    console.log("stock: ", stock);
     price = stringFormatPrice(price);
     stock = stringFormatStock(stock);
 
     await browser.close();
+    console.log("saltadacaixa: ", {price: price, stock: stock});
     return {price: price, stock: stock};
 }
 
