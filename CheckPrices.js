@@ -658,21 +658,80 @@ async function saltadacaixa(url){
     let page = await browser.newPage();
     await preparePageForScrape(page);
     await page.goto(url);
+    let failed = false;
 
-    // price
-    let price =  undefined;
-    price = await page.evaluate(() => document.querySelector('#content > div > div.elementor.elementor-2464.elementor-location-single.post-8411.product.type-product.status-publish.has-post-thumbnail.product_cat-jogos-de-tabuleiro.product_cat-estrategia.product_tag-estrategia.pa_autor-simone-luciani.pa_autor-tommaso-battista.pa_duracao-67.pa_idade-minima-46.pa_ilustrador-antonio-de-luca.pa_ilustrador-mauro-alocci.pa_ilustrador-roman-roland-kuteynikov.pa_jogadores-32.pa_jogadores-33.pa_jogadores-34.pa_jogadores-35.pa_mecanicas-action-drafting.pa_mecanicas-contracts.pa_mecanicas-end-game-bonuses.pa_mecanicas-income.pa_mecanicas-network-and-route-building.pa_mecanicas-solo-solitaire-game.pa_mecanicas-turn-order-stat-based.pa_mecanicas-variable-player-powers.pa_mecanicas-variable-set-up.pa_mecanicas-worker-placement.ast-article-single.ast-woo-product-no-review.align-center.box-shadow-1.box-shadow-3-hover.ast-product-gallery-layout-horizontal.ast-qv-on-image.first.outofstock.shipping-taxable.purchasable.product-type-simple.product > div > section.elementor-section.elementor-top-section.elementor-element.elementor-element-7a514435.elementor-reverse-mobile.elementor-section-height-min-height.elementor-section-items-top.elementor-section-content-top.elementor-section-boxed.elementor-section-height-default > div > div > div.elementor-column.elementor-col-50.elementor-top-column.elementor-element.elementor-element-4fa3263 > div > div > section.elementor-section.elementor-inner-section.elementor-element.elementor-element-2a23988.elementor-section-boxed.elementor-section-height-default.elementor-section-height-default > div > div > div.elementor-column.elementor-col-33.elementor-inner-column.elementor-element.elementor-element-2849fbb > div > div > div > div > p > span > bdi')?.innerText);
-    if(price == undefined) console.log("Couldn't get saltadacaixa price");
+    //price with discount
+    try{
+        await page.waitForXPath("/html/body/div[1]/div[2]/div/div[2]/div/section[1]/div/div/div[1]/div/div/section[2]/div/div/div[1]/div/div/div/div/p/ins/span", {timeout: 500});
+    }
+    catch(err){
+        console.log("Couldn't get saltadacaixa price with discount:");
+        failed = true;
+    }
+    let handlerPrice = failed ? '' : await page.$x("/html/body/div[1]/div[2]/div/div[2]/div/section[1]/div/div/div[1]/div/div/section[2]/div/div/div[1]/div/div/div/div/p/ins/span");
+    let price        = failed ? '' : await page.evaluate(el => el.textContent, handlerPrice[0]);
 
-    //stock
-    let stock = undefined;
-    stock = await page.evaluate(() => document.querySelector('#content > div > div.elementor.elementor-2464.elementor-location-single.post-8411.product.type-product.status-publish.has-post-thumbnail.product_cat-jogos-de-tabuleiro.product_cat-estrategia.product_tag-estrategia.pa_autor-simone-luciani.pa_autor-tommaso-battista.pa_duracao-67.pa_idade-minima-46.pa_ilustrador-antonio-de-luca.pa_ilustrador-mauro-alocci.pa_ilustrador-roman-roland-kuteynikov.pa_jogadores-32.pa_jogadores-33.pa_jogadores-34.pa_jogadores-35.pa_mecanicas-action-drafting.pa_mecanicas-contracts.pa_mecanicas-end-game-bonuses.pa_mecanicas-income.pa_mecanicas-network-and-route-building.pa_mecanicas-solo-solitaire-game.pa_mecanicas-turn-order-stat-based.pa_mecanicas-variable-player-powers.pa_mecanicas-variable-set-up.pa_mecanicas-worker-placement.ast-article-single.ast-woo-product-no-review.align-center.box-shadow-1.box-shadow-3-hover.ast-product-gallery-layout-horizontal.ast-qv-on-image.first.outofstock.shipping-taxable.purchasable.product-type-simple.product > div > section.elementor-section.elementor-top-section.elementor-element.elementor-element-7a514435.elementor-reverse-mobile.elementor-section-height-min-height.elementor-section-items-top.elementor-section-content-top.elementor-section-boxed.elementor-section-height-default > div > div > div.elementor-column.elementor-col-50.elementor-top-column.elementor-element.elementor-element-4fa3263 > div > div > section.elementor-section.elementor-inner-section.elementor-element.elementor-element-2a23988.elementor-section-boxed.elementor-section-height-default.elementor-section-height-default > div > div > div.elementor-column.elementor-col-33.elementor-inner-column.elementor-element.elementor-element-8ad8cd8 > div > div > div > div > p')?.innerText);
-    if(stock == undefined) console.log("Couldn't get saltadacaixa stock");
+    //price
+    if(failed){
+        failed = false;
+        try{
+            await page.waitForXPath("/html/body/div[1]/div[2]/div/div[2]/div/section[1]/div/div/div[1]/div/div/section[2]/div/div/div[1]/div/div/div/div/p/span/bdi", {timeout: 500});
+        }
+        catch(err){
+            console.log("Couldn't get saltadacaixa price:");
+            console.log(err);
+            failed = true;
+        }
+        handlerPrice = failed ? '' : await page.$x("/html/body/div[1]/div[2]/div/div[2]/div/section[1]/div/div/div[1]/div/div/section[2]/div/div/div[1]/div/div/div/div/p/span/bdi");
+        price        = failed ? '' : await page.evaluate(el => el.textContent, handlerPrice[0]);
+    }
+
+    //stock out of stock
+    failed = false;
+    try{
+        await page.waitForXPath("/html/body/div[1]/div[2]/div/div[2]/div/section[1]/div/div/div[1]/div/div/section[2]/div/div/div[3]/div/div/div/div/p", {timeout: 500});
+    }
+    catch(err){
+        console.log("Couldn't get saltadacaixa out of stock:");
+        console.log(err);
+        failed = true;
+    }
+    let handlerStock = failed ? '' : await page.$x("//html/body/div[1]/div[2]/div/div[2]/div/section[1]/div/div/div[1]/div/div/section[2]/div/div/div[3]/div/div/div/div/p");
+    let stock        = failed ? '' : await page.evaluate(el => el.textContent, handlerStock[0]);
+
+    //stock in stock
+    if(failed){
+        failed = false;
+        try{
+            await page.waitForXPath("/html/body/div[1]/div[2]/div/div[2]/div/section[1]/div/div/div[1]/div/div/section[2]/div/div/div[3]/div/div/div/div/p/span[2]", {timeout: 500});
+        }
+        catch(err){
+            console.log("Couldn't get saltadacaixa in stock:");
+            console.log(err);
+            failed = true;
+        }
+        handlerStock = failed ? '' : await page.$x("/html/body/div[1]/div[2]/div/div[2]/div/section[1]/div/div/div[1]/div/div/section[2]/div/div/div[3]/div/div/div/div/p/span[2]");
+        stock        = failed ? '' : await page.evaluate(el => el.textContent, handlerStock[0]);
+    }
+
+    //stock backorder
+    if(failed){
+        failed = false;
+        try{
+            await page.waitForXPath("/html/body/div[1]/div[2]/div/div[2]/div/section[1]/div/div/div[1]/div/div/section[2]/div/div/div[3]/div/div/div/div/p", {timeout: 500});
+        }
+        catch(err){
+            console.log("Couldn't get saltadacaixa in stock:");
+            console.log(err);
+            failed = true;
+        }
+        handlerStock = failed ? '' : await page.$x("/html/body/div[1]/div[2]/div/div[2]/div/section[1]/div/div/div[1]/div/div/section[2]/div/div/div[3]/div/div/div/div/p");
+        stock        = failed ? '' : await page.evaluate(el => el.textContent, handlerStock[0]);
+    }
 
     price = stringFormatPrice(price);
     stock = stringFormatStock(stock);
 
-    console.log("saltadacaixa: ", {price: price, stock: stock});
     await browser.close();
     return {price: price, stock: stock};
 }
