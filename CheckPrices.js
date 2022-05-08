@@ -728,7 +728,6 @@ async function saltadacaixa(url){
         handlerStock = failed ? '' : await page.$x("/html/body/div[1]/div[2]/div/div[2]/div/section[1]/div/div/div[1]/div/div/section[2]/div/div/div[3]/div/div/div/div/p");
         stock        = failed ? '' : await page.evaluate(el => el.textContent, handlerStock[0]);
     }
-    console.log("stock: ", stock);
     price = stringFormatPrice(price);
     stock = stringFormatStock(stock);
 
