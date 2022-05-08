@@ -701,6 +701,30 @@ async function jubilantsunday(url){
     return {price: price, stock: stock};
 }
 
+async function ajogar(url){
+    let browser = await puppeteer.launch();
+    let page = await browser.newPage();
+    await preparePageForScrape(page);
+    await page.goto(url);
+
+    // price
+    let price =  undefined;
+    price = await page.evaluate(() => document.querySelector('#TPAMultiSection_k8rkawtz > div > div > article > div._12vNY > section:nth-child(2) > div._3bNb3.fggS-.cell > div > div > div > span:nth-child(1)')?.innerText);
+    if(price == undefined) console.log("Couldn't get ajogar price");
+
+    //stock
+    let stock = undefined;
+    stock = await page.evaluate(() => document.querySelector('#TPAMultiSection_k8rkawtz > div > div > article > div._12vNY > section:nth-child(2) > div:nth-child(6) > div._3j0qu._2cVBV.fggS-.cell > button > span')?.innerText);
+    if(stock == undefined) console.log("Couldn't get ajogar stock");
+
+    price = stringFormatPrice(price);
+    stock = stringFormatStock(stock);
+
+    console.log("ajogar: ", {price: price, stock: stock});
+    await browser.close();
+    return {price: price, stock: stock};
+}
+
 // ------------ END SITE SCRAPERS-----
 
 async function preparePageForScrape(page) {
