@@ -677,6 +677,30 @@ async function saltadacaixa(url){
     return {price: price, stock: stock};
 }
 
+async function jubilantsunday(url){
+    let browser = await puppeteer.launch();
+    let page = await browser.newPage();
+    await preparePageForScrape(page);
+    await page.goto(url);
+
+    // price
+    let price =  undefined;
+    price = await page.evaluate(() => document.querySelector('#main > div.row.product-container > div:nth-child(2) > div.product-prices > div.product-price.h5 > div > span')?.innerText);
+    if(price == undefined) console.log("Couldn't get jubilantsunday price");
+
+    //stock
+    let stock = undefined;
+    stock = await page.evaluate(() => document.querySelector('#product-availability')?.innerText);
+    if(stock == undefined) console.log("Couldn't get jubilantsunday stock");
+
+    price = stringFormatPrice(price);
+    stock = stringFormatStock(stock);
+
+    console.log("jubilantsunday: ", {price: price, stock: stock});
+    await browser.close();
+    return {price: price, stock: stock};
+}
+
 // ------------ END SITE SCRAPERS-----
 
 async function preparePageForScrape(page) {
