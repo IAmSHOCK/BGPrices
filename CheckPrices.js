@@ -25,7 +25,6 @@ async function scrape(){
         if (isGame(elem)){
             console.log("DEBUG Final Scraped game: ", newPrices[k]);
             gameName = elem;
-            console.log(elem);
             newPrices[++k] = {gameName: gameName, from: '', bestPrice: '5000', stock: '', price_jogonamesa: '', stock_jogonamesa: '', price_kultgames: '', stock_kultgames: '', price_gameplay: '', stock_gameplay: '', price_juegosdelamesaredonda: '', stock_juegosdelamesaredonda: '', price_diver: '', stock_diver: '', price_arenaporto: '', stock_arenaporto: '', price_dracotienda: '', stock_dracotienda: '', price_amazon: '', stock_amazon: '', price_planetongames: '', stock_planetongames: '', price_gglounge: '', stock_gglounge: '', price_versusgamecenter: '', stock_versusgamecenter: '', price_devir: '', stock_devir: ''};
         }
         else {
@@ -139,7 +138,7 @@ async function scrape(){
                     checkOldPrice(newPrices, oldPrices, 'jubilantsunday', gameName);
                 break;
             }
-            console.log(hostName + ': ' + JSON.stringify(returnedObj));
+            // console.log(hostName + ': ' + JSON.stringify(returnedObj));
             newPrices[k] = evaluateBestPrice(newPrices[k], {hostName, ...returnedObj})
         }
     }
@@ -227,6 +226,8 @@ function writeOld(old){
 function writeLogger(logger){
     let date = new Date(Date.now());
     date = `${date.getDate()}-${date.getMonth()}-${date.getFullYear()}--${date.getHours()}-${date.getMinutes()}`
+    // Agricola EN has a new best: 49.45 from juegosdelamesaredonda.com was 500.0 from juegosdelamesaredonda.com.
+    // logger = logger.map(obj => `${obj.gameName} has new best: ${obj.bestPrice} from ${obj.from} was `)
     fs.writeFile(`BGPrices--${date}.log`, logger.join("").toString(), (err) => {
         // throws an error, you could also catch it here
         if (err) console.log(err);
