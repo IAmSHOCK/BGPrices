@@ -12,7 +12,7 @@ async function scrape(){
     let oldPrices = getOldPrices();
 
     let newPrices = [];
-    newPrices[0] = {gameName: input[0], from: '', bestPrice: '5000', stock: '', price_jogonamesa: '', stock_jogonamesa: '', price_kultgames: '', stock_kultgames: '', price_gameplay: '', stock_gameplay: '', price_juegosdelamesaredonda: '', stock_juegosdelamesaredonda: '', price_diver: '', stock_diver: '', price_arenaporto: '', stock_arenaporto: '', price_dracotienda: '', stock_dracotienda: '', price_amazon: '', stock_amazon: '', price_planetongames: '', stock_planetongames: '', price_gglounge: '', stock_gglounge: '', versusgamecenter: '', stock_versusgamecenter: '', price_devir: '', stock_devir: ''};
+    newPrices[0] = {gameName: input[0], from: '', bestPrice: '5000', stock: '', price_jogonamesa: '', stock_jogonamesa: '', price_kultgames: '', stock_kultgames: '', price_gameplay: '', stock_gameplay: '', price_juegosdelamesaredonda: '', stock_juegosdelamesaredonda: '', price_diver: '', stock_diver: '', price_arenaporto: '', stock_arenaporto: '', price_dracotienda: '', stock_dracotienda: '', price_amazon: '', stock_amazon: '', price_planetongames: '', stock_planetongames: '', price_gglounge: '', stock_gglounge: '', price_versusgamecenter: '', stock_versusgamecenter: '', price_devir: '', stock_devir: ''};
 
     let gameName;
     let k = 0;
@@ -23,7 +23,7 @@ async function scrape(){
         if (isGame(elem)){
             console.log("DEBUG Final Scraped game: ", newPrices[k]);
             gameName = elem;
-            newPrices[++k] = {gameName: gameName, from: '', bestPrice: '5000', stock: '', price_jogonamesa: '', stock_jogonamesa: '', price_kultgames: '', stock_kultgames: '', price_gameplay: '', stock_gameplay: '', price_juegosdelamesaredonda: '', stock_juegosdelamesaredonda: '', price_diver: '', stock_diver: '', price_arenaporto: '', stock_arenaporto: '', price_dracotienda: '', stock_dracotienda: '', price_amazon: '', stock_amazon: '', price_planetongames: '', stock_planetongames: '', price_gglounge: '', stock_gglounge: '', versusgamecenter: '', stock_versusgamecenter: '', price_devir: '', stock_devir: ''};
+            newPrices[++k] = {gameName: gameName, from: '', bestPrice: '5000', stock: '', price_jogonamesa: '', stock_jogonamesa: '', price_kultgames: '', stock_kultgames: '', price_gameplay: '', stock_gameplay: '', price_juegosdelamesaredonda: '', stock_juegosdelamesaredonda: '', price_diver: '', stock_diver: '', price_arenaporto: '', stock_arenaporto: '', price_dracotienda: '', stock_dracotienda: '', price_amazon: '', stock_amazon: '', price_planetongames: '', stock_planetongames: '', price_gglounge: '', stock_gglounge: '', price_versusgamecenter: '', stock_versusgamecenter: '', price_devir: '', stock_devir: ''};
         }
         else {
             returnedObj = {};
@@ -220,6 +220,16 @@ function writeOld(old){
 }
 
 function writeLogger(logger){
+    /*TODO
+    c:\Users\joaoa\Desktop\BGPrices\CheckPrices.js:223
+    fs.writeFile(`BGPrices${Date.now().toLocaleDateString()}.log`, logger.join("").toString(), (err) => {
+                                       ^
+
+    TypeError: Date.now(...).toLocaleDateString is not a function
+        at writeLogger (c:\Users\joaoa\Desktop\BGPrices\CheckPrices.js:223:40)
+        at scrape (c:\Users\joaoa\Desktop\BGPrices\CheckPrices.js:145:5)
+
+    */
     fs.writeFile(`BGPrices${Date.now().toLocaleDateString()}.log`, logger.join("").toString(), (err) => {
         // throws an error, you could also catch it here
         if (err) throw err;
@@ -732,7 +742,6 @@ async function saltadacaixa(url){
     stock = stringFormatStock(stock);
 
     await browser.close();
-    console.log("saltadacaixa: ", {price: price, stock: stock});
     return {price: price, stock: stock};
 }
 
@@ -755,7 +764,6 @@ async function jubilantsunday(url){
     price = stringFormatPrice(price);
     stock = stringFormatStock(stock);
 
-    console.log("jubilantsunday: ", {price: price, stock: stock});
     await browser.close();
     return {price: price, stock: stock};
 }
@@ -779,7 +787,6 @@ async function ajogar(url){
     price = stringFormatPrice(price);
     stock = stringFormatStock(stock);
 
-    console.log("ajogar: ", {price: price, stock: stock});
     await browser.close();
     return {price: price, stock: stock};
 }
