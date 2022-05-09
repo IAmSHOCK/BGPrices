@@ -1,6 +1,8 @@
 const puppeteer = require('puppeteer');
 const fs = require("fs");
 
+
+
 //sitename = FRUKLITS
 
 //TODO write logger to file
@@ -23,6 +25,7 @@ async function scrape(){
         if (isGame(elem)){
             console.log("DEBUG Final Scraped game: ", newPrices[k]);
             gameName = elem;
+            console.log(elem);
             newPrices[++k] = {gameName: gameName, from: '', bestPrice: '5000', stock: '', price_jogonamesa: '', stock_jogonamesa: '', price_kultgames: '', stock_kultgames: '', price_gameplay: '', stock_gameplay: '', price_juegosdelamesaredonda: '', stock_juegosdelamesaredonda: '', price_diver: '', stock_diver: '', price_arenaporto: '', stock_arenaporto: '', price_dracotienda: '', stock_dracotienda: '', price_amazon: '', stock_amazon: '', price_planetongames: '', stock_planetongames: '', price_gglounge: '', stock_gglounge: '', price_versusgamecenter: '', stock_versusgamecenter: '', price_devir: '', stock_devir: ''};
         }
         else {
@@ -164,7 +167,8 @@ function convertToCSV(arr) {
     let csv = '';
     let header = Object.keys(arr[0]).join(',');
     let values = arr.map(o => Object.values(o).join(',')).join('\n');
-
+    console.log("header: ", header);
+    console.log("values: ", values);
     csv += header + '\n' + values;
     return csv;
   }
@@ -221,16 +225,6 @@ function writeOld(old){
 }
 
 function writeLogger(logger){
-    /*TODO
-    c:\Users\joaoa\Desktop\BGPrices\CheckPrices.js:223
-    fs.writeFile(`BGPrices${Date.now().toLocaleDateString()}.log`, logger.join("").toString(), (err) => {
-                                       ^
-
-    TypeError: Date.now(...).toLocaleDateString is not a function
-        at writeLogger (c:\Users\joaoa\Desktop\BGPrices\CheckPrices.js:223:40)
-        at scrape (c:\Users\joaoa\Desktop\BGPrices\CheckPrices.js:145:5)
-
-    */
     let date = new Date(Date.now());
     date = `${date.getDate()}-${date.getMonth()}-${date.getFullYear()}--${date.getHours()}-${date.getMinutes()}`
     fs.writeFile(`BGPrices--${date}.log`, logger.join("").toString(), (err) => {
@@ -293,6 +287,7 @@ function isObjectEmpty(obj) {
 async function jogonamesa(url){
     let browser = await puppeteer.launch();
     let page = await browser.newPage();
+    page.setDefaultNavigationTimeout(0);
     await preparePageForScrape(page);
     let failed = false;
     await page.goto(url);
@@ -341,6 +336,7 @@ async function jogonamesa(url){
 async function kultgames(url){
     let browser = await puppeteer.launch();
     let page = await browser.newPage();
+    page.setDefaultNavigationTimeout(0);
     await preparePageForScrape(page);
     await page.goto(url);
 
@@ -364,6 +360,7 @@ async function kultgames(url){
 async function gameplay(url){
     let browser = await puppeteer.launch();
     let page = await browser.newPage();
+    page.setDefaultNavigationTimeout(0);
     await preparePageForScrape(page);
     await page.goto(url);
 
@@ -388,6 +385,7 @@ async function gameplay(url){
 async function juegosdelamesaredonda(url){
     let browser = await puppeteer.launch();
     let page = await browser.newPage();
+    page.setDefaultNavigationTimeout(0);
     await preparePageForScrape(page);
     await page.goto(url);
 
@@ -411,6 +409,7 @@ async function juegosdelamesaredonda(url){
 async function diver(url){
     let browser = await puppeteer.launch();
     let page = await browser.newPage();
+    page.setDefaultNavigationTimeout(0);
     await preparePageForScrape(page);
     await page.goto(url);
 
@@ -434,6 +433,7 @@ async function diver(url){
 async function arenaporto(url){
     let browser = await puppeteer.launch();
     let page = await browser.newPage();
+    page.setDefaultNavigationTimeout(0);
     await preparePageForScrape(page);
     await page.goto(url);
 
@@ -459,6 +459,7 @@ async function arenaporto(url){
 async function dracotienda(url){
     let browser = await puppeteer.launch();
     let page = await browser.newPage();
+    page.setDefaultNavigationTimeout(0);
     await preparePageForScrape(page);
     await page.goto(url);
 
@@ -486,6 +487,7 @@ async function dracotienda(url){
 async function amazon(url){
     let browser = await puppeteer.launch();
     let page = await browser.newPage();
+    page.setDefaultNavigationTimeout(0);
     await preparePageForScrape(page);
     await page.goto(url);
 
@@ -512,6 +514,7 @@ async function amazon(url){
 async function planetongames(url){
     let browser = await puppeteer.launch();
     let page = await browser.newPage();
+    page.setDefaultNavigationTimeout(0);
     await preparePageForScrape(page);
     await page.goto(url);
 
@@ -529,12 +532,14 @@ async function planetongames(url){
 
     price = stringFormatPrice(price);
     stock = stringFormatStock(stock);
+    await browser.close();
     return {price: price, stock: stock};
 }
 
 async function gglounge(url){
     let browser = await puppeteer.launch();
     let page = await browser.newPage();
+    page.setDefaultNavigationTimeout(0);
     await preparePageForScrape(page);
     await page.goto(url);
     let failed = false;
@@ -603,6 +608,7 @@ async function gglounge(url){
 async function versusgamecenter(url){
     let browser = await puppeteer.launch();
     let page = await browser.newPage();
+    page.setDefaultNavigationTimeout(0);
     await preparePageForScrape(page);
     await page.goto(url);
 
@@ -626,6 +632,7 @@ async function versusgamecenter(url){
 async function devir(url){
     let browser = await puppeteer.launch();
     let page = await browser.newPage();
+    page.setDefaultNavigationTimeout(0);
     await preparePageForScrape(page);
     await page.goto(url);
     let failed = false;
@@ -649,8 +656,7 @@ async function devir(url){
             await page.waitForXPath("/html/body/div[4]/main/div[2]/div/div[1]/div[2]/div/span/span/span", {timeout: 500});
         }
         catch(err){
-        console.log("Couldn't get devir price:");
-            console.log(err);
+            console.log("Couldn't get devir price:");
             failed = true;
         }
         handlerPrice = failed ? '' : await page.$x("/html/body/div[4]/main/div[2]/div/div[1]/div[2]/div/span/span/span");
@@ -669,6 +675,7 @@ async function devir(url){
 async function saltadacaixa(url){
     let browser = await puppeteer.launch();
     let page = await browser.newPage();
+    page.setDefaultNavigationTimeout(0);
     await preparePageForScrape(page);
     await page.goto(url);
     let failed = false;
@@ -751,6 +758,7 @@ async function saltadacaixa(url){
 async function jubilantsunday(url){
     let browser = await puppeteer.launch();
     let page = await browser.newPage();
+    page.setDefaultNavigationTimeout(0);
     await preparePageForScrape(page);
     await page.goto(url);
 
@@ -774,6 +782,7 @@ async function jubilantsunday(url){
 async function ajogar(url){
     let browser = await puppeteer.launch();
     let page = await browser.newPage();
+    page.setDefaultNavigationTimeout(0);
     await preparePageForScrape(page);
     await page.goto(url);
 
