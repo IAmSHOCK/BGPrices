@@ -232,7 +232,7 @@ function writeLogger(logger){
     */
     fs.writeFile(`BGPrices${Date.now().toLocaleDateString()}.log`, logger.join("").toString(), (err) => {
         // throws an error, you could also catch it here
-        if (err) throw err;
+        if (err) console.log(err);
 
         // success case, the file was saved
         console.log('Logger saved!');
