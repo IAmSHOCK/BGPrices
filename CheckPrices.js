@@ -136,6 +136,7 @@ async function scrape(){
                     checkOldPrice(newPrices, oldPrices, 'jubilantsunday', gameName);
                 break;
             }
+            console.log(hostName + ': ' + JSON.stringify(returnedObj));
             newPrices[k] = evaluateBestPrice(newPrices[k], {hostName, ...returnedObj})
         }
     }
@@ -202,7 +203,7 @@ function getOldPrices(){
 function writeScrapped(result){
     fs.writeFile('BoadgamePrices.csv', result, (err) => {
         // throws an error, you could also catch it here
-        if (err) throw err;
+        if (err) console.log(err);
 
         // success case, the file was saved
         console.log('CSV saved!');
@@ -230,7 +231,9 @@ function writeLogger(logger){
         at scrape (c:\Users\joaoa\Desktop\BGPrices\CheckPrices.js:145:5)
 
     */
-    fs.writeFile(`BGPrices${Date.now().toLocaleDateString()}.log`, logger.join("").toString(), (err) => {
+    let date = new Date(Date.now());
+    date = `${date.getDate()}-${date.getMonth()}-${date.getFullYear()}--${date.getHours()}-${date.getMinutes()}`
+    fs.writeFile(`BGPrices--${date}.log`, logger.join("").toString(), (err) => {
         // throws an error, you could also catch it here
         if (err) console.log(err);
 
