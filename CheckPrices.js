@@ -5,7 +5,8 @@ const fs = require("fs");
 
 //sitename = FRUKLITS
 
-//TODO write logger to file
+// TODO: versusgamecenter, devir is broken
+// TODO: check bookmarks for stores to add
 
 let input = fs.readFileSync('./input.txt').toString().split("\n");
 let logger = [];
@@ -14,7 +15,7 @@ async function scrape(){
     let oldPrices = getOldPrices();
 
     let newPrices = [];
-    newPrices[0] = {gameName: input[0], from: '', bestPrice: '5000', stock: '', price_jogonamesa: '', stock_jogonamesa: '', price_kultgames: '', stock_kultgames: '', price_gameplay: '', stock_gameplay: '', price_juegosdelamesaredonda: '', stock_juegosdelamesaredonda: '', price_diver: '', stock_diver: '', price_arenaporto: '', stock_arenaporto: '', price_dracotienda: '', stock_dracotienda: '', price_amazon: '', stock_amazon: '', price_planetongames: '', stock_planetongames: '', price_gglounge: '', stock_gglounge: '', price_versusgamecenter: '', stock_versusgamecenter: '', price_devir: '', stock_devir: ''};
+    newPrices[0] = {gameName: input[0], from: '', bestPrice: '5000', stock: '', price_jogonamesa: '', stock_jogonamesa: '', price_kultgames: '', stock_kultgames: '', price_gameplay: '', stock_gameplay: '', price_juegosdelamesaredonda: '', stock_juegosdelamesaredonda: '', price_diver: '', stock_diver: '', price_arenaporto: '', stock_arenaporto: '', price_dracotienda: '', stock_dracotienda: '', price_amazon: '', stock_amazon: '', price_planetongames: '', stock_planetongames: '', price_gglounge: '', stock_gglounge: '', price_versusgamecenter: '', stock_versusgamecenter: '', price_devir: '', stock_devir: '', price_ajogar: '', stock_ajogar: '', price_saltadacaixa: '', stock_saltadacaixa: '', price_jubilantsunday: '', stock_jubilantsunday: ''};
 
     let gameName;
     let k = 0;
@@ -25,7 +26,7 @@ async function scrape(){
         if (isGame(elem)){
             console.log("DEBUG Final Scraped game: ", newPrices[k]);
             gameName = elem;
-            newPrices[++k] = {gameName: gameName, from: '', bestPrice: '5000', stock: '', price_jogonamesa: '', stock_jogonamesa: '', price_kultgames: '', stock_kultgames: '', price_gameplay: '', stock_gameplay: '', price_juegosdelamesaredonda: '', stock_juegosdelamesaredonda: '', price_diver: '', stock_diver: '', price_arenaporto: '', stock_arenaporto: '', price_dracotienda: '', stock_dracotienda: '', price_amazon: '', stock_amazon: '', price_planetongames: '', stock_planetongames: '', price_gglounge: '', stock_gglounge: '', price_versusgamecenter: '', stock_versusgamecenter: '', price_devir: '', stock_devir: ''};
+            newPrices[++k] = {gameName: gameName, from: '', bestPrice: '5000', stock: '', price_jogonamesa: '', stock_jogonamesa: '', price_kultgames: '', stock_kultgames: '', price_gameplay: '', stock_gameplay: '', price_juegosdelamesaredonda: '', stock_juegosdelamesaredonda: '', price_diver: '', stock_diver: '', price_arenaporto: '', stock_arenaporto: '', price_dracotienda: '', stock_dracotienda: '', price_amazon: '', stock_amazon: '', price_planetongames: '', stock_planetongames: '', price_gglounge: '', stock_gglounge: '', price_versusgamecenter: '', stock_versusgamecenter: '', price_devir: '', stock_devir: '', price_ajogar: '', stock_ajogar: '', price_saltadacaixa: '', stock_saltadacaixa: '', price_jubilantsunday: '', stock_jubilantsunday: ''};
         }
         else {
             returnedObj = {};
@@ -55,8 +56,8 @@ async function scrape(){
 
                 case "juegosdelamesaredonda.com": case "www.juegosdelamesaredonda.com":
                     returnedObj = await juegosdelamesaredonda(elem);
-                    newPrices[k].price_gameplay = returnedObj.price;
-                    newPrices[k].stock_gameplay = returnedObj.stock;
+                    newPrices[k].price_juegosdelamesaredonda = returnedObj.price;
+                    newPrices[k].stock_juegosdelamesaredonda = returnedObj.stock;
                     checkOldPrice(newPrices, oldPrices, 'juegosdelamesaredonda', gameName);
                     break;
 
@@ -119,22 +120,22 @@ async function scrape(){
                 // TODO
                 case "ajogar.com": case "www.ajogar.com":
                     returnedObj = await ajogar(elem);
-                    newPrices[k].price_devir = returnedObj.price;
-                    newPrices[k].stock_devir = returnedObj.stock;
+                    newPrices[k].price_ajogar = returnedObj.price;
+                    newPrices[k].stock_ajogar = returnedObj.stock;
                     checkOldPrice(newPrices, oldPrices, 'ajogar', gameName);
                 break;
 
                 case "saltadacaixa.pt": case "www.saltadacaixa.pt":
                     returnedObj = await saltadacaixa(elem);
-                    newPrices[k].price_devir = returnedObj.price;
-                    newPrices[k].stock_devir = returnedObj.stock;
+                    newPrices[k].price_saltadacaixa = returnedObj.price;
+                    newPrices[k].stock_saltadacaixa = returnedObj.stock;
                     checkOldPrice(newPrices, oldPrices, 'saltadacaixa', gameName);
                     break;
 
                 case "jubilantsunday.com": case "www.jubilantsunday.com":
                     returnedObj = await jubilantsunday(elem);
-                    newPrices[k].price_devir = returnedObj.price;
-                    newPrices[k].stock_devir = returnedObj.stock;
+                    newPrices[k].price_jubilantsunday = returnedObj.price;
+                    newPrices[k].stock_jubilantsunday = returnedObj.stock;
                     checkOldPrice(newPrices, oldPrices, 'jubilantsunday', gameName);
                 break;
             }
@@ -204,7 +205,9 @@ function getOldPrices(){
 }
 
 function writeScrapped(result){
-    fs.writeFile('BoadgamePrices.csv', result, (err) => {
+    let date = new Date(Date.now());
+    date = `${date.getDate()}-${date.getMonth()}-${date.getFullYear()}--${date.getHours()}-${date.getMinutes()}`
+    fs.writeFile(`BoadgamePrices.csv`, result, (err) => {
         // throws an error, you could also catch it here
         if (err) console.log(err);
 
@@ -228,7 +231,7 @@ function writeLogger(logger){
     date = `${date.getDate()}-${date.getMonth()}-${date.getFullYear()}--${date.getHours()}-${date.getMinutes()}`
     // Agricola EN has a new best: 49.45 from juegosdelamesaredonda.com was 500.0 from juegosdelamesaredonda.com.
     // logger = logger.map(obj => `${obj.gameName} has new best: ${obj.bestPrice} from ${obj.from} was `)
-    fs.writeFile(`BGPrices--${date}.log`, logger.join("").toString(), (err) => {
+    fs.writeFile(`BGPrices--${date}.log`,JSON.stringify(logger, undefined, 2), (err) => {
         // throws an error, you could also catch it here
         if (err) console.log(err);
 
