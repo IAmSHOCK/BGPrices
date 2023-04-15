@@ -1,0 +1,2322 @@
+[
+  {
+    "game": "A Feast for Odin",
+    "from": "jogonamesa",
+    "newPrice": "58.20",
+    "newStock": "esgotado",
+    "oldPrice": "58.2",
+    "oldStock": "esgotado"
+  },
+  {
+    "game": "Agricola EN",
+    "from": "gameplay",
+    "newPrice": "54.50",
+    "newStock": "emstock",
+    "oldPrice": "54.5",
+    "oldStock": "emstock"
+  },
+  {
+    "game": "Agricola EN",
+    "from": "amazon",
+    "newPrice": "56.04",
+    "newStock": "emstock",
+    "oldPrice": "56.25",
+    "oldStock": "emstock"
+  },
+  {
+    "game": "Anno 1800",
+    "from": "jogonamesa",
+    "newPrice": "46.71",
+    "newStock": "em21 dias",
+    "oldPrice": "46.71",
+    "oldStock": "em26 dias"
+  },
+  {
+    "game": "Anno 1800",
+    "from": "dracotienda",
+    "newPrice": "40.50",
+    "newStock": " disponible",
+    "oldPrice": "40.5",
+    "oldStock": "disponible"
+  },
+  {
+    "game": "Barrage",
+    "from": "jogonamesa",
+    "newPrice": "59.88",
+    "newStock": "em21 dias",
+    "oldPrice": "62.53",
+    "oldStock": "em26 dias"
+  },
+  {
+    "game": "Barrage",
+    "from": "gglounge",
+    "newPrice": "61.90",
+    "newStock": "outof stock",
+    "oldPrice": "61.9",
+    "oldStock": "outof stock"
+  },
+  {
+    "game": "Barrage",
+    "from": "dracotienda",
+    "newPrice": "67.50",
+    "newStock": " disponible",
+    "oldPrice": "67.5",
+    "oldStock": "disponible"
+  },
+  {
+    "game": "Barrage",
+    "from": "planetongames",
+    "newPrice": "67.50",
+    "newStock": "nodisponible",
+    "oldPrice": "67.5",
+    "oldStock": "nodisponible"
+  },
+  {
+    "game": "Barrage",
+    "from": "amazon",
+    "newPrice": "96.91",
+    "newStock": "apenas2 em stock",
+    "oldPrice": "73.9",
+    "oldStock": "estimativade envio de 3 a 4 dias"
+  },
+  {
+    "game": "Calimala",
+    "from": "dracotienda",
+    "newPrice": "44.95",
+    "newStock": " ltimas unidades en stock",
+    "oldPrice": "44.95",
+    "oldStock": "ltimas unidades en stock"
+  },
+  {
+    "game": "Champions of Midgard",
+    "from": "dracotienda",
+    "newPrice": "54.95",
+    "newStock": " fuera de stock",
+    "oldPrice": "54.95",
+    "oldStock": "fuera de stock"
+  },
+  {
+    "game": "Champions of Midgard",
+    "from": "juegosdelamesaredonda",
+    "newPrice": "55.80",
+    "newStock": "enreposicin",
+    "oldPrice": "55.8",
+    "oldStock": "enreposicin"
+  },
+  {
+    "game": "Champions of Midgard: The Dark Mountains",
+    "from": "dracotienda",
+    "newPrice": "24.95",
+    "newStock": " fuera de stock",
+    "oldPrice": "24.95",
+    "oldStock": "fuera de stock"
+  },
+  {
+    "game": "Champions of Midgard: The Dark Mountains",
+    "from": "juegosdelamesaredonda",
+    "newPrice": "29.50",
+    "newStock": "enreposicin",
+    "oldPrice": "29.5",
+    "oldStock": "enreposicin"
+  },
+  {
+    "game": "Champions of Midgard: Valhalla",
+    "from": "dracotienda",
+    "newPrice": "29.95",
+    "newStock": " fuera de stock",
+    "oldPrice": "29.95",
+    "oldStock": "fuera de stock"
+  },
+  {
+    "game": "Curious Cargo",
+    "from": "jogonamesa",
+    "newPrice": "29.38",
+    "newStock": "em14 dias",
+    "oldPrice": "29.38",
+    "oldStock": "em7 dias"
+  },
+  {
+    "game": "Curious Cargo",
+    "from": "dracotienda",
+    "newPrice": "34.95",
+    "newStock": " disponible",
+    "oldPrice": "34.95",
+    "oldStock": "disponible"
+  },
+  {
+    "game": "Custom Heroes",
+    "from": "juegosdelamesaredonda",
+    "newPrice": "22.00",
+    "newStock": "agotado",
+    "oldPrice": "22",
+    "oldStock": "agotado"
+  },
+  {
+    "game": "Dice Forge EN",
+    "from": "gglounge",
+    "newPrice": "53.90",
+    "newStock": "only1 left in stock",
+    "oldPrice": "53.9",
+    "oldStock": "only1 left in stock"
+  },
+  {
+    "game": "Dice Forge PT/ES",
+    "from": "dracotienda",
+    "newPrice": "39.95",
+    "newStock": " fuera de stock",
+    "oldPrice": "39.95",
+    "oldStock": "fuera de stock"
+  },
+  {
+    "game": "Dice Hospital",
+    "from": "jogonamesa",
+    "newPrice": "47.77",
+    "newStock": "esgotado",
+    "oldPrice": "47.4",
+    "oldStock": "esgotado"
+  },
+  {
+    "game": "Dice Hospital",
+    "from": "amazon",
+    "newPrice": "50.81",
+    "newStock": "apenas2 em stock",
+    "oldPrice": "49.99",
+    "oldStock": "apenas2 em stock"
+  },
+  {
+    "game": "Fantastic Factories",
+    "from": "jogonamesa",
+    "newPrice": "34.13",
+    "newStock": "em14 dias",
+    "oldPrice": "33.35",
+    "oldStock": "em7 dias"
+  },
+  {
+    "game": "Fantastic Factories",
+    "from": "dracotienda",
+    "newPrice": "39.99",
+    "newStock": " fuera de stock",
+    "oldPrice": "39.99",
+    "oldStock": "fuera de stock"
+  },
+  {
+    "game": "Fantastic Factories",
+    "from": "gglounge",
+    "newPrice": "38.50",
+    "newStock": "only1 left in stock",
+    "oldPrice": "38.5",
+    "oldStock": "only1 left in stock"
+  },
+  {
+    "game": "Fantastic Factories",
+    "from": "amazon",
+    "newPrice": "47.20",
+    "newStock": "apenas1 em stock",
+    "oldPrice": "47.2",
+    "oldStock": "apenas1 em stock"
+  },
+  {
+    "game": "Five Tribes",
+    "from": "jogonamesa",
+    "newPrice": "48.56",
+    "newStock": "esgotado",
+    "oldPrice": "47.9",
+    "oldStock": "esgotado"
+  },
+  {
+    "game": "Five Tribes",
+    "from": "dracotienda",
+    "newPrice": "48.95",
+    "newStock": " fuera de stock",
+    "oldPrice": "48.95",
+    "oldStock": "fuera de stock"
+  },
+  {
+    "game": "Five Tribes",
+    "from": "gglounge",
+    "newPrice": "51.90",
+    "newStock": "outof stock",
+    "oldPrice": "51.9",
+    "oldStock": "outof stock"
+  },
+  {
+    "game": "Five Tribes",
+    "from": "amazon",
+    "newPrice": "61.29",
+    "newStock": "emstock",
+    "oldPrice": "55.3",
+    "oldStock": "emstock"
+  },
+  {
+    "game": "Flash Point: Fire Rescue",
+    "from": "jogonamesa",
+    "newPrice": "35.37",
+    "newStock": "em21 dias",
+    "oldPrice": "35.12",
+    "oldStock": "em26 dias"
+  },
+  {
+    "game": "Flash Point: Fire Rescue",
+    "from": "dracotienda",
+    "newPrice": "32.95",
+    "newStock": " fuera de stock",
+    "oldPrice": "32.95",
+    "oldStock": "fuera de stock"
+  },
+  {
+    "game": "Flash Point: Fire Rescue",
+    "from": "amazon",
+    "newPrice": "",
+    "newStock": "",
+    "oldPrice": "47.05",
+    "oldStock": "estimativade envio de 4 a 5 dias"
+  },
+  {
+    "game": "Furnace",
+    "from": "gameplay",
+    "newPrice": "27.50",
+    "newStock": "emstock",
+    "oldPrice": "27.5",
+    "oldStock": "emstock"
+  },
+  {
+    "game": "Furnace",
+    "from": "jogonamesa",
+    "newPrice": "26.00",
+    "newStock": "imediata",
+    "oldPrice": "26",
+    "oldStock": "imediata"
+  },
+  {
+    "game": "Furnace",
+    "from": "dracotienda",
+    "newPrice": "24.30",
+    "newStock": " disponible",
+    "oldPrice": "24.3",
+    "oldStock": "disponible"
+  },
+  {
+    "game": "Furnace",
+    "from": "gglounge",
+    "newPrice": "42.90",
+    "newStock": "only2 left in stock",
+    "oldPrice": "34.9",
+    "oldStock": "only2 left in stock"
+  },
+  {
+    "game": "Furnace",
+    "from": "saltadacaixa",
+    "newPrice": "26.95",
+    "newStock": "em stock  ",
+    "oldPrice": "26.95",
+    "oldStock": "em stock"
+  },
+  {
+    "game": "Grand Austria Hotel",
+    "from": "jogonamesa",
+    "newPrice": "55.00",
+    "newStock": "imediata",
+    "oldPrice": "55",
+    "oldStock": "imediata"
+  },
+  {
+    "game": "Grand Austria Hotel",
+    "from": "juegosdelamesaredonda",
+    "newPrice": "32.90",
+    "newStock": "enreposicin",
+    "oldPrice": "32.9",
+    "oldStock": "enreposicin"
+  },
+  {
+    "game": "Great Western Trail",
+    "from": "jogonamesa",
+    "newPrice": "36.83",
+    "newStock": "esgotado",
+    "oldPrice": "36.53",
+    "oldStock": "esgotado"
+  },
+  {
+    "game": "Great Western Trail",
+    "from": "dracotienda",
+    "newPrice": "40.46",
+    "newStock": " fuera de stock",
+    "oldPrice": "40.46",
+    "oldStock": "fuera de stock"
+  },
+  {
+    "game": "Great Western Trail",
+    "from": "juegosdelamesaredonda",
+    "newPrice": "36.90",
+    "newStock": "enreposicin",
+    "oldPrice": "36.9",
+    "oldStock": "enreposicin"
+  },
+  {
+    "game": "Great Western Trail 2nd edition",
+    "from": "gameplay",
+    "newPrice": "55.99",
+    "newStock": "emstock",
+    "oldPrice": "49.99",
+    "oldStock": "esgotado"
+  },
+  {
+    "game": "Great Western Trail 2nd edition",
+    "from": "jogonamesa",
+    "newPrice": "47.74",
+    "newStock": "em21 dias",
+    "oldPrice": "40.64",
+    "oldStock": "em26 dias"
+  },
+  {
+    "game": "Great Western Trail 2nd edition",
+    "from": "dracotienda",
+    "newPrice": "49.50",
+    "newStock": " disponible",
+    "oldPrice": "49.5",
+    "oldStock": "disponible"
+  },
+  {
+    "game": "Great Western Trail: Rails to the North",
+    "from": "dracotienda",
+    "newPrice": "26.95",
+    "newStock": " fuera de stock",
+    "oldPrice": "26.95",
+    "oldStock": "fuera de stock"
+  },
+  {
+    "game": "Machi Koro 2",
+    "from": "jogonamesa",
+    "newPrice": "17.22",
+    "newStock": "em27 dias",
+    "oldPrice": "17.22",
+    "oldStock": "em25 dias"
+  },
+  {
+    "game": "Machi Koro 2",
+    "from": "gglounge",
+    "newPrice": "28.90",
+    "newStock": "only1 left in stock",
+    "oldPrice": "28.9",
+    "oldStock": "only1 left in stock"
+  },
+  {
+    "game": "Moonrakers",
+    "from": "jogonamesa",
+    "newPrice": "",
+    "newStock": "",
+    "oldPrice": "17.22",
+    "oldStock": "em25 dias"
+  },
+  {
+    "game": "New York Zoo",
+    "from": "gameplay",
+    "newPrice": "35.90",
+    "newStock": "restock",
+    "oldPrice": "35.9",
+    "oldStock": "restock"
+  },
+  {
+    "game": "New York Zoo",
+    "from": "jogonamesa",
+    "newPrice": "29.18",
+    "newStock": "em21 dias",
+    "oldPrice": "29.18",
+    "oldStock": "em26 dias"
+  },
+  {
+    "game": "New York Zoo",
+    "from": "dracotienda",
+    "newPrice": "31.50",
+    "newStock": " fuera de stock",
+    "oldPrice": "31.5",
+    "oldStock": "fuera de stock"
+  },
+  {
+    "game": "New York Zoo",
+    "from": "gglounge",
+    "newPrice": "29.90",
+    "newStock": "outof stock",
+    "oldPrice": "29.9",
+    "oldStock": "outof stock"
+  },
+  {
+    "game": "New York Zoo",
+    "from": "amazon",
+    "newPrice": "37.56",
+    "newStock": "apenas1 em stock",
+    "oldPrice": "36.95",
+    "oldStock": "apenas1 em stock"
+  },
+  {
+    "game": "Obsession",
+    "from": "jogonamesa",
+    "newPrice": "",
+    "newStock": "",
+    "oldPrice": "29.18",
+    "oldStock": "em26 dias"
+  },
+  {
+    "game": "Port Royal",
+    "from": "gameplay",
+    "newPrice": "12.95",
+    "newStock": "emstock",
+    "oldPrice": "12.95",
+    "oldStock": "restock"
+  },
+  {
+    "game": "Port Royal",
+    "from": "jogonamesa",
+    "newPrice": "12.00",
+    "newStock": "imediata",
+    "oldPrice": "12",
+    "oldStock": "imediata"
+  },
+  {
+    "game": "Port Royal",
+    "from": "amazon",
+    "newPrice": "18.68",
+    "newStock": "emstock",
+    "oldPrice": "18.97",
+    "oldStock": "emstock"
+  },
+  {
+    "game": "Port Royal BIG BOX (preferred)",
+    "from": "gameplay",
+    "newPrice": "24.99",
+    "newStock": "ltimaunidade em stock",
+    "oldPrice": "24.99",
+    "oldStock": "restock"
+  },
+  {
+    "game": "Port Royal BIG BOX (preferred)",
+    "from": "jogonamesa",
+    "newPrice": "22.02",
+    "newStock": "em27 dias",
+    "oldPrice": "22.09",
+    "oldStock": "em25 dias"
+  },
+  {
+    "game": "Port Royal BIG BOX (preferred)",
+    "from": "gglounge",
+    "newPrice": "27.90",
+    "newStock": "only1 left in stock",
+    "oldPrice": "27.9",
+    "oldStock": "only1 left in stock"
+  },
+  {
+    "game": "Port Royal BIG BOX (preferred)",
+    "from": "amazon",
+    "newPrice": "28.50",
+    "newStock": "emstock",
+    "oldPrice": "23.6",
+    "oldStock": "emstock"
+  },
+  {
+    "game": "Raiders of the North Sea",
+    "from": "kultgames",
+    "newPrice": "54.95",
+    "newStock": "deliveryin 1 to 2 weeks time",
+    "oldPrice": "54.95",
+    "oldStock": "instock"
+  },
+  {
+    "game": "Raiders of the North Sea",
+    "from": "jogonamesa",
+    "newPrice": "58.34",
+    "newStock": "em21 dias",
+    "oldPrice": "58.34",
+    "oldStock": "em26 dias"
+  },
+  {
+    "game": "Raiders of the North Sea",
+    "from": "dracotienda",
+    "newPrice": "59.95",
+    "newStock": " ltimas unidades en stock",
+    "oldPrice": "59.95",
+    "oldStock": "ltimas unidades en stock"
+  },
+  {
+    "game": "Raiders of the North Sea",
+    "from": "diver",
+    "newPrice": "",
+    "newStock": "",
+    "oldPrice": "25.99",
+    "oldStock": "brevementedisponvel"
+  },
+  {
+    "game": "Rival Restaurants",
+    "from": "jogonamesa",
+    "newPrice": "51.78",
+    "newStock": "esgotado",
+    "oldPrice": "51.43",
+    "oldStock": "esgotado"
+  },
+  {
+    "game": "Rocketmen",
+    "from": "jogonamesa",
+    "newPrice": "30.27",
+    "newStock": "em13 dias",
+    "oldPrice": "30.27",
+    "oldStock": "em26 dias"
+  },
+  {
+    "game": "Rocketmen",
+    "from": "dracotienda",
+    "newPrice": "31.45",
+    "newStock": " ltimas unidades en stock",
+    "oldPrice": "31.45",
+    "oldStock": "ltimas unidades en stock"
+  },
+  {
+    "game": "Summer Camp",
+    "from": "jogonamesa",
+    "newPrice": "",
+    "newStock": "",
+    "oldPrice": "30.27",
+    "oldStock": "em26 dias"
+  },
+  {
+    "game": "Tiny Towns",
+    "from": "jogonamesa",
+    "newPrice": "46.97",
+    "newStock": "em13 dias",
+    "oldPrice": "46.97",
+    "oldStock": "em26 dias"
+  },
+  {
+    "game": "Tiny Towns",
+    "from": "dracotienda",
+    "newPrice": "35.99",
+    "newStock": " fuera de stock",
+    "oldPrice": "35.99",
+    "oldStock": "fuera de stock"
+  },
+  {
+    "game": "Tiny Towns",
+    "from": "gglounge",
+    "newPrice": "45.90",
+    "newStock": "only3 left in stock",
+    "oldPrice": "40.39",
+    "oldStock": "only3 left in stock"
+  },
+  {
+    "game": "Troyes",
+    "from": "jogonamesa",
+    "newPrice": "55.00",
+    "newStock": "imediata",
+    "oldPrice": "55",
+    "oldStock": "imediata"
+  },
+  {
+    "game": "Troyes",
+    "from": "dracotienda",
+    "newPrice": "54.99",
+    "newStock": " disponible",
+    "oldPrice": "54.99",
+    "oldStock": "disponible"
+  },
+  {
+    "game": "Tungaru",
+    "from": "jogonamesa",
+    "newPrice": "29.32",
+    "newStock": "em14 dias",
+    "oldPrice": "29.32",
+    "oldStock": "em7 dias"
+  },
+  {
+    "game": "Wingspan: Oceania Expansion",
+    "from": "jogonamesa",
+    "newPrice": "26.77",
+    "newStock": "em13 dias",
+    "oldPrice": "26.09",
+    "oldStock": "em26 dias"
+  },
+  {
+    "game": "Wingspan: Oceania Expansion",
+    "from": "gglounge",
+    "newPrice": "28.90",
+    "newStock": "outof stock",
+    "oldPrice": "28.9",
+    "oldStock": "outof stock"
+  },
+  {
+    "game": "7 Wonders",
+    "from": "jogonamesa",
+    "newPrice": "42.97",
+    "newStock": "esgotado",
+    "oldPrice": "42.64",
+    "oldStock": "esgotado"
+  },
+  {
+    "game": "7 Wonders",
+    "from": "gglounge",
+    "newPrice": "43.40",
+    "newStock": "only1 left in stock",
+    "oldPrice": "43.4",
+    "oldStock": "only1 left in stock"
+  },
+  {
+    "game": "7 Wonders",
+    "from": "dracotienda",
+    "newPrice": "47.99",
+    "newStock": " disponible",
+    "oldPrice": "47.99",
+    "oldStock": "disponible"
+  },
+  {
+    "game": "7 Wonders",
+    "from": "planetongames",
+    "newPrice": "47.99",
+    "newStock": "ltimasunidades en stock",
+    "oldPrice": "47.99",
+    "oldStock": "nodisponible"
+  },
+  {
+    "game": "7 Wonders",
+    "from": "amazon",
+    "newPrice": "49.17",
+    "newStock": "enstock",
+    "oldPrice": "49.6",
+    "oldStock": "enstock"
+  },
+  {
+    "game": "Anachrony EN",
+    "from": "jogonamesa",
+    "newPrice": "50.07",
+    "newStock": "em14 dias",
+    "oldPrice": "50.07",
+    "oldStock": "em7 dias"
+  },
+  {
+    "game": "Anachrony ES",
+    "from": "dracotienda",
+    "newPrice": "58.50",
+    "newStock": " disponible",
+    "oldPrice": "58.5",
+    "oldStock": "disponible"
+  },
+  {
+    "game": "Anachrony ES",
+    "from": "juegosdelamesaredonda",
+    "newPrice": "55.21",
+    "newStock": "enreposicin",
+    "oldPrice": "55.21",
+    "oldStock": "enstock"
+  },
+  {
+    "game": "Anachrony ES",
+    "from": "planetongames",
+    "newPrice": "58.50",
+    "newStock": "ltimasunidades en stock",
+    "oldPrice": "58.5",
+    "oldStock": "productoen stock"
+  },
+  {
+    "game": "Architects of the West Kingdom",
+    "from": "jogonamesa",
+    "newPrice": "40.87",
+    "newStock": "em14 dias",
+    "oldPrice": "40.87",
+    "oldStock": "em7 dias"
+  },
+  {
+    "game": "Architects of the West Kingdom",
+    "from": "dracotienda",
+    "newPrice": "61.99",
+    "newStock": " ltimas unidades en stock",
+    "oldPrice": "61.99",
+    "oldStock": "ltimas unidades en stock"
+  },
+  {
+    "game": "Architects of the West Kingdom",
+    "from": "gglounge",
+    "newPrice": "47.90",
+    "newStock": "outof stock",
+    "oldPrice": "47.9",
+    "oldStock": "outof stock"
+  },
+  {
+    "game": "Architects of the West Kingdom",
+    "from": "saltadacaixa",
+    "newPrice": "58.00",
+    "newStock": "em stock",
+    "oldPrice": "67.95",
+    "oldStock": "em stock"
+  },
+  {
+    "game": "Architects of the West Kingdom",
+    "from": "amazon",
+    "newPrice": "50.60",
+    "newStock": "emstock",
+    "oldPrice": "50.6",
+    "oldStock": "emstock"
+  },
+  {
+    "game": "Bärenpark",
+    "from": "jogonamesa",
+    "newPrice": "35.03",
+    "newStock": "em21 dias",
+    "oldPrice": "34.83",
+    "oldStock": "em26 dias"
+  },
+  {
+    "game": "Bärenpark",
+    "from": "juegosdelamesaredonda",
+    "newPrice": "30.60",
+    "newStock": "enreposicin",
+    "oldPrice": "30.6",
+    "oldStock": "enreposicin"
+  },
+  {
+    "game": "Bärenpark",
+    "from": "amazon",
+    "newPrice": "42.68",
+    "newStock": "apenas1 em stock",
+    "oldPrice": "41.99",
+    "oldStock": "apenas1 em stock"
+  },
+  {
+    "game": "Beez",
+    "from": "gameplay",
+    "newPrice": "44.95",
+    "newStock": "emstock",
+    "oldPrice": "44.95",
+    "oldStock": "ltimaunidade em stock"
+  },
+  {
+    "game": "Beez",
+    "from": "jogonamesa",
+    "newPrice": "42.82",
+    "newStock": "em21 dias",
+    "oldPrice": "35.01",
+    "oldStock": "em26 dias"
+  },
+  {
+    "game": "Beez",
+    "from": "dracotienda",
+    "newPrice": "39.99",
+    "newStock": " ltimas unidades en stock",
+    "oldPrice": "39.99",
+    "oldStock": "ltimas unidades en stock"
+  },
+  {
+    "game": "Beez",
+    "from": "gglounge",
+    "newPrice": "35.90",
+    "newStock": "outof stock",
+    "oldPrice": "35.9",
+    "oldStock": "outof stock"
+  },
+  {
+    "game": "Beez",
+    "from": "amazon",
+    "newPrice": "",
+    "newStock": "",
+    "oldPrice": "50.60",
+    "oldStock": "emstock"
+  },
+  {
+    "game": "Between Two Castles of Mad King Ludwig",
+    "from": "jogonamesa",
+    "newPrice": "42.51",
+    "newStock": "em14 dias",
+    "oldPrice": "42.51",
+    "oldStock": "em7 dias"
+  },
+  {
+    "game": "Between Two Castles of Mad King Ludwig",
+    "from": "diver",
+    "newPrice": "",
+    "newStock": "",
+    "oldPrice": "49.49",
+    "oldStock": "disponvel"
+  },
+  {
+    "game": "Brass: Birmingham",
+    "from": "arenaporto",
+    "newPrice": "84.99",
+    "newStock": "esgotado",
+    "oldPrice": "84.99",
+    "oldStock": "ltimos artigos em stock"
+  },
+  {
+    "game": "Brass: Birmingham",
+    "from": "jogonamesa",
+    "newPrice": "49.18",
+    "newStock": "em14 dias",
+    "oldPrice": "49.32",
+    "oldStock": "em7 dias"
+  },
+  {
+    "game": "Brass: Birmingham",
+    "from": "dracotienda",
+    "newPrice": "54.00",
+    "newStock": " disponible",
+    "oldPrice": "54",
+    "oldStock": "disponible"
+  },
+  {
+    "game": "Brass: Birmingham",
+    "from": "gglounge",
+    "newPrice": "69.90",
+    "newStock": "outof stock",
+    "oldPrice": "69.9",
+    "oldStock": "outof stock"
+  },
+  {
+    "game": "Café",
+    "from": "jogonamesa",
+    "newPrice": "18.20",
+    "newStock": "em21 dias",
+    "oldPrice": "16.11",
+    "oldStock": "em26 dias"
+  },
+  {
+    "game": "Café",
+    "from": "dracotienda",
+    "newPrice": "18.00",
+    "newStock": " fuera de stock",
+    "oldPrice": "18",
+    "oldStock": "fuera de stock"
+  },
+  {
+    "game": "Café",
+    "from": "ajogar",
+    "newPrice": "13.90",
+    "newStock": "adicionarao carrinho",
+    "oldPrice": "13.9",
+    "oldStock": "adicionarao carrinho"
+  },
+  {
+    "game": "Café",
+    "from": "saltadacaixa",
+    "newPrice": "17.95",
+    "newStock": "em stock  ",
+    "oldPrice": "17.95",
+    "oldStock": "em stock"
+  },
+  {
+    "game": "Camel Up 2nd ENG e outras",
+    "from": "jogonamesa",
+    "newPrice": "",
+    "newStock": "",
+    "oldPrice": "16.11",
+    "oldStock": "em26 dias"
+  },
+  {
+    "game": "Camel Up 2nd ENG e outras",
+    "from": "dracotienda",
+    "newPrice": "40.45",
+    "newStock": " disponible",
+    "oldPrice": "40.45",
+    "oldStock": "fuera de stock"
+  },
+  {
+    "game": "Camel Up 2nd ENG e outras",
+    "from": "diver",
+    "newPrice": "",
+    "newStock": "",
+    "oldPrice": "17.99",
+    "oldStock": "disponvel"
+  },
+  {
+    "game": "Camel Up 2nd ENG e outras",
+    "from": "juegosdelamesaredonda",
+    "newPrice": "40.41",
+    "newStock": "prepedidodisponible a partir del 17 de marzo de 2023",
+    "oldPrice": "40.41",
+    "oldStock": "prepedidodisponible a partir del 7 de marzo de 2023"
+  },
+  {
+    "game": "Century: Spice Road",
+    "from": "gglounge",
+    "newPrice": "34.90",
+    "newStock": "only1 left in stock",
+    "oldPrice": "30.71",
+    "oldStock": "only1 left in stock"
+  },
+  {
+    "game": "Century: Spice Road",
+    "from": "amazon",
+    "newPrice": "49.48",
+    "newStock": "emstock",
+    "oldPrice": "50.9",
+    "oldStock": "emstock"
+  },
+  {
+    "game": "Citadels 2nd",
+    "from": "jogonamesa",
+    "newPrice": "31.96",
+    "newStock": "em21 dias",
+    "oldPrice": "31.96",
+    "oldStock": "em26 dias"
+  },
+  {
+    "game": "Citadels 2nd",
+    "from": "gglounge",
+    "newPrice": "32.50",
+    "newStock": "outof stock",
+    "oldPrice": "32.5",
+    "oldStock": "outof stock"
+  },
+  {
+    "game": "Citadels 2nd",
+    "from": "amazon",
+    "newPrice": "71.60",
+    "newStock": "emstock",
+    "oldPrice": "71.36",
+    "oldStock": "emstock"
+  },
+  {
+    "game": "Concept",
+    "from": "jogonamesa",
+    "newPrice": "32.00",
+    "newStock": "imediata",
+    "oldPrice": "32",
+    "oldStock": "imediata"
+  },
+  {
+    "game": "Concept",
+    "from": "amazon",
+    "newPrice": "",
+    "newStock": "",
+    "oldPrice": "71.36",
+    "oldStock": "emstock"
+  },
+  {
+    "game": "Cubitos",
+    "from": "dracotienda",
+    "newPrice": "49.50",
+    "newStock": " disponible",
+    "oldPrice": "49.5",
+    "oldStock": "disponible"
+  },
+  {
+    "game": "Cubitos",
+    "from": "gglounge",
+    "newPrice": "59.90",
+    "newStock": "only1 left in stock",
+    "oldPrice": "52.71",
+    "oldStock": "only1 left in stock"
+  },
+  {
+    "game": "Cubitos",
+    "from": "diver",
+    "newPrice": "",
+    "newStock": "",
+    "oldPrice": "31.49",
+    "oldStock": "disponvel"
+  },
+  {
+    "game": "Divvy Dice",
+    "from": "jogonamesa",
+    "newPrice": "12.16",
+    "newStock": "em27 dias",
+    "oldPrice": "12.16",
+    "oldStock": "em25 dias"
+  },
+  {
+    "game": "Everdell",
+    "from": "gameplay",
+    "newPrice": "64.99",
+    "newStock": "emstock",
+    "oldPrice": "55.99",
+    "oldStock": "emstock"
+  },
+  {
+    "game": "Everdell",
+    "from": "arenaporto",
+    "newPrice": "74.99",
+    "newStock": "",
+    "oldPrice": "74.99",
+    "oldStock": "esgotado"
+  },
+  {
+    "game": "Everdell",
+    "from": "jogonamesa",
+    "newPrice": "58.29",
+    "newStock": "em21 dias",
+    "oldPrice": "51.68",
+    "oldStock": "em7 dias"
+  },
+  {
+    "game": "Everdell",
+    "from": "gglounge",
+    "newPrice": "62.90",
+    "newStock": "outof stock",
+    "oldPrice": "62.9",
+    "oldStock": "outof stock"
+  },
+  {
+    "game": "Everdell",
+    "from": "saltadacaixa",
+    "newPrice": "54.95",
+    "newStock": "em stock  ",
+    "oldPrice": "54.95",
+    "oldStock": "em stock"
+  },
+  {
+    "game": "Everdell",
+    "from": "amazon",
+    "newPrice": "68.11",
+    "newStock": "emstock",
+    "oldPrice": "68.07",
+    "oldStock": "emstock"
+  },
+  {
+    "game": "Evolution: Climate",
+    "from": "jogonamesa",
+    "newPrice": "",
+    "newStock": "",
+    "oldPrice": "12.16",
+    "oldStock": "em25 dias"
+  },
+  {
+    "game": "Evolution: Climate",
+    "from": "gglounge",
+    "newPrice": "46.90",
+    "newStock": "outof stock",
+    "oldPrice": "46.9",
+    "oldStock": "outof stock"
+  },
+  {
+    "game": "Imhotep",
+    "from": "amazon",
+    "newPrice": "34.78",
+    "newStock": "emstock",
+    "oldPrice": "35.23",
+    "oldStock": "emstock"
+  },
+  {
+    "game": "Imperium: Classics",
+    "from": "jogonamesa",
+    "newPrice": "37.65",
+    "newStock": "em21 dias",
+    "oldPrice": "37.65",
+    "oldStock": "em26 dias"
+  },
+  {
+    "game": "Imperium: Classics",
+    "from": "dracotienda",
+    "newPrice": "39.95",
+    "newStock": " ltimas unidades en stock",
+    "oldPrice": "39.95",
+    "oldStock": "ltimas unidades en stock"
+  },
+  {
+    "game": "Imperium: Classics",
+    "from": "gglounge",
+    "newPrice": "39.90",
+    "newStock": "only2 left in stock",
+    "oldPrice": "35.11",
+    "oldStock": "only2 left in stock"
+  },
+  {
+    "game": "Juicy Fruits",
+    "from": "jogonamesa",
+    "newPrice": "24.76",
+    "newStock": "em27 dias",
+    "oldPrice": "24.82",
+    "oldStock": "em25 dias"
+  },
+  {
+    "game": "Juicy Fruits",
+    "from": "ajogar",
+    "newPrice": "29.90",
+    "newStock": "esgotado",
+    "oldPrice": "29.9",
+    "oldStock": "esgotado"
+  },
+  {
+    "game": "Kingdomino",
+    "from": "jogonamesa",
+    "newPrice": "20.00",
+    "newStock": "imediata",
+    "oldPrice": "20",
+    "oldStock": "imediata"
+  },
+  {
+    "game": "Kingdomino",
+    "from": "dracotienda",
+    "newPrice": "19.75",
+    "newStock": " disponible",
+    "oldPrice": "19.75",
+    "oldStock": "disponible"
+  },
+  {
+    "game": "Kingdomino",
+    "from": "gglounge",
+    "newPrice": "20.90",
+    "newStock": "only2 left in stock",
+    "oldPrice": "20.9",
+    "oldStock": "only2 left in stock"
+  },
+  {
+    "game": "Kingdomino",
+    "from": "saltadacaixa",
+    "newPrice": "21.95",
+    "newStock": "em stock  ",
+    "oldPrice": "21.95",
+    "oldStock": "em stock"
+  },
+  {
+    "game": "Kingdomino",
+    "from": "amazon",
+    "newPrice": "24.98",
+    "newStock": "emstock",
+    "oldPrice": "25.09",
+    "oldStock": "emstock"
+  },
+  {
+    "game": "Last Will",
+    "from": "gameplay",
+    "newPrice": "35.95",
+    "newStock": "emstock",
+    "oldPrice": "35.95",
+    "oldStock": "restock"
+  },
+  {
+    "game": "Last Will",
+    "from": "jogonamesa",
+    "newPrice": "39.00",
+    "newStock": "imediata",
+    "oldPrice": "35",
+    "oldStock": "imediata"
+  },
+  {
+    "game": "Last Will",
+    "from": "dracotienda",
+    "newPrice": "37.95",
+    "newStock": " fuera de stock",
+    "oldPrice": "37.95",
+    "oldStock": "fuera de stock"
+  },
+  {
+    "game": "Last Will",
+    "from": "saltadacaixa",
+    "newPrice": "35.95",
+    "newStock": "em stock  ",
+    "oldPrice": "35.95",
+    "oldStock": "em stock"
+  },
+  {
+    "game": "Linko!",
+    "from": "jogonamesa",
+    "newPrice": "11.24",
+    "newStock": "em14 dias",
+    "oldPrice": "11.3",
+    "oldStock": "em7 dias"
+  },
+  {
+    "game": "Love Letter",
+    "from": "jogonamesa",
+    "newPrice": "18.00",
+    "newStock": "imediata",
+    "oldPrice": "18",
+    "oldStock": "imediata"
+  },
+  {
+    "game": "Love Letter",
+    "from": "gglounge",
+    "newPrice": "17.90",
+    "newStock": "only1 left in stock",
+    "oldPrice": "17.9",
+    "oldStock": "only1 left in stock"
+  },
+  {
+    "game": "Love Letter",
+    "from": "ajogar",
+    "newPrice": "21.50",
+    "newStock": "adicionarao carrinho",
+    "oldPrice": "29.90",
+    "oldStock": "esgotado"
+  },
+  {
+    "game": "Luxor",
+    "from": "jogonamesa",
+    "newPrice": "",
+    "newStock": "",
+    "oldPrice": "20.00",
+    "oldStock": "imediata"
+  },
+  {
+    "game": "Luxor",
+    "from": "dracotienda",
+    "newPrice": "36.95",
+    "newStock": " fuera de stock",
+    "oldPrice": "36.95",
+    "oldStock": "fuera de stock"
+  },
+  {
+    "game": "Masters of Mutanite",
+    "from": "jogonamesa",
+    "newPrice": "",
+    "newStock": "",
+    "oldPrice": "35.00",
+    "oldStock": "imediata"
+  },
+  {
+    "game": "New York 1901",
+    "from": "jogonamesa",
+    "newPrice": "",
+    "newStock": "",
+    "oldPrice": "11.30",
+    "oldStock": "em7 dias"
+  },
+  {
+    "game": "New York 1901",
+    "from": "dracotienda",
+    "newPrice": "31.50",
+    "newStock": " disponible",
+    "oldPrice": "31.5",
+    "oldStock": "disponible"
+  },
+  {
+    "game": "New York 1901",
+    "from": "saltadacaixa",
+    "newPrice": "34.95",
+    "newStock": "em stock  ",
+    "oldPrice": "34.95",
+    "oldStock": "em stock"
+  },
+  {
+    "game": "New York 1901",
+    "from": "amazon",
+    "newPrice": "58.68",
+    "newStock": "estimativade envio de 3 a 4 dias",
+    "oldPrice": "57.73",
+    "oldStock": "estimativade envio de 3 a 4 dias"
+  },
+  {
+    "game": "Oceans",
+    "from": "jogonamesa",
+    "newPrice": "50.70",
+    "newStock": "esgotado",
+    "oldPrice": "50.7",
+    "oldStock": "esgotado"
+  },
+  {
+    "game": "Oceans",
+    "from": "dracotienda",
+    "newPrice": "53.98",
+    "newStock": " disponible",
+    "oldPrice": "53.98",
+    "oldStock": "disponible"
+  },
+  {
+    "game": "Oceans",
+    "from": "gglounge",
+    "newPrice": "38.90",
+    "newStock": "outof stock",
+    "oldPrice": "38.9",
+    "oldStock": "outof stock"
+  },
+  {
+    "game": "Oceans Deluxe",
+    "from": "gameplay",
+    "newPrice": "95.90",
+    "newStock": "ltimaunidade em stock",
+    "oldPrice": "95.9",
+    "oldStock": "ltimaunidade em stock"
+  },
+  {
+    "game": "Oh My Goods!",
+    "from": "jogonamesa",
+    "newPrice": "13.77",
+    "newStock": "esgotado",
+    "oldPrice": "11.69",
+    "oldStock": "esgotado"
+  },
+  {
+    "game": "Oh My Goods!",
+    "from": "dracotienda",
+    "newPrice": "13.49",
+    "newStock": " disponible",
+    "oldPrice": "12.99",
+    "oldStock": "disponible"
+  },
+  {
+    "game": "Orléans",
+    "from": "jogonamesa",
+    "newPrice": "39.63",
+    "newStock": "em14 dias",
+    "oldPrice": "39.63",
+    "oldStock": "em7 dias"
+  },
+  {
+    "game": "Orléans",
+    "from": "dracotienda",
+    "newPrice": "44.95",
+    "newStock": " ltimas unidades en stock",
+    "oldPrice": "44.95",
+    "oldStock": "ltimas unidades en stock"
+  },
+  {
+    "game": "Orléans",
+    "from": "gglounge",
+    "newPrice": "47.50",
+    "newStock": "only1 left in stock",
+    "oldPrice": "38.9",
+    "oldStock": "only1 left in stock"
+  },
+  {
+    "game": "Orléans",
+    "from": "juegosdelamesaredonda",
+    "newPrice": "40.50",
+    "newStock": "enreposicin",
+    "oldPrice": "40.5",
+    "oldStock": "enreposicin"
+  },
+  {
+    "game": "PARKS",
+    "from": "jogonamesa",
+    "newPrice": "48.90",
+    "newStock": "esgotado",
+    "oldPrice": "48.9",
+    "oldStock": "esgotado"
+  },
+  {
+    "game": "PARKS",
+    "from": "gglounge",
+    "newPrice": "55.90",
+    "newStock": "outof stock",
+    "oldPrice": "55.9",
+    "oldStock": "outof stock"
+  },
+  {
+    "game": "PARKS",
+    "from": "amazon",
+    "newPrice": "",
+    "newStock": "",
+    "oldPrice": "56.95",
+    "oldStock": "apenas1 em stock"
+  },
+  {
+    "game": "Pipeline",
+    "from": "gameplay",
+    "newPrice": "",
+    "newStock": "",
+    "oldPrice": "95.90",
+    "oldStock": "ltimaunidade em stock"
+  },
+  {
+    "game": "Pipeline",
+    "from": "jogonamesa",
+    "newPrice": "61.80",
+    "newStock": "esgotado",
+    "oldPrice": "61.05",
+    "oldStock": "esgotado"
+  },
+  {
+    "game": "Pipeline",
+    "from": "dracotienda",
+    "newPrice": "46.79",
+    "newStock": " fuera de stock",
+    "oldPrice": "46.79",
+    "oldStock": "fuera de stock"
+  },
+  {
+    "game": "Railroad Ink: Deep Blue Edition",
+    "from": "jogonamesa",
+    "newPrice": "19.34",
+    "newStock": "em13 dias",
+    "oldPrice": "18.81",
+    "oldStock": "em26 dias"
+  },
+  {
+    "game": "Railroad Ink: Deep Blue Edition",
+    "from": "dracotienda",
+    "newPrice": "14.99",
+    "newStock": " disponible",
+    "oldPrice": "14.99",
+    "oldStock": "disponible"
+  },
+  {
+    "game": "Railroad Ink: Deep Blue Edition",
+    "from": "saltadacaixa",
+    "newPrice": "19.95",
+    "newStock": "em stock  ",
+    "oldPrice": "19.95",
+    "oldStock": "em stock"
+  },
+  {
+    "game": "Railroad Ink: Deep Blue Edition",
+    "from": "amazon",
+    "newPrice": "",
+    "newStock": "",
+    "oldPrice": "13.21",
+    "oldStock": "emstock"
+  },
+  {
+    "game": "Res Arcana",
+    "from": "jogonamesa",
+    "newPrice": "",
+    "newStock": "",
+    "oldPrice": "39.63",
+    "oldStock": "em7 dias"
+  },
+  {
+    "game": "Res Arcana",
+    "from": "amazon",
+    "newPrice": "44.26",
+    "newStock": "estimativade envio de 3 a 4 dias",
+    "oldPrice": "43.53",
+    "oldStock": "estimativade envio de 3 a 4 dias"
+  },
+  {
+    "game": "Roll for the Galaxy",
+    "from": "gameplay",
+    "newPrice": "65.95",
+    "newStock": "esgotado",
+    "oldPrice": "65.95",
+    "oldStock": "ltimaunidade em stock"
+  },
+  {
+    "game": "Roll for the Galaxy",
+    "from": "jogonamesa",
+    "newPrice": "52.49",
+    "newStock": "em14 dias",
+    "oldPrice": "52.49",
+    "oldStock": "em7 dias"
+  },
+  {
+    "game": "Roll for the Galaxy",
+    "from": "dracotienda",
+    "newPrice": "59.99",
+    "newStock": " ltimas unidades en stock",
+    "oldPrice": "59.99",
+    "oldStock": "ltimas unidades en stock"
+  },
+  {
+    "game": "Roll for the Galaxy",
+    "from": "gglounge",
+    "newPrice": "58.90",
+    "newStock": "outof stock",
+    "oldPrice": "58.9",
+    "oldStock": "outof stock"
+  },
+  {
+    "game": "Royals",
+    "from": "jogonamesa",
+    "newPrice": "45.19",
+    "newStock": "em14 dias",
+    "oldPrice": "45.19",
+    "oldStock": "em7 dias"
+  },
+  {
+    "game": "Silver & Gold",
+    "from": "jogonamesa",
+    "newPrice": "12.00",
+    "newStock": "em27 dias",
+    "oldPrice": "12",
+    "oldStock": "em25 dias"
+  },
+  {
+    "game": "Silver & Gold",
+    "from": "amazon",
+    "newPrice": "22.35",
+    "newStock": "",
+    "oldPrice": "11.19",
+    "oldStock": "apenas3 em stock"
+  },
+  {
+    "game": "Splendor Marvel",
+    "from": "jogonamesa",
+    "newPrice": "31.94",
+    "newStock": "em21 dias",
+    "oldPrice": "31.73",
+    "oldStock": "em26 dias"
+  },
+  {
+    "game": "Splendor Marvel",
+    "from": "dracotienda",
+    "newPrice": "34.95",
+    "newStock": " fuera de stock",
+    "oldPrice": "34.95",
+    "oldStock": "fuera de stock"
+  },
+  {
+    "game": "Splendor Marvel",
+    "from": "jubilantsunday",
+    "newPrice": "28.30",
+    "newStock": "em stock",
+    "oldPrice": "28.3",
+    "oldStock": "em stock"
+  },
+  {
+    "game": "Splendor Marvel",
+    "from": "amazon",
+    "newPrice": "39.95",
+    "newStock": "emstock",
+    "oldPrice": "30.44",
+    "oldStock": "emstock"
+  },
+  {
+    "game": "Steam Park",
+    "from": "jogonamesa",
+    "newPrice": "",
+    "newStock": "",
+    "oldPrice": "52.49",
+    "oldStock": "em7 dias"
+  },
+  {
+    "game": "Steam Park",
+    "from": "dracotienda",
+    "newPrice": "39.95",
+    "newStock": " fuera de stock",
+    "oldPrice": "39.95",
+    "oldStock": "fuera de stock"
+  },
+  {
+    "game": "Stone Age",
+    "from": "jogonamesa",
+    "newPrice": "42.00",
+    "newStock": "imediata",
+    "oldPrice": "42",
+    "oldStock": "imediata"
+  },
+  {
+    "game": "Stone Age",
+    "from": "dracotienda",
+    "newPrice": "40.50",
+    "newStock": " disponible",
+    "oldPrice": "40.5",
+    "oldStock": "disponible"
+  },
+  {
+    "game": "Stone Age",
+    "from": "saltadacaixa",
+    "newPrice": "44.95",
+    "newStock": "em stock  ",
+    "oldPrice": "44.95",
+    "oldStock": "em stock"
+  },
+  {
+    "game": "Strike",
+    "from": "jogonamesa",
+    "newPrice": "20.31",
+    "newStock": "em27 dias",
+    "oldPrice": "16.16",
+    "oldStock": "em26 dias"
+  },
+  {
+    "game": "Thanos Rising: Avengers Infinity War",
+    "from": "jogonamesa",
+    "newPrice": "",
+    "newStock": "",
+    "oldPrice": "31.73",
+    "oldStock": "em26 dias"
+  },
+  {
+    "game": "Thanos Rising: Avengers Infinity War",
+    "from": "dracotienda",
+    "newPrice": "49.95",
+    "newStock": " fuera de stock",
+    "oldPrice": "49.95",
+    "oldStock": "fuera de stock"
+  },
+  {
+    "game": "Thanos Rising: Avengers Infinity War",
+    "from": "amazon",
+    "newPrice": "49.91",
+    "newStock": "emstock",
+    "oldPrice": "47.32",
+    "oldStock": "emstock"
+  },
+  {
+    "game": "The Mind",
+    "from": "jogonamesa",
+    "newPrice": "14.00",
+    "newStock": "imediata",
+    "oldPrice": "14",
+    "oldStock": "imediata"
+  },
+  {
+    "game": "The Quacks of Quedlinburg: The Herb Witches",
+    "from": "jogonamesa",
+    "newPrice": "24.63",
+    "newStock": "esgotado",
+    "oldPrice": "21.03",
+    "oldStock": "esgotado"
+  },
+  {
+    "game": "The Quacks of Quedlinburg: The Herb Witches",
+    "from": "gglounge",
+    "newPrice": "24.90",
+    "newStock": "outof stock",
+    "oldPrice": "24.9",
+    "oldStock": "outof stock"
+  },
+  {
+    "game": "The Quacks of Quedlinburg: The Herb Witches",
+    "from": "amazon",
+    "newPrice": "44.55",
+    "newStock": "emstock",
+    "oldPrice": "45.74",
+    "oldStock": "emstock"
+  },
+  {
+    "game": "The Quest for El Dorado",
+    "from": "jogonamesa",
+    "newPrice": "30.51",
+    "newStock": "em27 dias",
+    "oldPrice": "29.72",
+    "oldStock": "em26 dias"
+  },
+  {
+    "game": "Ticket to Ride: Europe",
+    "from": "gameplay",
+    "newPrice": "49.95",
+    "newStock": "ltimaunidade em stock",
+    "oldPrice": "49.95",
+    "oldStock": "restock"
+  },
+  {
+    "game": "Ticket to Ride: Europe",
+    "from": "jogonamesa",
+    "newPrice": "46.00",
+    "newStock": "imediata",
+    "oldPrice": "46",
+    "oldStock": "2semanas"
+  },
+  {
+    "game": "Ticket to Ride: Europe",
+    "from": "gglounge",
+    "newPrice": "46.90",
+    "newStock": "outof stock",
+    "oldPrice": "46.9",
+    "oldStock": "outof stock"
+  },
+  {
+    "game": "Tokaido",
+    "from": "jogonamesa",
+    "newPrice": "31.71",
+    "newStock": "em27 dias",
+    "oldPrice": "31.71",
+    "oldStock": "em25 dias"
+  },
+  {
+    "game": "Tokaido",
+    "from": "dracotienda",
+    "newPrice": "34.99",
+    "newStock": " disponible",
+    "oldPrice": "34.99",
+    "oldStock": "disponible"
+  },
+  {
+    "game": "Viscounts of the West Kingdom",
+    "from": "gameplay",
+    "newPrice": "60.95",
+    "newStock": "ltimaunidade em stock",
+    "oldPrice": "60.95",
+    "oldStock": "emstock"
+  },
+  {
+    "game": "Viscounts of the West Kingdom",
+    "from": "jogonamesa",
+    "newPrice": "44.85",
+    "newStock": "em14 dias",
+    "oldPrice": "44.85",
+    "oldStock": "em7 dias"
+  },
+  {
+    "game": "Viscounts of the West Kingdom",
+    "from": "dracotienda",
+    "newPrice": "49.99",
+    "newStock": " fuera de stock",
+    "oldPrice": "49.99",
+    "oldStock": "fuera de stock"
+  },
+  {
+    "game": "Warsaw: City of Ruins",
+    "from": "jogonamesa",
+    "newPrice": "",
+    "newStock": "",
+    "oldPrice": "29.72",
+    "oldStock": "em26 dias"
+  },
+  {
+    "game": "Alhambra EN",
+    "from": "dracotienda",
+    "newPrice": "31.50",
+    "newStock": " disponible",
+    "oldPrice": "31.5",
+    "oldStock": "disponible"
+  },
+  {
+    "game": "Alhambra EN",
+    "from": "planetongames",
+    "newPrice": "31.50",
+    "newStock": "ltimasunidades en stock",
+    "oldPrice": "31.5",
+    "oldStock": "ltimasunidades en stock"
+  },
+  {
+    "game": "Alhambra EN",
+    "from": "amazon",
+    "newPrice": "",
+    "newStock": "",
+    "oldPrice": "35.57",
+    "oldStock": "emstock"
+  },
+  {
+    "game": "Alhambra PT",
+    "from": "gglounge",
+    "newPrice": "31.90",
+    "newStock": "outof stock",
+    "oldPrice": "31.9",
+    "oldStock": "outof stock"
+  },
+  {
+    "game": "Altiplano",
+    "from": "gameplay",
+    "newPrice": "49.90",
+    "newStock": "restock",
+    "oldPrice": "49.9",
+    "oldStock": "restock"
+  },
+  {
+    "game": "Altiplano",
+    "from": "gglounge",
+    "newPrice": "30.90",
+    "newStock": "outof stock",
+    "oldPrice": "30.9",
+    "oldStock": "outof stock"
+  },
+  {
+    "game": "Altiplano",
+    "from": "dracotienda",
+    "newPrice": "44.96",
+    "newStock": " fuera de stock",
+    "oldPrice": "44.96",
+    "oldStock": "fuera de stock"
+  },
+  {
+    "game": "Arboretum",
+    "from": "jogonamesa",
+    "newPrice": "22.77",
+    "newStock": "em13 dias",
+    "oldPrice": "22.77",
+    "oldStock": "em26 dias"
+  },
+  {
+    "game": "Arboretum",
+    "from": "gglounge",
+    "newPrice": "21.90",
+    "newStock": "only1 left in stock",
+    "oldPrice": "21.9",
+    "oldStock": "only1 left in stock"
+  },
+  {
+    "game": "Arboretum",
+    "from": "dracotienda",
+    "newPrice": "17.95",
+    "newStock": " disponible",
+    "oldPrice": "17.95",
+    "oldStock": "disponible"
+  },
+  {
+    "game": "Arboretum",
+    "from": "planetongames",
+    "newPrice": "17.96",
+    "newStock": "productoen stock",
+    "oldPrice": "17.96",
+    "oldStock": "nodisponible"
+  },
+  {
+    "game": "Bandida",
+    "from": "dracotienda",
+    "newPrice": "12.99",
+    "newStock": " disponible",
+    "oldPrice": "12.99",
+    "oldStock": "disponible"
+  },
+  {
+    "game": "Broom Service",
+    "from": "gameplay",
+    "newPrice": "38.50",
+    "newStock": "esgotado",
+    "oldPrice": "38.5",
+    "oldStock": "esgotado"
+  },
+  {
+    "game": "Broom Service",
+    "from": "jogonamesa",
+    "newPrice": "31.36",
+    "newStock": "em27 dias",
+    "oldPrice": "31.36",
+    "oldStock": "em25 dias"
+  },
+  {
+    "game": "Broom Service",
+    "from": "dracotienda",
+    "newPrice": "11.95",
+    "newStock": " disponible",
+    "oldPrice": "11.95",
+    "oldStock": "disponible"
+  },
+  {
+    "game": "Bus",
+    "from": "jogonamesa",
+    "newPrice": "79.01",
+    "newStock": "esgotado",
+    "oldPrice": "78.47",
+    "oldStock": "esgotado"
+  },
+  {
+    "game": "Cacao",
+    "from": "jogonamesa",
+    "newPrice": "23.00",
+    "newStock": "em27 dias",
+    "oldPrice": "22.04",
+    "oldStock": "esgotado"
+  },
+  {
+    "game": "Cacao",
+    "from": "dracotienda",
+    "newPrice": "24.30",
+    "newStock": " disponible",
+    "oldPrice": "24.3",
+    "oldStock": "disponible"
+  },
+  {
+    "game": "Cacao",
+    "from": "amazon",
+    "newPrice": "23.28",
+    "newStock": "emstock",
+    "oldPrice": "22.69",
+    "oldStock": "emstock"
+  },
+  {
+    "game": "Cartographers",
+    "from": "gameplay",
+    "newPrice": "27.95",
+    "newStock": "ltimaunidade em stock",
+    "oldPrice": "27.95",
+    "oldStock": "emstock"
+  },
+  {
+    "game": "Cartographers",
+    "from": "jogonamesa",
+    "newPrice": "25.68",
+    "newStock": "em13 dias",
+    "oldPrice": "25.68",
+    "oldStock": "em26 dias"
+  },
+  {
+    "game": "Cartographers",
+    "from": "dracotienda",
+    "newPrice": "25.99",
+    "newStock": " fuera de stock",
+    "oldPrice": "25.99",
+    "oldStock": "fuera de stock"
+  },
+  {
+    "game": "Cartographers",
+    "from": "gglounge",
+    "newPrice": "24.90",
+    "newStock": "outof stock",
+    "oldPrice": "24.9",
+    "oldStock": "outof stock"
+  },
+  {
+    "game": "Chinatown",
+    "from": "gglounge",
+    "newPrice": "53.90",
+    "newStock": "outof stock",
+    "oldPrice": "53.9",
+    "oldStock": "outof stock"
+  },
+  {
+    "game": "Coffee Traders",
+    "from": "dracotienda",
+    "newPrice": "104.95",
+    "newStock": " fuera de stock",
+    "oldPrice": "104.95",
+    "oldStock": "fuera de stock"
+  },
+  {
+    "game": "Concordia EN",
+    "from": "jogonamesa",
+    "newPrice": "44.00",
+    "newStock": "imediata",
+    "oldPrice": "44",
+    "oldStock": "imediata"
+  },
+  {
+    "game": "Concordia EN",
+    "from": "dracotienda",
+    "newPrice": "42.95",
+    "newStock": " ltimas unidades en stock",
+    "oldPrice": "42.95",
+    "oldStock": "ltimas unidades en stock"
+  },
+  {
+    "game": "Concordia EN",
+    "from": "gglounge",
+    "newPrice": "42.90",
+    "newStock": "only2 left in stock",
+    "oldPrice": "42.9",
+    "oldStock": "only2 left in stock"
+  },
+  {
+    "game": "Concordia EN",
+    "from": "diver",
+    "newPrice": "",
+    "newStock": "",
+    "oldPrice": "26.99",
+    "oldStock": "esgotado"
+  },
+  {
+    "game": "Concordia EN",
+    "from": "jubilantsunday",
+    "newPrice": "38.60",
+    "newStock": "esgotado",
+    "oldPrice": "38.6",
+    "oldStock": "esgotado"
+  },
+  {
+    "game": "Coup",
+    "from": "gglounge",
+    "newPrice": "14.90",
+    "newStock": "outof stock",
+    "oldPrice": "14.9",
+    "oldStock": "outof stock"
+  },
+  {
+    "game": "Dice Throne: Season One ReRolled - Barbarian v. Moon Elf",
+    "from": "jogonamesa",
+    "newPrice": "30.89",
+    "newStock": "esgotado",
+    "oldPrice": "25.4",
+    "oldStock": "esgotado"
+  },
+  {
+    "game": "Elysium",
+    "from": "jogonamesa",
+    "newPrice": "",
+    "newStock": "",
+    "oldPrice": "44.00",
+    "oldStock": "imediata"
+  },
+  {
+    "game": "Elysium",
+    "from": "juegosdelamesaredonda",
+    "newPrice": "40.50",
+    "newStock": "enreposicin",
+    "oldPrice": "40.5",
+    "oldStock": "enreposicin"
+  },
+  {
+    "game": "Endless Winter: Paleoamericans",
+    "from": "jogonamesa",
+    "newPrice": "58.85",
+    "newStock": "esgotado",
+    "oldPrice": "59.46",
+    "oldStock": "esgotado"
+  },
+  {
+    "game": "Fantasy Realms",
+    "from": "kultgames",
+    "newPrice": "22.50",
+    "newStock": "deliveryin 1 to 2 weeks time",
+    "oldPrice": "22.5",
+    "oldStock": "deliveryin 1 to 2 weeks time"
+  },
+  {
+    "game": "Fantasy Realms",
+    "from": "jogonamesa",
+    "newPrice": "24.00",
+    "newStock": "imediata",
+    "oldPrice": "24",
+    "oldStock": "imediata"
+  },
+  {
+    "game": "Fantasy Realms",
+    "from": "gglounge",
+    "newPrice": "19.90",
+    "newStock": "only2 left in stock",
+    "oldPrice": "17.51",
+    "oldStock": "only3 left in stock"
+  },
+  {
+    "game": "Flamme Rouge",
+    "from": "jogonamesa",
+    "newPrice": "31.80",
+    "newStock": "em27 dias",
+    "oldPrice": "31.8",
+    "oldStock": "em25 dias"
+  },
+  {
+    "game": "Flamme Rouge",
+    "from": "dracotienda",
+    "newPrice": "27.95",
+    "newStock": " ltimas unidades en stock",
+    "oldPrice": "27.95",
+    "oldStock": "ltimas unidades en stock"
+  },
+  {
+    "game": "Flamme Rouge",
+    "from": "amazon",
+    "newPrice": "28.33",
+    "newStock": "emstock",
+    "oldPrice": "28.38",
+    "oldStock": "emstock"
+  },
+  {
+    "game": "Isle of Skye: From Chieftain to King",
+    "from": "jogonamesa",
+    "newPrice": "37.28",
+    "newStock": "em21 dias",
+    "oldPrice": "36.99",
+    "oldStock": "em26 dias"
+  },
+  {
+    "game": "Isle of Skye: From Chieftain to King",
+    "from": "juegosdelamesaredonda",
+    "newPrice": "27.00",
+    "newStock": "enreposicin",
+    "oldPrice": "27",
+    "oldStock": "enreposicin"
+  },
+  {
+    "game": "Isle of Skye: From Chieftain to King",
+    "from": "amazon",
+    "newPrice": "33.49",
+    "newStock": "apenas1 em stock",
+    "oldPrice": "30.44",
+    "oldStock": "apenas3 em stock"
+  },
+  {
+    "game": "Long Shot: The Dice Game",
+    "from": "gglounge",
+    "newPrice": "29.90",
+    "newStock": "nolonger available for preordering",
+    "oldPrice": "29.9",
+    "oldStock": "nolonger available for preordering"
+  },
+  {
+    "game": "Maskmen",
+    "from": "jogonamesa",
+    "newPrice": "",
+    "newStock": "",
+    "oldPrice": "24.00",
+    "oldStock": "imediata"
+  },
+  {
+    "game": "Monster Expedition",
+    "from": "jogonamesa",
+    "newPrice": "",
+    "newStock": "",
+    "oldPrice": "31.80",
+    "oldStock": "em25 dias"
+  },
+  {
+    "game": "Monster Expedition",
+    "from": "amazon",
+    "newPrice": "",
+    "newStock": "",
+    "oldPrice": "28.38",
+    "oldStock": "emstock"
+  },
+  {
+    "game": "Paladins of the West Kingdom",
+    "from": "jogonamesa",
+    "newPrice": "57.27",
+    "newStock": "esgotado",
+    "oldPrice": "53.92",
+    "oldStock": "esgotado"
+  },
+  {
+    "game": "Paladins of the West Kingdom",
+    "from": "gglounge",
+    "newPrice": "58.90",
+    "newStock": "outof stock",
+    "oldPrice": "58.9",
+    "oldStock": "outof stock"
+  },
+  {
+    "game": "Paladins of the West Kingdom",
+    "from": "diver",
+    "newPrice": "",
+    "newStock": "",
+    "oldPrice": "31.49",
+    "oldStock": "disponvel"
+  },
+  {
+    "game": "Paleo EN",
+    "from": "amazon",
+    "newPrice": "70.02",
+    "newStock": "apenas2 em stock",
+    "oldPrice": "70.01",
+    "oldStock": "apenas2 em stock"
+  },
+  {
+    "game": "Paleo PT",
+    "from": "gameplay",
+    "newPrice": "44.99",
+    "newStock": "ltimaunidade em stock",
+    "oldPrice": "44.99",
+    "oldStock": "emstock"
+  },
+  {
+    "game": "Paleo PT",
+    "from": "jogonamesa",
+    "newPrice": "44.00",
+    "newStock": "imediata",
+    "oldPrice": "44",
+    "oldStock": "imediata"
+  },
+  {
+    "game": "Paleo PT",
+    "from": "gglounge",
+    "newPrice": "39.90",
+    "newStock": "only1 left in stock",
+    "oldPrice": "39.9",
+    "oldStock": "only1 left in stock"
+  },
+  {
+    "game": "Point Salad",
+    "from": "jogonamesa",
+    "newPrice": "10.00",
+    "newStock": "imediata",
+    "oldPrice": "10",
+    "oldStock": "imediata"
+  },
+  {
+    "game": "Point Salad",
+    "from": "gglounge",
+    "newPrice": "11.90",
+    "newStock": "only1 left in stock",
+    "oldPrice": "11.9",
+    "oldStock": "only1 left in stock"
+  },
+  {
+    "game": "Point Salad",
+    "from": "ajogar",
+    "newPrice": "14.70",
+    "newStock": "adicionarao carrinho",
+    "oldPrice": "14.7",
+    "oldStock": "adicionarao carrinho"
+  },
+  {
+    "game": "Red Rising",
+    "from": "jogonamesa",
+    "newPrice": "34.89",
+    "newStock": "em13 dias",
+    "oldPrice": "34.89",
+    "oldStock": "em26 dias"
+  },
+  {
+    "game": "Red Rising",
+    "from": "gglounge",
+    "newPrice": "38.90",
+    "newStock": "outof stock",
+    "oldPrice": "38.9",
+    "oldStock": "outof stock"
+  },
+  {
+    "game": "Red Rising",
+    "from": "amazon",
+    "newPrice": "",
+    "newStock": "",
+    "oldPrice": "49.05",
+    "oldStock": "apenas1 em stock"
+  },
+  {
+    "game": "The Colonists",
+    "from": "jogonamesa",
+    "newPrice": "",
+    "newStock": "",
+    "oldPrice": "44.00",
+    "oldStock": "imediata"
+  },
+  {
+    "game": "The Colonists",
+    "from": "amazon",
+    "newPrice": "125.63",
+    "newStock": "emstock",
+    "oldPrice": "126.1",
+    "oldStock": "emstock"
+  },
+  {
+    "game": "The Isle of Cats",
+    "from": "jogonamesa",
+    "newPrice": "46.35",
+    "newStock": "em13 dias",
+    "oldPrice": "46.35",
+    "oldStock": "em26 dias"
+  },
+  {
+    "game": "The Isle of Cats",
+    "from": "dracotienda",
+    "newPrice": "46.95",
+    "newStock": " fuera de stock",
+    "oldPrice": "46.95",
+    "oldStock": "fuera de stock"
+  },
+  {
+    "game": "The Isle of Cats",
+    "from": "gglounge",
+    "newPrice": "52.90",
+    "newStock": "outof stock",
+    "oldPrice": "52.9",
+    "oldStock": "outof stock"
+  },
+  {
+    "game": "The Isle of Cats",
+    "from": "diver",
+    "newPrice": "51.29",
+    "newStock": "encomendaa fornecedor",
+    "oldPrice": "51.29",
+    "oldStock": "disponvel"
+  },
+  {
+    "game": "The Isle of Cats",
+    "from": "ajogar",
+    "newPrice": "",
+    "newStock": "",
+    "oldPrice": "14.70",
+    "oldStock": "adicionarao carrinho"
+  },
+  {
+    "game": "The One Hundred Torii",
+    "from": "jogonamesa",
+    "newPrice": "34.42",
+    "newStock": "em21 dias",
+    "oldPrice": "34.17",
+    "oldStock": "em26 dias"
+  },
+  {
+    "game": "The One Hundred Torii",
+    "from": "amazon",
+    "newPrice": "",
+    "newStock": "",
+    "oldPrice": "49.05",
+    "oldStock": "apenas1 em stock"
+  },
+  {
+    "game": "The Red Cathedral",
+    "from": "jogonamesa",
+    "newPrice": "25.00",
+    "newStock": "imediata",
+    "oldPrice": "25",
+    "oldStock": "imediata"
+  },
+  {
+    "game": "The Red Cathedral",
+    "from": "gglounge",
+    "newPrice": "26.90",
+    "newStock": "outof stock",
+    "oldPrice": "26.9",
+    "oldStock": "outof stock"
+  },
+  {
+    "game": "The Red Cathedral",
+    "from": "saltadacaixa",
+    "newPrice": "29.95",
+    "newStock": "em stock",
+    "oldPrice": "29.95",
+    "oldStock": "esgotado"
+  }
+]

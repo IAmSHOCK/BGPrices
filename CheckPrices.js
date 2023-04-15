@@ -1,12 +1,10 @@
 const puppeteer = require('puppeteer');
 const fs = require("fs");
+const { fail } = require('assert');
 
 
 
 //sitename = FRUKLITS
-
-// TODO: versusgamecenter, devir is broken
-// TODO: check bookmarks for stores to add
 
 let input = fs.readFileSync('./input.txt').toString().split("\n");
 let logger = [];
@@ -15,18 +13,19 @@ async function scrape(){
     let oldPrices = getOldPrices();
 
     let newPrices = [];
-    newPrices[0] = {gameName: input[0], from: '', bestPrice: '5000', stock: '', price_jogonamesa: '', stock_jogonamesa: '', price_kultgames: '', stock_kultgames: '', price_gameplay: '', stock_gameplay: '', price_juegosdelamesaredonda: '', stock_juegosdelamesaredonda: '', price_diver: '', stock_diver: '', price_arenaporto: '', stock_arenaporto: '', price_dracotienda: '', stock_dracotienda: '', price_amazon: '', stock_amazon: '', price_planetongames: '', stock_planetongames: '', price_gglounge: '', stock_gglounge: '', price_versusgamecenter: '', stock_versusgamecenter: '', price_devir: '', stock_devir: '', price_ajogar: '', stock_ajogar: '', price_saltadacaixa: '', stock_saltadacaixa: '', price_jubilantsunday: '', stock_jubilantsunday: ''};
+    newPrices[0] = {gameName: input[0], from: '', bestPrice: '5000', stock: '', price_jogonamesa: '', stock_jogonamesa: '', price_kultgames: '', stock_kultgames: '', price_gameplay: '', stock_gameplay: '', price_juegosdelamesaredonda: '', stock_juegosdelamesaredonda: '', price_diver: '', stock_diver: '', price_arenaporto: '', stock_arenaporto: '', price_dracotienda: '', stock_dracotienda: '', price_amazon: '', stock_amazon: '', price_planetongames: '', stock_planetongames: '', price_gglounge: '', stock_gglounge: '', price_versusgamecenter: '', stock_versusgamecenter: '', price_devir: '', stock_devir: '', price_ajogar: '', stock_ajogar: '', price_saltadacaixa: '', stock_saltadacaixa: '', price_jubilantsunday: '', stock_jubilantsunday: '', price_mathom:'', stock_mathom:'', price_padis:'', stock_padis:'', price_masqueoca: '', stock_masqueoca:'', price_jugamosotra: '', stock_jugamosotra:'', price_empiregames: '', stock_empiregames:'', price_philibertnet: '', stock_philibertnet:''};
 
     let gameName;
     let k = 0;
     let returnedObj = {};
+    let skip = false;
     //i is for input
     for (let i = 1; i < input.length; i++) {
         let elem = input[i];
         if (isGame(elem)){
-            console.log("DEBUG Final Scraped game: ", newPrices[k]);
+            // console.log("DEBUG Final Scraped game: ", newPrices[k]);
             gameName = elem;
-            newPrices[++k] = {gameName: gameName, from: '', bestPrice: '5000', stock: '', price_jogonamesa: '', stock_jogonamesa: '', price_kultgames: '', stock_kultgames: '', price_gameplay: '', stock_gameplay: '', price_juegosdelamesaredonda: '', stock_juegosdelamesaredonda: '', price_diver: '', stock_diver: '', price_arenaporto: '', stock_arenaporto: '', price_dracotienda: '', stock_dracotienda: '', price_amazon: '', stock_amazon: '', price_planetongames: '', stock_planetongames: '', price_gglounge: '', stock_gglounge: '', price_versusgamecenter: '', stock_versusgamecenter: '', price_devir: '', stock_devir: '', price_ajogar: '', stock_ajogar: '', price_saltadacaixa: '', stock_saltadacaixa: '', price_jubilantsunday: '', stock_jubilantsunday: ''};
+            newPrices[++k] = {gameName: gameName, from: '', bestPrice: '5000', stock: '', price_jogonamesa: '', stock_jogonamesa: '', price_kultgames: '', stock_kultgames: '', price_gameplay: '', stock_gameplay: '', price_juegosdelamesaredonda: '', stock_juegosdelamesaredonda: '', price_diver: '', stock_diver: '', price_arenaporto: '', stock_arenaporto: '', price_dracotienda: '', stock_dracotienda: '', price_amazon: '', stock_amazon: '', price_planetongames: '', stock_planetongames: '', price_gglounge: '', stock_gglounge: '', price_versusgamecenter: '', stock_versusgamecenter: '', price_devir: '', stock_devir: '', price_ajogar: '', stock_ajogar: '', price_saltadacaixa: '', stock_saltadacaixa: '', price_jubilantsunday: '', stock_jubilantsunday: '', price_mathom:'', stock_mathom:'', price_padis:'', stock_padis:'', price_masqueoca: '', stock_masqueoca:'', price_jugamosotra: '', stock_jugamosotra:'', price_empiregames: '', stock_empiregames:'', price_philibertnet: '', stock_philibertnet:''};
         }
         else {
             returnedObj = {};
@@ -137,15 +136,56 @@ async function scrape(){
                     newPrices[k].price_jubilantsunday = returnedObj.price;
                     newPrices[k].stock_jubilantsunday = returnedObj.stock;
                     checkOldPrice(newPrices, oldPrices, 'jubilantsunday', gameName);
-                break;
+                    break;
+                case "mathom.es": case "www.mathom.es":
+                    returnedObj = await mathom(elem);
+                    newPrices[k].price_mathom = returnedObj.price;
+                    newPrices[k].stock_mathom = returnedObj.stock;
+                    checkOldPrice(newPrices, oldPrices, 'mathom', gameName);
+                    break;
+                case "padis-store.com": case "www.padis-store.com":
+                    returnedObj = await padis(elem);
+                    newPrices[k].price_padis = returnedObj.price;
+                    newPrices[k].stock_padis = returnedObj.stock;
+                    checkOldPrice(newPrices, oldPrices, 'padis', gameName);
+                    break;
+                case "masqueoca.com": case "www.masqueoca.com":
+                    returnedObj = await masqueoca(elem);
+                    newPrices[k].price_masqueoca = returnedObj.price;
+                    newPrices[k].stock_masqueoca = returnedObj.stock;
+                    checkOldPrice(newPrices, oldPrices, 'masqueoca', gameName);
+                    break;
+                case "jugamosotra.com": case "www.jugamosotra.com":
+                    returnedObj = await jugamosotra(elem);
+                    newPrices[k].price_jugamosotra = returnedObj.price;
+                    newPrices[k].stock_jugamosotra = returnedObj.stock;
+                    checkOldPrice(newPrices, oldPrices, 'jugamosotra', gameName);
+                    break;
+                case "empiregames.com": case "www.empiregames.com":
+                    returnedObj = await empiregames(elem);
+                    newPrices[k].price_empiregames = returnedObj.price;
+                    newPrices[k].stock_empiregames = returnedObj.stock;
+                    checkOldPrice(newPrices, oldPrices, 'empiregames', gameName);
+                    break;
+                case "philibertnet.com": case "www.philibertnet.com":
+                    returnedObj = await philibertnet(elem);
+                    newPrices[k].price_philibertnet = returnedObj.price;
+                    newPrices[k].stock_philibertnet = returnedObj.stock;
+                    checkOldPrice(newPrices, oldPrices, 'philibertnet', gameName);
+                    break;
+                default:
+                    skip = true;
+                    break;
             }
             // console.log(hostName + ': ' + JSON.stringify(returnedObj));
-            newPrices[k] = evaluateBestPrice(newPrices[k], {hostName, ...returnedObj})
+            if(!skip)
+                newPrices[k] = evaluateBestPrice(newPrices[k], {hostName, ...returnedObj})
+            skip = false;
         }
     }
     let result = convertToCSV(newPrices);
     writeScrapped(result);
-    console.log("logger: ", logger);
+    // console.log("logger: ", logger);
     writeLogger(logger);
     console.log("Closing browser.");
 }
@@ -167,8 +207,6 @@ function convertToCSV(arr) {
     let csv = '';
     let header = Object.keys(arr[0]).join(',');
     let values = arr.map(o => Object.values(o).join(',')).join('\n');
-    console.log("header: ", header);
-    console.log("values: ", values);
     csv += header + '\n' + values;
     return csv;
   }
@@ -181,13 +219,13 @@ function fromCSV(bufferString){
     for(let i = 1; i < arr.length; i++) {
         let data = arr[i].split(',');
         let obj = {};
-    for(let j = 0; j < data.length; j++) {
-        obj[headers[j].trim()] = data[j].trim();
-    }
-    jsonObj.push(obj);
+        for(let j = 0; j < data.length; j++) {
+            obj[headers[j].trim()] = data[j].trim();
+        }
+        jsonObj.push(obj);
     }
 
-    console.log("DEBUG: fromCSV() ");
+    // console.log("DEBUG: fromCSV() ");
     return jsonObj;
 }
 
@@ -200,7 +238,7 @@ function getOldPrices(){
     } catch (error) {
         console.log(error);
     }
-    console.log("DEBUG: getOldPrices() ");
+    // console.log("DEBUG: getOldPrices() ");
     return input;
 }
 
@@ -228,7 +266,7 @@ function writeOld(old){
 
 function writeLogger(logger){
     let date = new Date(Date.now());
-    date = `${date.getDate()}-${date.getMonth()}-${date.getFullYear()}--${date.getHours()}-${date.getMinutes()}`
+    date = `${date.getDate()}-${date.getMonth()+1}-${date.getFullYear()}--${date.getHours()}-${date.getMinutes()}`
     // Agricola EN has a new best: 49.45 from juegosdelamesaredonda.com was 500.0 from juegosdelamesaredonda.com.
     // logger = logger.map(obj => `${obj.gameName} has new best: ${obj.bestPrice} from ${obj.from} was `)
     fs.writeFile(`BGPrices--${date}.log`,JSON.stringify(logger, undefined, 2), (err) => {
@@ -245,7 +283,7 @@ function checkOldPrice(newS, oldS, host, gameName){
     if(i == -1 || oldS[i][`price_${host}`] == '' || oldS[i][`stock_${host}`] == '') return ;
     if(newS[i][`price_${host}`] != oldS[i][`price_${host}`] || newS[i][`stock_${host}`] != oldS[i][`stock_${host}`]){
         let result = {game: gameName, from: host, newPrice: newS[i][`price_${host}`], newStock: newS[i][`stock_${host}`], oldPrice: oldS[i][`price_${host}`], oldStock: oldS[i][`stock_${host}`]};
-        console.log("DEBUG adding to logger", result);
+        // console.log("DEBUG adding to logger", result);
         logger.push(result);
     }
 }
@@ -274,7 +312,7 @@ function stringFormatPrice(str){
 }
 
 function stringFormatStock(str){
-    return str == undefined ? '' : str.toLowerCase().replace(/\t/g, '').replace(/\n/g, '').replace(/[^\w\s]/gi, '');
+    return str == undefined ? '' : str.toLowerCase().replace(/\t/g, '').replace(/\n/g, '').replace(/[^\w\s]/gi, '').replace(' ', '');
 }
 
 function formatterBeforeFormatter(str){
@@ -523,7 +561,7 @@ async function planetongames(url){
     await page.goto(url);
 
     // price
-    let price =  undefined;
+    let price = undefined;
     price = await page.evaluate(() => document.querySelector('#main > div.row.container_product > div.col-md-3.last_column > div.product-prices > div.product-price.h5.has-discount > div > span:nth-child(1)')?.innerText);
 
     price = (price == undefined) ? await page.evaluate(() => document.querySelector('#main > div.row.container_product > div.col-md-3.last_column > div.product-prices > div > div > span')?.textContent) : price;
@@ -618,13 +656,38 @@ async function versusgamecenter(url){
 
     // price
     let price =  undefined;
-    price = await page.evaluate(() => document.querySelector('body > main > div > div > div > div > div.product-details-inner > div > div.col-md-7 > div > div.pricebox > span')?.innerText);
-    if(price == undefined) console.log("Couldn't get versusgamecenter price");
+    let handlerPrice = undefined;
+    try{
+        handlerPrice = await page.waitForXPath("/html/body/main/div[1]/div/div[1]/div/div/div[2]/div[1]/div[2]/div/span[1]/span[1]", {timeout: 500});
+    }
+    catch(err){
+        console.log("Couldn't get versusgamecenter price with discount:");
+        console.log(err);
+    }
+    price = (handlerPrice == undefined) ? undefined : await page.evaluate(el => el.textContent, handlerPrice);
 
     //stock
     let stock = undefined;
-    stock = await page.evaluate(() => document.querySelector('body > main > div > div > div > div > div.product-details-inner > div > div.col-md-7 > div > div.availability.mb-20 > span')?.innerText);
-    if(stock == undefined) console.log("Couldn't get versusgamecenter stock");
+    let failed = false;
+    let handlerStock = undefined;
+    try{
+        handlerStock = await page.waitForXPath("/html/body/main/div[1]/div/div[1]/div/div/div[2]/div[2]/div/form/div[3]/p/text()[2]", {timeout: 500});
+    }
+    catch (err){
+        console.log("Couldn't get versusgamecenter stock:");
+        console.log(err);
+        failed = true;
+    }
+    if(failed){
+        try{
+            handlerStock = await page.waitForXPath("/html/body/main/div[1]/div/div[1]/div/div/div[2]/div[2]/div/form/div[4]/div[2]/button/span[1]/span[1]", {timeout: 500});
+        }
+        catch(err){
+            console.log("Couldn't get versusgamecenter price with discount:");
+            console.log(err);
+        }
+    }
+    stock = (handlerStock == undefined) ? undefined : await page.evaluate(el => el.textContent, handlerStock);
 
     price = stringFormatPrice(price);
     stock = stringFormatStock(stock);
@@ -642,32 +705,49 @@ async function devir(url){
     let failed = false;
 
     //price with discount
+    let handlerPrice = undefined;
     try{
-        await page.waitForXPath("/html/body/div[4]/main/div[2]/div/div[1]/div[2]/div/span[2]/span/span[2]/span", {timeout: 500});
+        handlerPrice = await page.waitForXPath("/html/body/div[4]/main/div[2]/div/div[1]/div[3]/div/span/span/span", {timeout: 500});
     }
     catch(err){
         console.log("Couldn't get devir price with discount:");
         console.log(err);
         failed = true;
     }
-    let handlerPrice = failed ? '' : await page.$x("/html/body/div[4]/main/div[2]/div/div[1]/div[2]/div/span[2]/span/span[2]/span");
-    let price        = failed ? '' : await page.evaluate(el => el.textContent, handlerPrice[0]);
+    let price = handlerPrice == undefined ? '' : await page.evaluate(el => el.textContent, handlerPrice);
 
     //price
     if(failed){
         failed = false;
         try{
-            await page.waitForXPath("/html/body/div[4]/main/div[2]/div/div[1]/div[2]/div/span/span/span", {timeout: 500});
+            handlerPrice = await page.waitForXPath("/html/body/div[4]/main/div[2]/div/div[1]/div[3]/div/span/span/span", {timeout: 500});
         }
         catch(err){
             console.log("Couldn't get devir price:");
-            failed = true;
         }
-        handlerPrice = failed ? '' : await page.$x("/html/body/div[4]/main/div[2]/div/div[1]/div[2]/div/span/span/span");
-        price        = failed ? '' : await page.evaluate(el => el.textContent, handlerPrice[0]);
     }
 
-    let stock = "available"
+    let stock = undefined
+    failed = false;
+    let handlerStock = undefined;
+    try{
+        handlerStock = await page.waitForXPath("/html/body/div[4]/main/div[2]/div/div[1]/div[4]/form/div/div/div[2]/button/span", {timeout: 500});
+    }
+    catch(err){
+        console.log("Couldn't get devir stock:");
+        failed = true;
+    }
+    if(failed){
+        failed = false;
+        try{
+            handlerStock = await page.waitForXPath("/html/body/div[4]/main/div[2]/div/div[1]/div[4]/a", {timeout: 500});
+        }
+        catch(err){
+            console.log("Couldn't get devir stock:");
+            failed = true;
+        }
+    }
+    stock = handlerStock == undefined ? '' : await page.evaluate(el => el.textContent, handlerStock);
 
     price = stringFormatPrice(price);
     stock = stringFormatStock(stock);
@@ -799,6 +879,191 @@ async function ajogar(url){
     let stock = undefined;
     stock = await page.evaluate(() => document.querySelector('#TPAMultiSection_k8rkawtz > div > div > article > div._12vNY > section:nth-child(2) > div:nth-child(6) > div._3j0qu._2cVBV.fggS-.cell > button > span')?.innerText);
     if(stock == undefined) console.log("Couldn't get ajogar stock");
+
+    price = stringFormatPrice(price);
+    stock = stringFormatStock(stock);
+
+    await browser.close();
+    return {price: price, stock: stock};
+}
+
+async function mathom(url){
+    let browser = await puppeteer.launch();
+    let page = await browser.newPage();
+    page.setDefaultNavigationTimeout(0);
+    await preparePageForScrape(page);
+    await page.goto(url);
+
+    // price
+    let price =  undefined;
+    price = await page.evaluate(() => document.querySelector('#our_price_display')?.innerText);
+    if(price == undefined) {
+        console.log("Couldn't get mathom price");
+    }
+    //stock
+    let result = undefined;
+    result = await page.evaluate(() => document.querySelector('#availability_value')?.innerText);
+    stock = result != undefined ? result : "In stock";
+
+    price = stringFormatPrice(price);
+    stock = stringFormatStock(stock);
+
+    await browser.close();
+    return {price: price, stock: stock};
+}
+
+async function padis(url){
+    let browser = await puppeteer.launch();
+    let page = await browser.newPage();
+    page.setDefaultNavigationTimeout(0);
+    await preparePageForScrape(page);
+    await page.goto(url);
+
+    // price discounted
+    let price =  undefined;
+    price = await page.evaluate(() => document.querySelector('#col-product-info > div.product_header_container.clearfix > div > div.has-discount > div > span.current-price > span')?.innerText);
+    if(price == undefined) {
+        // price normal
+        price = await page.evaluate(() => document.querySelector('#col-product-info > div.product_header_container.clearfix > div > div:nth-child(2) > div > span > span')?.innerText);
+    }
+    if(price == undefined) {
+        console.log("Couldn't get padis price");
+    }
+    //stock
+    let stock = undefined;
+    stock = await page.evaluate(() => document.querySelector('#product-availability > i')?.innerText);
+    if(stock == undefined) console.log("Couldn't get padis out of stock");
+
+    price = stringFormatPrice(price);
+    stock = stringFormatStock(stock);
+
+    await browser.close();
+    return {price: price, stock: stock};
+}
+
+async function masqueoca(url){
+    let browser = await puppeteer.launch();
+    let page = await browser.newPage();
+    page.setDefaultNavigationTimeout(0);
+    await preparePageForScrape(page);
+    await page.goto(url);
+
+    // price discounted
+    let price =  undefined;
+    price = await page.evaluate(() => document.querySelector('#contents > div > div > div > div > div > div.wpb_column.vc_column_container.vc_col-sm-12.vc_col-lg-9.vc_col-md-8.vc_col-xs-12 > div > div > div > div > div > div > div > div > div > div > div > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(2) > b:nth-child(4)')?.innerText);
+    if(price == undefined) {
+        console.log("Couldn't get jugamosotra price");
+    }
+
+    //stock
+    let stock = "Unknown";
+
+    await browser.close();
+    return {price: price, stock: stock};
+}
+
+async function jugamosotra(url){
+    let browser = await puppeteer.launch();
+    let page = await browser.newPage();
+    page.setDefaultNavigationTimeout(0);
+    await preparePageForScrape(page);
+    await page.goto(url);
+
+    // price discounted
+    let price =  undefined;
+    price = await page.evaluate(() => document.querySelector('#main > div.row > div:nth-child(2) > div.product-prices > div.product-price.h5.has-discount > div > span:nth-child(1)')?.innerText);
+    if(price == undefined) {
+        // price normal
+        price = await page.evaluate(() => document.querySelector('#main > div.row > div:nth-child(2) > div.product-prices > div.product-price.h5 > div > span')?.innerText);
+    }
+    if(price == undefined) {
+        console.log("Couldn't get jugamosotra price");
+    }
+    //stock
+    let stock = undefined;
+    stock = await page.evaluate(() => document.querySelector('#product-availability')?.innerText);
+    if(stock == undefined) console.log("Couldn't get jugamosotra out of stock");
+
+    price = stringFormatPrice(price);
+    stock = stringFormatStock(stock);
+
+    await browser.close();
+    return {price: price, stock: stock};
+}
+
+async function empiregames(url){
+    let browser = await puppeteer.launch();
+    let page = await browser.newPage();
+    page.setDefaultNavigationTimeout(0);
+    await preparePageForScrape(page);
+    await page.goto(url);
+
+    // price discounted
+    let price =  undefined;
+    let failed = false;
+    let handlerPrice = undefined;
+    try{
+        handlerPrice = await page.waitForXPath("/html/body/div[1]/div/main/div/div/div/article/div[2]/div[2]/p[1]/ins/span/bdi/text()", {timeout: 500});
+    }
+    catch(err){
+        console.log("Couldn't get empiregames price:");
+        console.log(err);
+        failed = true;
+    }
+
+    // price normal
+    if(failed){
+        try{
+            handlerPrice = await page.waitForXPath("/html/body/div[1]/div/main/div/div/div/article/div[2]/div[2]/p[1]/span/bdi/text()", {timeout: 500});
+        }
+        catch(err){
+            console.log("Couldn't get empiregames price:");
+            console.log(err);
+        }
+    }
+
+    //stock
+    let stock = undefined;
+    let handlerStock = undefined;
+    try{
+        handlerStock = await page.waitForXPath("/html/body/div[1]/div/main/div/div/div/article/div[2]/div[2]/p[2]", {timeout: 500});
+    }
+    catch(err){
+        console.log("Couldn't get empiregames out of stock:");
+        console.log(err);
+    }
+    price = handlerPrice == undefined ? undefined : await page.evaluate(el => el.textContent, handlerPrice);
+    stock = handlerStock == undefined ? undefined : await page.evaluate(el => el.textContent, handlerStock);
+    price = stringFormatPrice(price);
+    stock = stringFormatStock(stock);
+
+    await browser.close();
+    return {price: price, stock: stock};
+}
+
+async function philibertnet(url){
+    let browser = await puppeteer.launch();
+    let page = await browser.newPage();
+    page.setDefaultNavigationTimeout(0);
+    await preparePageForScrape(page);
+    await page.goto(url);
+
+    // price
+    let price =  undefined;
+    price = await page.evaluate(() => document.querySelector('#our_price_display')?.innerText);
+    if(price == undefined) console.log("Couldn't get philibertnet price");
+
+    //stock
+    let stock = undefined;
+    stock = await page.evaluate(() => document.querySelector('#availability_value')?.innerText);
+    if (stock == undefined) {
+        stock = await page.evaluate(() => document.querySelector('#availability_value > span > b')?.innerText);
+    }
+    if(stock == undefined) {
+        stock = await page.evaluate(() => document.querySelector('#availability_value > span')?.innerText);
+    }
+    if(stock == undefined) console.log("Couldn't get philibertnet out of stock");
+
 
     price = stringFormatPrice(price);
     stock = stringFormatStock(stock);

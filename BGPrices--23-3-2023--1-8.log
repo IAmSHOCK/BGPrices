@@ -1,0 +1,92 @@
+[
+  {
+    "from": "kultgames",
+    "newPrice": "67.95",
+    "newStock": "deliveryin 1 to 2 weeks time"
+  },
+  {
+    "from": "versusgamecenter",
+    "newPrice": "67.90",
+    "newStock": "          em stock          "
+  },
+  {
+    "from": "gameplay",
+    "newPrice": "79.95",
+    "newStock": "restock"
+  },
+  {
+    "from": "arenaporto",
+    "newPrice": "79.99",
+    "newStock": "esgotado"
+  },
+  {
+    "from": "jogonamesa",
+    "newPrice": "73.00",
+    "newStock": "imediata"
+  },
+  {
+    "from": "dracotienda",
+    "newPrice": "67.50",
+    "newStock": " disponible"
+  },
+  {
+    "from": "gglounge",
+    "newPrice": "61.90",
+    "newStock": "outof stock"
+  },
+  {
+    "from": "juegosdelamesaredonda",
+    "newPrice": "63.71",
+    "newStock": "enstock"
+  },
+  {
+    "from": "diver",
+    "newPrice": "62.99",
+    "newStock": "encomendaao fornecedor"
+  },
+  {
+    "from": "ajogar",
+    "newPrice": "72.90",
+    "newStock": "esgotado"
+  },
+  {
+    "from": "saltadacaixa",
+    "newPrice": "69.95",
+    "newStock": "em stock"
+  },
+  {
+    "from": "jubilantsunday",
+    "newPrice": "67.86",
+    "newStock": "em stock"
+  },
+  {
+    "from": "planetongames",
+    "newPrice": "67.50",
+    "newStock": "ltimasunidades en stock"
+  },
+  {
+    "from": "mathom",
+    "newPrice": "56.00",
+    "newStock": "thisproduct is no longer in stock"
+  },
+  {
+    "from": "jugamosotra",
+    "newPrice": "62.95",
+    "newStock": ""
+  },
+  {
+    "from": "philibertnet",
+    "newPrice": "64.95",
+    "newStock": "available"
+  },
+  {
+    "from": "masqueoca",
+    "newPrice": "62,99",
+    "newStock": "Unknown"
+  },
+  {
+    "from": "amazon",
+    "newPrice": "52.69",
+    "newStock": "apenas1 em stock"
+  }
+]
