@@ -23,7 +23,7 @@ async function scrape(){
     for (let i = 1; i < input.length; i++) {
         let elem = input[i];
         if (isGame(elem)){
-            // console.log("DEBUG Final Scraped game: ", newPrices[k]);
+            console.log("DEBUG Final Scraped game: ", newPrices[k]);
             gameName = elem;
             newPrices[++k] = {gameName: gameName, from: '', bestPrice: '5000', stock: '', price_jogonamesa: '', stock_jogonamesa: '', price_kultgames: '', stock_kultgames: '', price_gameplay: '', stock_gameplay: '', price_juegosdelamesaredonda: '', stock_juegosdelamesaredonda: '', price_diver: '', stock_diver: '', price_arenaporto: '', stock_arenaporto: '', price_dracotienda: '', stock_dracotienda: '', price_amazon: '', stock_amazon: '', price_planetongames: '', stock_planetongames: '', price_gglounge: '', stock_gglounge: '', price_versusgamecenter: '', stock_versusgamecenter: '', price_devir: '', stock_devir: '', price_ajogar: '', stock_ajogar: '', price_saltadacaixa: '', stock_saltadacaixa: '', price_jubilantsunday: '', stock_jubilantsunday: '', price_mathom:'', stock_mathom:'', price_padis:'', stock_padis:'', price_masqueoca: '', stock_masqueoca:'', price_jugamosotra: '', stock_jugamosotra:'', price_empiregames: '', stock_empiregames:'', price_philibertnet: '', stock_philibertnet:''};
         }
@@ -33,10 +33,10 @@ async function scrape(){
             // console.log("hostname:", hostName);
             switch(hostName){
                 case "jogonamesa.pt": case "www.jogonamesa.pt":
-                    returnedObj = await jogonamesa(elem);
-                    newPrices[k].price_jogonamesa = returnedObj.price;
-                    newPrices[k].stock_jogonamesa = returnedObj.stock;
-                    checkOldPrice(newPrices, oldPrices, 'jogonamesa', gameName);
+                    // returnedObj = await jogonamesa(elem);
+                    // newPrices[k].price_jogonamesa = returnedObj.price;
+                    // newPrices[k].stock_jogonamesa = returnedObj.stock;
+                    // checkOldPrice(newPrices, oldPrices, 'jogonamesa', gameName);
                     break;
 
                 case "kultgames.pt": case "www.kultgames.pt":
@@ -116,7 +116,6 @@ async function scrape(){
                     checkOldPrice(newPrices, oldPrices, 'devir', gameName);
                     break;
 
-                // TODO
                 case "ajogar.com": case "www.ajogar.com":
                     returnedObj = await ajogar(elem);
                     newPrices[k].price_ajogar = returnedObj.price;

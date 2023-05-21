@@ -3,7 +3,6 @@ A Feast for Odin
 https://gameplay.pt/pt/jogos-de-tabuleiro/1621-a-feast-for-odin-681706716909.html
 https://arenaporto.com/boardgames/327-a-feast-for-odin-681706716909.html
 https://jogonamesa.pt/P/ficha.cgi?bgg_id=177736
-https://www.diver.pt/pt/estrategia/88792-a-feast-for-odin-681706716909.html?search_query=A+Feast+for+Odin&results=1
 https://www.amazon.es/-/pt/dp/B01KGST1TQ/ref=sr_1_2?crid=32TCMU27PUCJQ&keywords=feast+for+od%C3%ADn&qid=1679351278&sprefix=a+feast+for+odin%2Caps%2C160&sr=8-2
 https://mathom.es/en/el-banquete-de-odin/37182-el-banquete-de-odin-8436578813827.html?search_query=A+Feast+for+Odin
 Agricola EN
@@ -71,21 +70,6 @@ Container
 https://jogonamesa.pt/P/ficha.cgi?bgg_id=26990
 Container: 10th Anniversary Jumbo Edition!
 https://jogonamesa.pt/P/ficha.cgi?bgg_id=229892
-Curious Cargo EN
-https://jogonamesa.pt/P/ficha.cgi?bgg_id=312251
-https://dracotienda.com/juegos-de-tablero/26771-curious-cargo-ingles.html
-https://www.saltadacaixa.pt/loja/jogos-de-tabuleiro/curious-cargo-850000576148/
-https://jubilantsunday.com/store/jogos/640-curious-cargo-850000576148.html
-https://www.philibertnet.com/en/capstone-hk-ltd/91290-curious-cargo-850000576148.html?search_query=Curious+Cargo&results=1
-https://www.amazon.es/-/pt/dp/B08BKD1TNJ/ref=sr_1_2?crid=245W13VIVYRJL&keywords=Curious+Cargo&qid=1679396898&sprefix=curious+cargo%2Caps%2C182&sr=8-2
-Curious Cargo ES
-https://dracotienda.com/juegos-de-tablero/27692-curious-cargo-promo-castellano.html
-https://juegosdelamesaredonda.com/11318-curious-cargo-promo-8436578813797.html
-https://www.planetongames.com/es/curious-cargo-promo-p-9615.html
-https://mathom.es/en/curious-cargo/46891-curious-cargo-8436578813797.html?search_query=Curious+Cargo&results=7
-https://www.masqueoca.com/tienda/producto.asp?item=8623&tit=Curious%20Cargo%20(Espa%F1ol)
-https://jugamosotra.com/es/juegos/6663-curious-cargo.html
-https://www.empiregames.es/producto/curious-cargo-material-promocional
 Custom Heroes
 https://jogonamesa.pt/P/ficha.cgi?bgg_id=223049
 https://juegosdelamesaredonda.com/5546-custom-heroes-0729220070098.html
@@ -190,11 +174,14 @@ https://mathom.es/en/great-western-trail/49699-great-western-trail-2-edicion-rai
 https://jugamosotra.com/es/juegos/8031-great-western-trail-railes-hacia-el-norte-segunda-edicion.html
 https://www.amazon.es/-/pt/dp/B0B6WHGBMF/ref=sr_1_3?crid=7EAION89WAJ&keywords=western+trail&qid=1679399308&sprefix=great+western+trail%2Caps%2C83&sr=8-3
 Harry Potter: Catch the Snitch
-Heat: Pedal to the Metal
-https://gameplay.pt/pt/jogos-de-tabuleiro/2343-heat-pedal-to-the-metal-824968091012.html
-https://jogonamesa.pt/P/ficha.cgi?bgg_id=366013
-https://www.saltadacaixa.pt/loja/jogos-de-tabuleiro/heat-824968091012/
-https://www.philibertnet.com/en/days-of-wonder/112362-heat-824968091210.html?search_query=Heat%3A+Pedal+to+the+Metal&results=1000
+Hive
+https://gameplay.pt/pt/jogos-de-tabuleiro/1231-hive-pocket-736211019233.html
+https://www.saltadacaixa.pt/loja/jogos-de-tabuleiro/hive-pocket-736211019233/
+https://www.philibertnet.com/en/gen42/81629-hive-pocket-736211019233.html?search_query=Hive&results=178#img
+https://juegosdelamesaredonda.com/1081-hive-pocket-edition-0736211019233.html
+https://www.planetongames.com/es/hive-pocket-p-4780.html
+https://jugamosotra.com/es/2-jugadores/6703-hive-pocket.html
+https://www.amazon.es/Huch-Friends-019233-Hive-Pocket/dp/B0079L0EKY/ref=sr_1_1?keywords=Hive&qid=1682689703&sr=8-1
 Machi Koro 2
 https://gameplay.pt/pt/jogos-de-tabuleiro/4352-machi-koro-2-850029278092.html
 https://arenaporto.com/boardgames/6241-machi-koro-2-850029278092.html
@@ -260,6 +247,7 @@ https://dracotienda.com/juegos-de-tablero/27023-rocketmen-ingles.html
 https://www.saltadacaixa.pt/loja/jogos-de-tabuleiro/rocketmen-5900741508689/
 https://jubilantsunday.com/store/estrategia/412-rocketmen-5900741508689.html
 https://www.philibertnet.com/en/phalanx/96764-rocketmen-5900741508689.html?search_query=Rocketmen&results=5#img
+Space Base: Command Station
 Summer Camp
 https://jogonamesa.pt/P/ficha.cgi?bgg_id=337787
 Tiny Towns
@@ -302,6 +290,20 @@ https://jubilantsunday.com/store/estrategia/561-wingspan-oceania-expansion.html
 https://www.philibertnet.com/en/stonemaier-games/94022-wingspan-oceania-expansion-644216628322.html?search_query=Oceania+Expansion&results=5
 https://www.amazon.es/Wingspan-Oceania-Expansion-Board-Game/dp/B08LZSZXF2/ref=sr_1_1_mod_primary_new?keywords=Oceania+Expansion&qid=1679403975&sbo=RZvfv%2F%2FHxDF%2BO5021pAnSA%3D%3D&sr=8-1
 LOVE TO HAVE
+Akropolis
+https://versusgamecenter.pt/products/akropolis?_pos=1&_sid=d4c8a44a7&_ss=r
+https://gameplay.pt/pt/jogos-de-tabuleiro/4859-akropolis-5600849320502.html
+https://arenaporto.pt/2-boardgames/11581-akropolis-5600849320502.html
+https://www.ajogar.com/product-page/akropolis
+https://www.saltadacaixa.pt/loja/jogos-de-tabuleiro/akropolis-5600849320502/
+https://www.philibertnet.com/en/gigamic/109749-akropolis-3421271360810.html?search_query=Akropolis&results=2#img
+https://juegosdelamesaredonda.com/13964-akropolis-5600849320502.html
+https://dracotienda.com/juegos-de-tablero/32344-akropolis.html
+https://mathom.es/en/akropolis/51284-akropolis-5600849320502.html?search_query=Akropolis&results=1
+https://www.padis-store.com/en/juegos-de-mesa/35494-akropolis-juego-de-mesa-5600849320502.html
+https://jugamosotra.com/es/juegos/8304-akropolis.html
+https://www.empiregames.es/producto/akropolis
+https://www.amazon.es/GIGAMIC-GAKR-AKROPOLIS-L/dp/B0B28WZ7D4/ref=sr_1_1?keywords=Akropolis&qid=1684239786&sr=8-1
 7 Wonders EN
 https://www.kultgames.pt/jogos-de-tabuleiro/14530-7-wonders-boardgame.html?search_query=7+Wonders&results=7&cate=
 https://versusgamecenter.pt/products/7-wonders-2nd-edition?_pos=3&_sid=2e67fa984&_ss=r
@@ -350,6 +352,7 @@ Architects of the West Kingdom PT
 https://gameplay.pt/pt/jogos-de-tabuleiro/4461-arquitetos-do-reino-ocidental-architects-of-the-west-kingdom-735850157108.html
 https://jogonamesa.pt/P/ficha.cgi?bgg_id=236457
 https://www.philibertnet.com/en/renegade-game-studios/71788-architects-of-the-west-kingdom-850505008199.html?search_query=Architects+of+the+West+Kingdom&results=12
+BANG! Dynamite Box
 Bärenpark
 https://gameplay.pt/pt/jogos-de-tabuleiro/2030-barenpark-en-4260402315898.html
 https://arenaporto.com/boardgames/397-barenpark-4260402310893.html
@@ -411,21 +414,8 @@ https://jugamosotra.com/es/juegos/5441-cafe.html
 https://www.empiregames.es/producto/preventa-cafe-lanzamiento-25-02-21
 https://www.philibertnet.com/en/pythagoras/89650-cafe-5600240363009.html?search_query=cafe&results=25#img
 https://www.amazon.es/Caf%C3%A9/dp/B0915HFZJ8/ref=sr_1_1?crid=27UDHP3F6IJWC&keywords=cafe+juego+de+mesa&qid=1679407005&sprefix=cafe+jueg%2Caps%2C153&sr=8-1
-Camel Up EN
-https://gameplay.pt/pt/jogos-de-tabuleiro/2582-camel-up-2nd-edition-4061897300709.html
-https://jogonamesa.pt/P/ficha.cgi?bgg_id=260605
-https://www.ajogar.com/product-page/camel-up-1
-https://www.philibertnet.com/en/plan-b-games/105573-camel-up-off-season-826956210900.html?search_query=Camel+Up&results=52#img
-Camel Up PT
-https://gameplay.pt/pt/jogos-de-tabuleiro/4097-camel-up-2nd-edition-pt-8437018648016.html
-https://dracotienda.com/juegos-de-tablero/20556-camel-up-edicion-20-castellano.html
-https://juegosdelamesaredonda.com/9583-camel-up-20-8437018648016.html
-https://www.planetongames.com/es/camel-up-20-p-7732.html
-https://mathom.es/en/camel-up/43757-camel-up-20-8437018648016.html?search_query=Camel+Up&results=7
-https://www.masqueoca.com/tienda/producto.asp?item=7796&tit=Camel%20Up%202.0
-https://jugamosotra.com/es/juegos/5038-camel-up-edicion-20.html
-https://www.empiregames.es/producto/camel-up-edicion-2-0
-https://www.amazon.es/Camel-Espa%C3%B1ol-Portugues-MasQueOca-Ediciones/dp/B08M6GD22P/ref=sr_1_1?keywords=Camel+Up&qid=1679407178&sr=8-1
+Cat in the Box: Deluxe Edition
+https://gameplay.pt/pt/jogos-de-tabuleiro/4992-cat-in-the-box-deluxe-edition-810024460328.html
 Century: Spice Road
 https://gameplay.pt/pt/jogos-de-tabuleiro/1914-century-1-spice-road-en-826956400004.html
 https://jogonamesa.pt/P/ficha.cgi?bgg_id=209685
@@ -478,6 +468,8 @@ Décorum
 https://jogonamesa.pt/P/ficha.cgi?bgg_id=344554
 https://www.philibertnet.com/en/floodgate-games/112428-decorum-850030923035.html?search_query=decorum&results=3
 https://www.amazon.es/D%C3%A9corum-versi%C3%B3n-al-por-menor/dp/B09W45LNPC/ref=sr_1_12?keywords=decorum&qid=1679420891&sr=8-12&th=1
+Dice Manor
+https://www.philibertnet.com/en/arcane-wonders/121832-dice-manor-850039564109.html?search_query=Dice+Manor&results=11
 Everdell EN
 https://www.kultgames.pt/jogos-de-tabuleiro/20041-everdell-board-game.html?search_query=Everdell&results=1&cate=
 https://versusgamecenter.pt/products/everdell?_pos=5&_sid=ed000d360&_ss=r
@@ -503,6 +495,15 @@ https://jogonamesa.pt/P/ficha.cgi?bgg_id=182134
 https://www.philibertnet.com/en/north-star-games/46050-evolution-climate-892884000821.html?search_query=Evolution%3A+Climate&results=6
 https://juegosdelamesaredonda.com/4493-evolution-climate-standalone-0892884000821.html
 https://dracotienda.com/juegos-de-tablero/17634-evolution-climate.html
+Hanabi
+https://juegosdelamesaredonda.com/9780-hanabi-que-espectaculo-8435407630482.html
+https://dracotienda.com/juegos-de-cartas/26429-hanabi-que-espectaculo.html
+https://www.planetongames.com/es/hanabi-p-10020.html
+https://mathom.es/en/hanabi/45354-hanabi-que-espectaculo-8435407630482.html?search_query=hanabi&results=2
+https://www.masqueoca.com/tienda/producto.asp?item=8214&tit=Hanabi%20%A1Que%20Espectaculo!
+https://jugamosotra.com/es/juegos/5759-hanabi-que-espectaculo.html
+https://www.empiregames.es/producto/preventa-hanabi-que-espectaculo-lanzamiento-13-11-20
+https://www.amazon.es/Asmodee-CGHA02ES-Asmodee-Hanabi-%C2%A1Qu%C3%A9-espect%C3%A1culo-Espa%C3%B1ol/dp/B08NPZSQ81/ref=sr_1_2?keywords=hanabi&qid=1682685226&sr=8-2
 Imhotep
 https://gameplay.pt/pt/jogos-de-tabuleiro/1235-imhotep-814743011816.html
 https://jogonamesa.pt/P/ficha.cgi?bgg_id=191862
@@ -525,6 +526,13 @@ https://arenaporto.com/boardgames/3231-infinity-gauntlet-a-love-letter-game-8413
 https://www.saltadacaixa.pt/loja/jogos-de-tabuleiro/infinity-gauntlet-a-love-letter-game-841333111601/
 https://jubilantsunday.com/store/familiares/288-infinity-gauntlet-a-love-letter-game-841333111601.html
 https://www.amazon.es/Games-ZMGMZ01-Marvel-Infinity-Guauntlet/dp/B086QK5C6X/ref=sr_1_4?keywords=Infinity+Gauntlet%3A+A+Love+Letter+Game&qid=1679422988&sr=8-4
+Junk Art ES
+https://juegosdelamesaredonda.com/4822-junk-art-0806802975788.html
+https://www.planetongames.com/es/junk-art-p-7051.html
+https://www.empiregames.es/producto/junk-art
+Junk Art EN
+https://gameplay.pt/pt/jogos-de-tabuleiro/2943-junk-art-826956200307.html
+https://www.planetongames.com/es/junk-art-p-6332.html
 Juicy Fruits
 https://jogonamesa.pt/P/ficha.cgi?bgg_id=325698
 https://www.ajogar.com/product-page/juicy-fruits
@@ -554,6 +562,16 @@ https://www.amazon.es/Czech-Games-cge00016-Last-Junta-Juego/dp/B00O4CNE5I/ref=sr
 Linko!
 https://www.philibertnet.com/en/amigo/108203-abluxxen-4007396022049.html?search_query=Linko&results=1
 https://jogonamesa.pt/P/ficha.cgi?bgg_id=153065
+Lost Cities
+https://gameplay.pt/pt/jogos-de-tabuleiro/1178-lost-cities-exploradores-4002051694135.html
+https://www.philibertnet.com/en/iello/6231-cites-perdues-les-3760175515507.html?search_query=Lost+Cities&results=161#img
+https://juegosdelamesaredonda.com/6720-lost-cities-exploradores-nueva-edicion-8436017227321.html
+https://dracotienda.com/juegos-de-cartas/3398-exploradores-lost-cities.html
+https://www.planetongames.com/es/exploradores-p-137.html
+https://mathom.es/en/exploradores-lost-cities/34721-exploradores-lost-cities-8436017227321.html?search_query=Lost+Cities&results=61
+https://www.masqueoca.com/tienda/producto.asp?item=6893&tit=Lost%20cities:%20Exploradores%202018
+https://jugamosotra.com/es/cartas/272-lost-cities-exploradores.html
+https://www.empiregames.es/producto/lost-cities-exploradores-esp-por
 Luxor EN
 https://versusgamecenter.pt/products/luxor?_pos=1&_sid=545e8fa78&_ss=r
 https://gameplay.pt/pt/jogos-de-tabuleiro/2513-luxor-pt-8436017227482.html
@@ -639,6 +657,7 @@ https://gameplay.pt/pt/jogos-de-tabuleiro/1401-power-grid-recharged-655132002400
 https://arenaporto.com/boardgames/5614-power-grid-recharged--655132005593.html
 https://jogonamesa.pt/P/ficha.cgi?bgg_id=2651
 https://gglounge.pt/product/power-grid/
+https://jubilantsunday.com/store/jogos/743-funkenschlag-recharged-version-4260300450493.html
 https://www.diver.pt/pt/estrategia/97485-RIO559-0655132005593.html?search_query=Power+Grid&results=3
 https://dracotienda.com/juegos-de-tablero/6207-funkenschlag--power-grid.html
 https://www.planetongames.com/es/alta-tension-p-1319.html
@@ -679,6 +698,10 @@ https://jogonamesa.pt/P/ficha.cgi?bgg_id=270673
 https://www.saltadacaixa.pt/loja/jogos-de-tabuleiro/silver-gold-854382007450/
 https://www.philibertnet.com/en/nurnberger-spielkarten/77012-silver-gold-4012426880957.html?search_query=silver+gold&results=86
 https://www.amazon.es/NSV-Silver-International-Juego-Cartas/dp/B07STKLNKY/ref=sr_1_5?keywords=silver+gold&qid=1679428476&sr=8-5
+Secret Hitler
+https://gameplay.pt/pt/jogos-de-tabuleiro/4997-secret-hitler-711746875073.html
+https://arenaporto.pt/2-boardgames/7118-secret-hitler-711746875073.html
+https://www.philibertnet.com/en/goat-wolf-gabbage/83814-secret-hitler-711746875073.html?search_query=Secret+Hitler&results=6#img
 Splendor: Marvel EN
 https://versusgamecenter.pt/products/splendor-marvel?_pos=1&_sid=c03847c7d&_ss=r
 https://gameplay.pt/pt/jogos-de-tabuleiro/3600-preorder-splendor-marvel-3558380067863.html
@@ -697,6 +720,8 @@ https://www.planetongames.com/es/splendor-marvel-p-9269.html
 https://mathom.es/en/splendor/45454-splendor-marvel-3558380080572.html?search_query=Splendor%3A+Marvel&results=184
 https://jugamosotra.com/es/juegos/5818-splendor-marvel.html
 https://www.empiregames.es/producto/preventa-splendor-marvel-lanzamiento-22-01-21
+Stack'n Stuff: A Patchwork Game
+https://gameplay.pt/pt/jogos-de-tabuleiro/2438-stackn-stuff-a-patchwork-game-4260402316581.html
 Steam Park
 https://jogonamesa.pt/P/ficha.cgi?bgg_id=121410
 https://juegosdelamesaredonda.com/786-steam-park-ingles-8034055580189.html
@@ -777,6 +802,9 @@ https://www.padis-store.com/en/juegos-de-mesa/1174-aventureros-al-tren-europa-82
 https://www.masqueoca.com/tienda/producto.asp?item=1277&tit=Ticket%20to%20Ride:%20Europe
 https://www.amazon.es/Days-Wonder-Ticket-Ride-Europe/dp/B000809OAO/ref=sr_1_1?keywords=Ticket+to+Ride%3A+Europe&qid=1679431848&sr=8-1
 https://www.planetongames.com/es/tokaido-p-5810.html
+Tidal Blades: Banner Festival
+https://www.philibertnet.com/en/druid-city-games/115379-tidal-blades-banner-festival-2100000899821.html?search_query=Tidal+Blades&results=6#img
+https://juegosdelamesaredonda.com/13846-tidal-blades-banner-festival-787790612995.html
 Tokaido EN
 https://gameplay.pt/pt/jogos-de-tabuleiro/2237-tokaido-5th-anniversary-edition-3770001556543.html
 https://arenaporto.com/boardgames/1953-tokaido-5th-anniversary-edition-3770001556543.html
@@ -933,6 +961,8 @@ https://www.philibertnet.com/en/osprey-games/70244-cryptid-9781472830654.html?se
 https://juegosdelamesaredonda.com/7856-cryptid-9781472830654.html
 https://mathom.es/en/cryptid/41912-cryptid-8741571203507.html?search_query=Cryptid&results=1
 https://www.amazon.es/Cryptid-Board-Games-Hal-Duncan/dp/1472830652/ref=sr_1_1_mod_primary_new?keywords=Cryptid&qid=1679438874&sbo=RZvfv%2F%2FHxDF%2BO5021pAnSA%3D%3D&sr=8-1
+Earth
+https://www.saltadacaixa.pt/loja/jogos-de-tabuleiro/estrategia/earth-619264453127/
 Elysium
 https://www.kultgames.pt/jogos-de-tabuleiro/18647-Elysium-Boardgame-EN.html?search_query=Elysium&results=2&cate=
 https://arenaporto.com/boardgames/220-elysium-3558380028116.html
@@ -963,6 +993,12 @@ Flamme Rouge DE
 https://jogonamesa.pt/P/ficha.cgi?bgg_id=199478
 https://www.philibertnet.com/en/gigamic/47884-flamme-rouge-vf-3421272315314.html?search_query=Flamme+Rouge&results=7#img
 https://dracotienda.com/juegos-de-tablero/19753-flamme-rouge-alemn.html
+For Sale PT
+https://gameplay.pt/pt/jogos-de-tabuleiro/2567-vendese-for-sale-pt-5600243420716.html
+For Sale Other
+https://gameplay.pt/pt/jogos-de-tabuleiro/1194-for-sale-3760175517921.html
+https://www.philibertnet.com/en/iello/87009-for-sale-3760175517044.html?search_query=For+Sale&results=44
+https://www.planetongames.com/es/for-sale-p-490.html
 Foundations of Rome
 https://jogonamesa.pt/P/ficha.cgi?bgg_id=284189
 The Grizzled
@@ -1004,6 +1040,13 @@ https://jogonamesa.pt/P/ficha.cgi?bgg_id=295374
 https://gglounge.pt/product/long-shot-the-dice-game/
 https://www.philibertnet.com/en/perplext/109784-long-shot-the-dice-game-859094005343.html?search_query=Long+Shot&results=39
 https://dracotienda.com/inicio/31578-long-shot-the-dice-game.html
+Marvel Dice Throne
+https://versusgamecenter.pt/products/dice-throne-marvel-4-hero-box-scarlet-witch-v-thor-v-loki-v-spider-man-en?_pos=1&_sid=7a08f1d20&_ss=r
+https://gameplay.pt/pt/jogos-de-tabuleiro/4751-marvel-dice-throne-scarlet-witch-v-thor-v-loki-v-spiderman-700304156075.html
+https://arenaporto.pt/2-boardgames/12280-dice-throne-marvel-4hero-700304156075.html
+https://jubilantsunday.com/store/jogos/917-dice-throne-marvel-4-hero-box-scarlet-witch-thor-loki-spider-man-en-700304156075.html
+https://www.philibertnet.com/en/the-op/114247-dice-throne-marvel-4-hero-box-700304156075.html?search_query=Marvel+Dice+Throne&results=3
+https://juegosdelamesaredonda.com/13783-marvel-dice-throne-scarlet-witch-v-thor-v-loki-v-spider-man-700304156075.html
 Marvel Remix
 https://www.kultgames.pt/jogos-de-tabuleiro/27155-marvel-remix.html?search_query=Marvel+Remix&results=1&cate=
 https://versusgamecenter.pt/products/marvel-remix?_pos=1&_sid=8e0a4a185&_ss=r
@@ -1074,7 +1117,7 @@ https://jogonamesa.pt/P/ficha.cgi?bgg_id=216640
 The Colonists
 https://jogonamesa.pt/P/ficha.cgi?bgg_id=192836
 https://www.masqueoca.com/tienda/producto.asp?item=5797&tit=The%20Colonists
-https://jugamosotra.com/es/1-4-jugadores/7773-the-colonists.html 
+https://jugamosotra.com/es/1-4-jugadores/7773-the-colonists.html
 The Isle of Cats
 https://versusgamecenter.pt/products/the-isle-of-cats?_pos=1&_sid=7758ef7b7&_ss=r
 https://gameplay.pt/pt/jogos-de-tabuleiro/3192-the-isle-of-cats-5060716750007.html
@@ -1109,6 +1152,9 @@ https://www.masqueoca.com/tienda/producto.asp?item=8590&tit=The%20Red%20Cathedra
 https://jugamosotra.com/es/juegos/5572-the-red-cathedral.html
 https://www.empiregames.es/producto/red-cathedral-multilingue
 https://www.amazon.es/Thames-Kosmos-8436589621046-Cathedral-MULTILING%C3%9CE/dp/B08BG9M6HG/ref=sr_1_1?keywords=The+Red+Cathedral&qid=1679523923&sr=8-1
+Top Ten +18
+https://www.philibertnet.com/en/cocktail-games/94943-top-ten-18-3760052143526.html?search_query=Top+Ten&results=17#img
+Trailblazers
 Verdant
 https://gameplay.pt/pt/jogos-de-tabuleiro/4866-verdant-729220071347.html
 https://arenaporto.com/boardgames/7817-verdant-729220071347.html
