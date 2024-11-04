@@ -870,8 +870,9 @@ async function ajogar(url){
     await page.goto(url);
 
     // price
-    let price =  undefined;
+    let price = undefined;
     price = await page.evaluate(() => document.querySelector('#TPAMultiSection_k8rkawtz > div > div > article > div._12vNY > section:nth-child(2) > div._3bNb3.fggS-.cell > div > div > div > span:nth-child(1)')?.innerText);
+    price = (price == undefined) ? await page.evaluate(() => document.querySelector('#TPAMultiSection_k8rkawtz > div > div > article > div.tfRE5M > section:nth-child(2) > div.Ji_hEl.QfrfFD.cell > div > div > div > span:nth-child(1)')?.innerText) : price;
     if(price == undefined) console.log("Couldn't get ajogar price");
 
     //stock
