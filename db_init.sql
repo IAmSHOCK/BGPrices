@@ -1,0 +1,25 @@
+CREATE DATABASE bgprices IF NOT EXISTS
+
+CREATE TABLE IF NOT EXISTS stores (
+    id INTEGER PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    website VARCHAR(255) NOT NULL,
+    search_url VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS games (
+    id INTEGER PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    description TEXT
+);
+
+CREATE TABLE IF NOT EXISTS prices (
+    id INTEGER PRIMARY KEY,
+    game_id INTEGER,
+    price NUMERIC(10, 2) NOT NULL,
+    store_id INTEGER,
+    stock_status VARCHAR(50) NOT NULL,
+    date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (game_id) REFERENCES games(id),
+    FOREIGN KEY (store_id) REFERENCES stores(id)
+);
